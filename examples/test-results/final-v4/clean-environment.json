@@ -1,0 +1,31 @@
+{
+  "time": "2026-10-31T03:43:16.478276+00:00",
+  "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+  "source_commit_at_test": "750568099191e03b7a2271d26e2f31ab684d69c7",
+  "elapsed_seconds": 6.846,
+  "steps": [
+    {
+      "stage": "create_environment",
+      "exit_code": 0,
+      "output": "completed"
+    },
+    {
+      "stage": "install_dependencies",
+      "exit_code": 0,
+      "output": "completed"
+    },
+    {
+      "stage": "tests",
+      "exit_code": 0,
+      "output": "........................................................................ [ 47%]\n........................................................................ [ 94%]\n........                                                                 [100%]\n152 passed in 1.49s\n"
+    },
+    {
+      "stage": "cli_smoke",
+      "exit_code": 0,
+      "output": "{\n  \"answer\": \"依据当前读取的资料：员工报销应在费用发生后30天内提交申请。\",\n  \"citations\": [\n    {\n      \"doc_id\": \"D01\",\n      \"version_date\": \"2026-09-01\",\n      \"chunk_id\": \"D01-C01\",\n      \"quote\": \"员工报销应在费用发生后30天内提交申请。\"\n    }\n  ],\n  \"gaps\": [],\n  \"status\": \"answered\",\n  \"reason_code\": \"supported_by_read_evidence\",\n  \"follow_up_question\": \"\",\n  \"decision_summary\": \"根据本轮工具观察执行离线演示策略；不证明真实模型决策效果。\"\n}\n"
+    }
+  ],
+  "passed": true,
+  "real_model_calls": 0,
+  "note": "从已跟踪快照导出到临时目录，在新虚拟环境安装依赖、运行测试和README Mock命令；没有复制.env。"
+}

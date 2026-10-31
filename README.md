@@ -4,13 +4,13 @@
 
 实现采用本地 Python CLI、中文 BM25 检索及百炼北京地域 Chat API。模型通过原生 Function Calling 选择检索或读取工具，工具的实际结果回传给模型，再由模型决定补检索、查证、追问或结束。
 
-**两个指定模型均已接通，已完成真实业务测试及两配置各 20 次请求的对照。用户已选择默认全 Plus，保留 Flash＋Plus。** 本人已认可关键结果并要求保留限制说明；结果、失败与边界以 [评估文档](docs/03-evaluation.md) 为准。自动检查、AI 语义审阅和用户验收分别记录，不把其中一种替代另一种。公开仓库 [Flash0321/agent-campus-submission](https://github.com/Flash0321/agent-campus-submission) 已创建；最终提交与附件核对方式见 [平台提交说明](docs/submission.md)。
+**两个指定模型均已接通，已完成真实业务测试及两配置各 20 次请求的对照。用户已选择默认全 Plus，保留 Flash＋Plus。** 本人已认可关键结果并要求保留限制说明；结果、失败与边界以 [评估文档](docs/03-evaluation.md) 为准。自动检查、AI 语义审阅和用户验收分别记录，不把其中一种替代另一种。完整项目已发布到公开仓库 [Flash0321/agent-campus-submission](https://github.com/Flash0321/agent-campus-submission)；最终提交与附件核对方式见 [平台提交说明](docs/submission.md)。
 
 当前已保存的实际验证如下；完整逐轮结果及统计口径见评估文档：
 
 | 验证 | 实际结果 | 证据 |
 |---|---|---|
-| 可执行本地测试 | 最终 v4：152 项通过 | [pytest 输出](examples/test-results/final-v4/pytest.txt) |
+| 可执行本地测试 | 最终 v4：152 项通过；干净环境依赖安装、测试和CLI均通过 | [pytest 输出](examples/test-results/final-v4/pytest.txt)、[干净环境验证](examples/test-results/final-v4/clean-environment.json) |
 | 最终默认配置 v4 | 全 Plus 两轮20次真实请求自动初筛通过；AI审阅核心答案和引用符合，C03的决策摘要仍有过度概括 | [真实汇总](examples/real/final-single-v4/summary.json)、[首轮AI审阅](examples/real/final-single-v4/ai-review-repeat1.json)、[第二轮AI审阅](examples/real/final-single-v4/ai-review-repeat2.json) |
 | 两配置离线套件 | C01—C10 各 10/10 自动初筛通过，属于 Mock | [single](examples/mock/revision-03-single/summary.json)、[split](examples/mock/revision-03-split/summary.json) |
 | 检索对照 | 14 条标注请求（7条×2轮），原 Query/双 Query 命中均 14/14、标注证据覆盖均 18/18；未测得提升 | [真实 Query 对照](examples/model_comparison/verified-01/single/retrieval_comparison/comparison.json) |

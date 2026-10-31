@@ -20,9 +20,9 @@
   ],
   "timing_limit": "并行阶段未独立计时，不将建议阶段预算当作实际耗时。",
   "remaining": [
-    "公开仓库完整内容发布、远端SHA和最终ZIP核对",
+    "最终ZIP核对以仓库外交付清单为准",
     "笔试平台由本人提交",
-    "已披露的C03摘要表述及split历史来源等后续改进"
+    "已披露的C03摘要、split历史来源及大规模独立验证等改进"
   ],
   "submission_update": {
     "date": "2026-10-31",
@@ -39,7 +39,7 @@
       "text_input_available": true
     },
     "repository_url": "https://github.com/Flash0321/agent-campus-submission",
-    "code_published": false
+    "code_published": true
   },
   "sessions": [
     {
@@ -58,5 +58,13 @@
   ],
   "local_delivery_prepared_at": "2026-10-31T03:41:24.631357+00:00",
   "implementation_sessions_elapsed_seconds": 3325.5,
-  "wall_seconds_from_first_start": 3695.6
+  "wall_seconds_from_first_start": 3695.6,
+  "publication": {
+    "first_full_publication_verified_at": "2026-10-31T03:47:41.364581+00:00",
+    "method": "已连接GitHub接口创建完整Git tree/commit并以expected_sha更新main；本地HTTPS push因无命令行凭证失败后使用已有连接，不新增密钥。",
+    "files": 1704,
+    "first_published_tree_matches_local": true,
+    "local_history_preserved_branch": "local-implementation-history",
+    "final_receipt": "仓库外delivery/manifest.json记录最终远端SHA、ZIP校验与交付结束时间。"
+  }
 }

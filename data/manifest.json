@@ -59,7 +59,7 @@
   ],
   "review_boundary": {
     "confirmed_behavior_revision": "用户明确回复：认可这一修正：先检索，有证据就回答。",
-    "still_pending": "完整逐行提示词/源码及全部20次请求人工审核未有记录；C09标注调整专项确认不单独声称已完成。代码发布与平台提交尚未完成。",
+    "still_pending": "完整逐行提示词/源码及全部20次请求人工审核未有记录；C09标注调整专项确认不单独声称已完成。平台提交未执行；代码与证据已公开发布。",
     "selected_profile": {
       "profile": "single",
       "user_choice": "默认全 Plus（推荐）",
