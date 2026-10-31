@@ -1,0 +1,3691 @@
+{
+  "analysis_type": "AI-assisted analysis of actual saved runs",
+  "created_at": "2026-10-31T11:25:31.760412+08:00",
+  "reviewer": "执行Agent的评测子Agent；不代表用户本人验收",
+  "review_status": "pending_user_review",
+  "experiment": "Plus-only single 与 Flash(P3)+Plus(P4/P5) split；各两轮固定题集",
+  "execution_order": "single repeat-1 → single repeat-2 → split repeat-1 → split repeat-2，顺序执行而非交错随机实验",
+  "definitions": {
+    "real_scenario_runs": "每配置9种真实场景×2轮=18；C05每场景两次用户请求，所以每配置20次真实请求。",
+    "mock_exclusion": "C10在每轮单独Mock运行，不计真实质量、速度、调用量和token。",
+    "p3_structure": "统计实际P3响应的JSON字段及类型；有效结构不等于上下文语义正确。",
+    "p3_additional_assumptions": "同时检查missing_information和known_context；前者为空不能证明后者没有复制历史助手事实。",
+    "call_and_latency": "实际失败、回退和P5修复均计入；端到端采用metadata.elapsed_ms，P3采用该请求全部P3尝试时长之和。",
+    "adjusted_screening": "仅对明确的检查器假阴性作AI标记；不覆盖原报告，不将其当作用户验收或语义零缺陷。"
+  },
+  "source_artifacts": [
+    {
+      "path": "examples/model_comparison/verified-01/comparison.json",
+      "sha256": "b361c7daa44460a2699b3a85a0c2a7028c8a82f35af234721e0f8d790ec13b4d"
+    },
+    {
+      "path": "examples/model_comparison/verified-01/single/summary.json",
+      "sha256": "07282ccf50cfa7d60a97e2ccbab0c4d63a178e4160c75bbd730c002f4ac1d447"
+    },
+    {
+      "path": "examples/model_comparison/verified-01/split/summary.json",
+      "sha256": "47e19f2fca25b913a7c7470d6d95aa6693d693d46156c47861a92725b35474d6"
+    }
+  ],
+  "profiles": {
+    "single": {
+      "real_scenario_runs": 18,
+      "real_request_count": 20,
+      "original_automated_scenario_passed": 17,
+      "original_automated_request_passed": 19,
+      "ai_adjusted_core_scenario_screening_passed": 18,
+      "ai_adjusted_core_request_screening_passed": 20,
+      "mock_budget_scenarios_excluded": 2,
+      "p3": {
+        "request_attempts": 20,
+        "structurally_valid_responses": 20,
+        "structural_validity_rate": 1.0,
+        "effective_normalizations": 20,
+        "nonempty_missing_information_requests": 0,
+        "assistant_fact_copied_to_known_context_requests": 0,
+        "assistant_fact_issue_run_ids": [],
+        "mean_elapsed_ms": 2190.442,
+        "median_elapsed_ms": 2110.048,
+        "tokens": {
+          "prompt_tokens": 8228,
+          "completion_tokens": 1382,
+          "total_tokens": 9610
+        }
+      },
+      "first_effective_query_preserved": {
+        "passed": 20,
+        "denominator": 20,
+        "unknown": 0
+      },
+      "model_calls": 89,
+      "tool_calls": 48,
+      "stage_model_calls": {
+        "P3": 20,
+        "P4": 68,
+        "P5": 1
+      },
+      "role_model_calls": {
+        "main": 89
+      },
+      "fallback_calls": 0,
+      "model_error_attempts": 0,
+      "tokens": {
+        "prompt_tokens": 162964,
+        "completion_tokens": 8323,
+        "total_tokens": 171287
+      },
+      "model_responses_with_usage": 89,
+      "responses_without_usage": 0,
+      "timings_ms": {
+        "end_to_end_mean": 12554.123,
+        "end_to_end_median": 12003.48,
+        "main_mean": 10353.0,
+        "main_median": 9482.225
+      },
+      "safe_error_render_count": 2,
+      "intercepted_validation_failures": [
+        {
+          "run": "single/repeat-2/C07",
+          "failures": [
+            {
+              "stage": "P4",
+              "errors": [
+                "citation was not read this request"
+              ]
+            }
+          ]
+        }
+      ],
+      "per_case": [
+        {
+          "case_id": "C01",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C02",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 1,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "needs_clarification",
+            "needs_clarification"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C03",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "insufficient_evidence",
+            "insufficient_evidence"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C04",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C05",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": "C05每场景含两次请求；split追问使用固定single真实历史，属受控对照。"
+        },
+        {
+          "case_id": "C06",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C07",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "tool_error",
+            "tool_error"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C08",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C09",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        }
+      ],
+      "per_request": [
+        {
+          "run": "single/repeat-1/C01",
+          "repeat": 1,
+          "case_id": "C01",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止期限是多长时间？",
+            "elapsed_ms": 1973.813,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 62,
+              "total_tokens": 464
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 10406.443,
+          "main_elapsed_ms": 8424.901,
+          "tokens": {
+            "prompt_tokens": 6870,
+            "completion_tokens": 340,
+            "total_tokens": 7210
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C01/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C01/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C01/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C01/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C02",
+          "repeat": 1,
+          "case_id": "C02",
+          "turn": "single_turn",
+          "status": "needs_clarification",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止时间或有效期限是多长？",
+            "elapsed_ms": 1994.961,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 69,
+              "total_tokens": 471
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 6,
+          "tool_calls": 4,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 5
+          },
+          "role_model_calls": {
+            "main": 6
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 20669.135,
+          "main_elapsed_ms": 18660.806,
+          "tokens": {
+            "prompt_tokens": 13389,
+            "completion_tokens": 738,
+            "total_tokens": 14127
+          },
+          "usage_response_count": 6,
+          "model_response_count": 6,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C02/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C02/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C02/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C02/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C03",
+          "repeat": 1,
+          "case_id": "C03",
+          "turn": "single_turn",
+          "status": "insufficient_evidence",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "公司年终奖发放月数",
+            "elapsed_ms": 1858.712,
+            "tokens": {
+              "prompt_tokens": 405,
+              "completion_tokens": 64,
+              "total_tokens": 469
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 3,
+          "tool_calls": 1,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 2
+          },
+          "role_model_calls": {
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 6622.262,
+          "main_elapsed_ms": 4753.996,
+          "tokens": {
+            "prompt_tokens": 4208,
+            "completion_tokens": 233,
+            "total_tokens": 4441
+          },
+          "usage_response_count": 3,
+          "model_response_count": 3,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C03/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C03/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C03/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C03/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C04",
+          "repeat": 1,
+          "case_id": "C04",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "垫付费用的最晚报账时限",
+            "elapsed_ms": 2150.272,
+            "tokens": {
+              "prompt_tokens": 410,
+              "completion_tokens": 74,
+              "total_tokens": 484
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 11182.824,
+          "main_elapsed_ms": 9021.931999999999,
+          "tokens": {
+            "prompt_tokens": 6784,
+            "completion_tokens": 364,
+            "total_tokens": 7148
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C04/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C04/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C04/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C04/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C05/turn1",
+          "repeat": 1,
+          "case_id": "C05",
+          "turn": "turn1",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "产品名": "星影协作标准版"
+            },
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "星影协作标准版是否支持导出PDF功能",
+            "elapsed_ms": 2707.581,
+            "tokens": {
+              "prompt_tokens": 424,
+              "completion_tokens": 85,
+              "total_tokens": 509
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 12323.752,
+          "main_elapsed_ms": 9606.502,
+          "tokens": {
+            "prompt_tokens": 7157,
+            "completion_tokens": 382,
+            "total_tokens": 7539
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C05/turn1/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C05/turn1/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C05/turn1/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C05/turn1/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C05/turn2",
+          "repeat": 1,
+          "case_id": "C05",
+          "turn": "turn2",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "产品名": "星影协作",
+              "版次": "专业版",
+              "功能需求": "导出PDF"
+            },
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "星影协作专业版是否支持导出PDF文件",
+            "elapsed_ms": 2990.299,
+            "tokens": {
+              "prompt_tokens": 463,
+              "completion_tokens": 97,
+              "total_tokens": 560
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 11554.533,
+          "main_elapsed_ms": 8555.68,
+          "tokens": {
+            "prompt_tokens": 7324,
+            "completion_tokens": 391,
+            "total_tokens": 7715
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C05/turn2/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C05/turn2/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C05/turn2/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C05/turn2/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C06",
+          "repeat": 1,
+          "case_id": "C06",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止期限是多长时间？",
+            "elapsed_ms": 2092.129,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 62,
+              "total_tokens": 464
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 12116.54,
+          "main_elapsed_ms": 10013.255000000001,
+          "tokens": {
+            "prompt_tokens": 9420,
+            "completion_tokens": 400,
+            "total_tokens": 9820
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C06/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C06/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C06/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C06/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C07",
+          "repeat": 1,
+          "case_id": "C07",
+          "turn": "single_turn",
+          "status": "tool_error",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止期限是多长时间？",
+            "elapsed_ms": 2127.967,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 62,
+              "total_tokens": 464
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 13636.981,
+          "main_elapsed_ms": 11479.118,
+          "tokens": {
+            "prompt_tokens": 9377,
+            "completion_tokens": 439,
+            "total_tokens": 9816
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 1,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C07/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C07/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C07/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C07/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C08",
+          "repeat": 1,
+          "case_id": "C08",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销期限是多长时间",
+            "elapsed_ms": 1733.048,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 55,
+              "total_tokens": 457
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9824.544,
+          "main_elapsed_ms": 8083.301,
+          "tokens": {
+            "prompt_tokens": 6841,
+            "completion_tokens": 329,
+            "total_tokens": 7170
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C08/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C08/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C08/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C08/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-1/C09",
+          "repeat": 1,
+          "case_id": "C09",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销期限是多长时间",
+            "elapsed_ms": 1703.277,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 55,
+              "total_tokens": 457
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 14579.64,
+          "main_elapsed_ms": 12865.520999999999,
+          "tokens": {
+            "prompt_tokens": 9913,
+            "completion_tokens": 483,
+            "total_tokens": 10396
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-1/C09/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-1/C09/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-1/C09/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-1/C09/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C01",
+          "repeat": 2,
+          "case_id": "C01",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止时间或有效期限是多长？",
+            "elapsed_ms": 2027.389,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 68,
+              "total_tokens": 470
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 11037.733,
+          "main_elapsed_ms": 9001.603,
+          "tokens": {
+            "prompt_tokens": 6899,
+            "completion_tokens": 339,
+            "total_tokens": 7238
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C01/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C01/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C01/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C01/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C02",
+          "repeat": 2,
+          "case_id": "C02",
+          "turn": "single_turn",
+          "status": "needs_clarification",
+          "original_automated_passed": false,
+          "failed_checks": [
+            "conflict_followup_search_after_reading_sides"
+          ],
+          "known_checker_false_negative": true,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销期限是多长时间",
+            "elapsed_ms": 2050.668,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 55,
+              "total_tokens": 457
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 6,
+          "tool_calls": 4,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 5
+          },
+          "role_model_calls": {
+            "main": 6
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 19906.623,
+          "main_elapsed_ms": 17842.832000000002,
+          "tokens": {
+            "prompt_tokens": 13151,
+            "completion_tokens": 702,
+            "total_tokens": 13853
+          },
+          "usage_response_count": 6,
+          "model_response_count": 6,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C02/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C02/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C02/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C02/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C03",
+          "repeat": 2,
+          "case_id": "C03",
+          "turn": "single_turn",
+          "status": "insufficient_evidence",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "公司年终奖发放月数",
+            "elapsed_ms": 2239.93,
+            "tokens": {
+              "prompt_tokens": 405,
+              "completion_tokens": 64,
+              "total_tokens": 469
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 3,
+          "tool_calls": 1,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 2
+          },
+          "role_model_calls": {
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 7295.226,
+          "main_elapsed_ms": 5049.842000000001,
+          "tokens": {
+            "prompt_tokens": 4211,
+            "completion_tokens": 237,
+            "total_tokens": 4448
+          },
+          "usage_response_count": 3,
+          "model_response_count": 3,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C03/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C03/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C03/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C03/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C04",
+          "repeat": 2,
+          "case_id": "C04",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "垫付费用的最晚报账时限",
+            "elapsed_ms": 2525.023,
+            "tokens": {
+              "prompt_tokens": 410,
+              "completion_tokens": 74,
+              "total_tokens": 484
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 11890.42,
+          "main_elapsed_ms": 9357.947,
+          "tokens": {
+            "prompt_tokens": 6773,
+            "completion_tokens": 358,
+            "total_tokens": 7131
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C04/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C04/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C04/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C04/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C05/turn1",
+          "repeat": 2,
+          "case_id": "C05",
+          "turn": "turn1",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "产品名": "星影协作标准版"
+            },
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "星影协作标准版是否支持导出PDF功能",
+            "elapsed_ms": 2341.988,
+            "tokens": {
+              "prompt_tokens": 424,
+              "completion_tokens": 85,
+              "total_tokens": 509
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 11253.902,
+          "main_elapsed_ms": 8903.321,
+          "tokens": {
+            "prompt_tokens": 7153,
+            "completion_tokens": 379,
+            "total_tokens": 7532
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C05/turn1/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C05/turn1/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C05/turn1/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C05/turn1/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C05/turn2",
+          "repeat": 2,
+          "case_id": "C05",
+          "turn": "turn2",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "产品名": "星影协作",
+              "版次": "专业版",
+              "功能需求": "导出PDF"
+            },
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "星影协作专业版是否支持导出PDF文件",
+            "elapsed_ms": 2668.299,
+            "tokens": {
+              "prompt_tokens": 463,
+              "completion_tokens": 97,
+              "total_tokens": 560
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 13091.851,
+          "main_elapsed_ms": 10414.539,
+          "tokens": {
+            "prompt_tokens": 7443,
+            "completion_tokens": 446,
+            "total_tokens": 7889
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C05/turn2/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C05/turn2/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C05/turn2/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C05/turn2/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C06",
+          "repeat": 2,
+          "case_id": "C06",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止时间或有效期限是多长？",
+            "elapsed_ms": 2419.327,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 69,
+              "total_tokens": 471
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 12733.674,
+          "main_elapsed_ms": 10307.086,
+          "tokens": {
+            "prompt_tokens": 9487,
+            "completion_tokens": 407,
+            "total_tokens": 9894
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C06/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C06/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C06/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C06/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C07",
+          "repeat": 2,
+          "case_id": "C07",
+          "turn": "single_turn",
+          "status": "tool_error",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止时间或有效期限是多长？",
+            "elapsed_ms": 2024.365,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 68,
+              "total_tokens": 470
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 6,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4,
+            "P5": 1
+          },
+          "role_model_calls": {
+            "main": 6
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 16527.257,
+          "main_elapsed_ms": 14490.095000000001,
+          "tokens": {
+            "prompt_tokens": 9809,
+            "completion_tokens": 557,
+            "total_tokens": 10366
+          },
+          "usage_response_count": 6,
+          "model_response_count": 6,
+          "validation_failures": [
+            {
+              "stage": "P4",
+              "errors": [
+                "citation was not read this request"
+              ]
+            }
+          ],
+          "safe_error_render_count": 1,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C07/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C07/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C07/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C07/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C08",
+          "repeat": 2,
+          "case_id": "C08",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的截止期限是多长时间？",
+            "elapsed_ms": 2211.943,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 62,
+              "total_tokens": 464
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 10216.063,
+          "main_elapsed_ms": 7994.498,
+          "tokens": {
+            "prompt_tokens": 6890,
+            "completion_tokens": 338,
+            "total_tokens": 7228
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C08/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C08/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C08/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C08/checks.json"
+          }
+        },
+        {
+          "run": "single/repeat-2/C09",
+          "repeat": 2,
+          "case_id": "C09",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销期限是多长时间",
+            "elapsed_ms": 1967.857,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 55,
+              "total_tokens": 457
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 14213.049,
+          "main_elapsed_ms": 12233.225,
+          "tokens": {
+            "prompt_tokens": 9865,
+            "completion_tokens": 461,
+            "total_tokens": 10326
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/single/repeat-2/C09/input.json",
+            "output": "examples/model_comparison/verified-01/single/repeat-2/C09/output.json",
+            "trace": "examples/model_comparison/verified-01/single/repeat-2/C09/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/single/repeat-2/C09/checks.json"
+          }
+        }
+      ],
+      "source_hashes": [
+        "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728"
+      ],
+      "user_acceptance_status": "pending"
+    },
+    "split": {
+      "real_scenario_runs": 18,
+      "real_request_count": 20,
+      "original_automated_scenario_passed": 18,
+      "original_automated_request_passed": 20,
+      "ai_adjusted_core_scenario_screening_passed": 18,
+      "ai_adjusted_core_request_screening_passed": 20,
+      "mock_budget_scenarios_excluded": 2,
+      "p3": {
+        "request_attempts": 20,
+        "structurally_valid_responses": 20,
+        "structural_validity_rate": 1.0,
+        "effective_normalizations": 20,
+        "nonempty_missing_information_requests": 0,
+        "assistant_fact_copied_to_known_context_requests": 2,
+        "assistant_fact_issue_run_ids": [
+          "split/repeat-1/C05/turn2",
+          "split/repeat-2/C05/turn2"
+        ],
+        "mean_elapsed_ms": 1177.023,
+        "median_elapsed_ms": 1165.843,
+        "tokens": {
+          "prompt_tokens": 8228,
+          "completion_tokens": 1325,
+          "total_tokens": 9553
+        }
+      },
+      "first_effective_query_preserved": {
+        "passed": 20,
+        "denominator": 20,
+        "unknown": 0
+      },
+      "model_calls": 90,
+      "tool_calls": 48,
+      "stage_model_calls": {
+        "P3": 20,
+        "P4": 68,
+        "P5": 2
+      },
+      "role_model_calls": {
+        "fast": 20,
+        "main": 70
+      },
+      "fallback_calls": 0,
+      "model_error_attempts": 0,
+      "tokens": {
+        "prompt_tokens": 162883,
+        "completion_tokens": 8412,
+        "total_tokens": 171295
+      },
+      "model_responses_with_usage": 90,
+      "responses_without_usage": 0,
+      "timings_ms": {
+        "end_to_end_mean": 11687.125,
+        "end_to_end_median": 10181.3,
+        "main_mean": 10498.514,
+        "main_median": 8910.149
+      },
+      "safe_error_render_count": 2,
+      "intercepted_validation_failures": [
+        {
+          "run": "split/repeat-2/C03",
+          "failures": [
+            {
+              "stage": "P4",
+              "errors": [
+                "unfinished result must explain gaps"
+              ]
+            }
+          ]
+        },
+        {
+          "run": "split/repeat-2/C07",
+          "failures": [
+            {
+              "stage": "P4",
+              "errors": [
+                "citation was not read this request"
+              ]
+            }
+          ]
+        }
+      ],
+      "per_case": [
+        {
+          "case_id": "C01",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C02",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "needs_clarification",
+            "needs_clarification"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C03",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "insufficient_evidence",
+            "insufficient_evidence"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C04",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C05",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": "C05每场景含两次请求；split追问使用固定single真实历史，属受控对照。"
+        },
+        {
+          "case_id": "C06",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C07",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "tool_error",
+            "tool_error"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C08",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        },
+        {
+          "case_id": "C09",
+          "real_scenario_runs": 2,
+          "original_automated_passed": 2,
+          "ai_adjusted_core_screening_passed": 2,
+          "states": [
+            "answered",
+            "answered"
+          ],
+          "note": ""
+        }
+      ],
+      "per_request": [
+        {
+          "run": "split/repeat-1/C01",
+          "repeat": 1,
+          "case_id": "C01",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1267.746,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9725.74,
+          "main_elapsed_ms": 8449.219000000001,
+          "tokens": {
+            "prompt_tokens": 6848,
+            "completion_tokens": 335,
+            "total_tokens": 7183
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C01/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C01/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C01/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C01/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C02",
+          "repeat": 1,
+          "case_id": "C02",
+          "turn": "single_turn",
+          "status": "needs_clarification",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间",
+            "elapsed_ms": 900.914,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 56,
+              "total_tokens": 458
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 6,
+          "tool_calls": 4,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 5
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 20051.42,
+          "main_elapsed_ms": 19134.765,
+          "tokens": {
+            "prompt_tokens": 13216,
+            "completion_tokens": 741,
+            "total_tokens": 13957
+          },
+          "usage_response_count": 6,
+          "model_response_count": 6,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C02/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C02/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C02/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C02/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C03",
+          "repeat": 1,
+          "case_id": "C03",
+          "turn": "single_turn",
+          "status": "insufficient_evidence",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "公司年终奖发放月份数量",
+            "elapsed_ms": 1394.93,
+            "tokens": {
+              "prompt_tokens": 405,
+              "completion_tokens": 64,
+              "total_tokens": 469
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 3,
+          "tool_calls": 1,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 2
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 2
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 7165.574,
+          "main_elapsed_ms": 5764.761,
+          "tokens": {
+            "prompt_tokens": 4224,
+            "completion_tokens": 248,
+            "total_tokens": 4472
+          },
+          "usage_response_count": 3,
+          "model_response_count": 3,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C03/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C03/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C03/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C03/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C04",
+          "repeat": 1,
+          "case_id": "C04",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "垫付费用报账最迟时间限制",
+            "elapsed_ms": 1467.228,
+            "tokens": {
+              "prompt_tokens": 410,
+              "completion_tokens": 75,
+              "total_tokens": 485
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9737.215,
+          "main_elapsed_ms": 8257.916,
+          "tokens": {
+            "prompt_tokens": 6777,
+            "completion_tokens": 354,
+            "total_tokens": 7131
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C04/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C04/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C04/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C04/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C05/turn1",
+          "repeat": 1,
+          "case_id": "C05",
+          "turn": "turn1",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "product": "星影协作标准版"
+            },
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "星影协作标准版是否支持导出PDF功能？",
+            "elapsed_ms": 1377.399,
+            "tokens": {
+              "prompt_tokens": 424,
+              "completion_tokens": 84,
+              "total_tokens": 508
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 10379.989,
+          "main_elapsed_ms": 8988.612,
+          "tokens": {
+            "prompt_tokens": 7124,
+            "completion_tokens": 375,
+            "total_tokens": 7499
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C05/turn1/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C05/turn1/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C05/turn1/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C05/turn1/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C05/turn2",
+          "repeat": 1,
+          "case_id": "C05",
+          "turn": "turn2",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "current_version": "标准版",
+              "feature": "导出PDF",
+              "support_status": false
+            },
+            "assistant_fact_copied_to_known_context": true,
+            "normalized_query": "星影协作专业版是否支持导出PDF文件？",
+            "elapsed_ms": 1395.853,
+            "tokens": {
+              "prompt_tokens": 463,
+              "completion_tokens": 99,
+              "total_tokens": 562
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9351.978,
+          "main_elapsed_ms": 7941.635,
+          "tokens": {
+            "prompt_tokens": 7286,
+            "completion_tokens": 363,
+            "total_tokens": 7649
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C05/turn2/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C05/turn2/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C05/turn2/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C05/turn2/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C06",
+          "repeat": 1,
+          "case_id": "C06",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 857.472,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 11253.252,
+          "main_elapsed_ms": 10380.701000000001,
+          "tokens": {
+            "prompt_tokens": 9408,
+            "completion_tokens": 403,
+            "total_tokens": 9811
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C06/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C06/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C06/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C06/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C07",
+          "repeat": 1,
+          "case_id": "C07",
+          "turn": "single_turn",
+          "status": "tool_error",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1314.716,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 15918.227,
+          "main_elapsed_ms": 14589.556,
+          "tokens": {
+            "prompt_tokens": 9565,
+            "completion_tokens": 550,
+            "total_tokens": 10115
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 1,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C07/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C07/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C07/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C07/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C08",
+          "repeat": 1,
+          "case_id": "C08",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1020.575,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 8394.026,
+          "main_elapsed_ms": 7362.873,
+          "tokens": {
+            "prompt_tokens": 6856,
+            "completion_tokens": 319,
+            "total_tokens": 7175
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C08/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C08/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C08/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C08/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-1/C09",
+          "repeat": 1,
+          "case_id": "C09",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1001.381,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 12887.721,
+          "main_elapsed_ms": 11874.158,
+          "tokens": {
+            "prompt_tokens": 9902,
+            "completion_tokens": 471,
+            "total_tokens": 10373
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-1/C09/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-1/C09/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-1/C09/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-1/C09/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C01",
+          "repeat": 2,
+          "case_id": "C01",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1434.356,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 10277.122,
+          "main_elapsed_ms": 8831.686,
+          "tokens": {
+            "prompt_tokens": 6842,
+            "completion_tokens": 332,
+            "total_tokens": 7174
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C01/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C01/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C01/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C01/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C02",
+          "repeat": 2,
+          "case_id": "C02",
+          "turn": "single_turn",
+          "status": "needs_clarification",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 916.651,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 6,
+          "tool_calls": 4,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 5
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 19679.712,
+          "main_elapsed_ms": 18749.091,
+          "tokens": {
+            "prompt_tokens": 13194,
+            "completion_tokens": 703,
+            "total_tokens": 13897
+          },
+          "usage_response_count": 6,
+          "model_response_count": 6,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C02/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C02/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C02/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C02/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C03",
+          "repeat": 2,
+          "case_id": "C03",
+          "turn": "single_turn",
+          "status": "insufficient_evidence",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "公司年终奖发放月份数量",
+            "elapsed_ms": 1071.716,
+            "tokens": {
+              "prompt_tokens": 405,
+              "completion_tokens": 64,
+              "total_tokens": 469
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 1,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 2,
+            "P5": 1
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 10085.479,
+          "main_elapsed_ms": 9003.896999999999,
+          "tokens": {
+            "prompt_tokens": 4569,
+            "completion_tokens": 375,
+            "total_tokens": 4944
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [
+            {
+              "stage": "P4",
+              "errors": [
+                "unfinished result must explain gaps"
+              ]
+            }
+          ],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C03/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C03/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C03/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C03/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C04",
+          "repeat": 2,
+          "case_id": "C04",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "垫付费用的最迟报账时间",
+            "elapsed_ms": 1125.819,
+            "tokens": {
+              "prompt_tokens": 410,
+              "completion_tokens": 75,
+              "total_tokens": 485
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9318.247,
+          "main_elapsed_ms": 8181.485000000001,
+          "tokens": {
+            "prompt_tokens": 6785,
+            "completion_tokens": 363,
+            "total_tokens": 7148
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C04/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C04/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C04/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C04/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C05/turn1",
+          "repeat": 2,
+          "case_id": "C05",
+          "turn": "turn1",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "product_version": "标准版"
+            },
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "星影协作标准版是否支持导出PDF功能？",
+            "elapsed_ms": 1119.683,
+            "tokens": {
+              "prompt_tokens": 424,
+              "completion_tokens": 82,
+              "total_tokens": 506
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9793.644,
+          "main_elapsed_ms": 8663.891,
+          "tokens": {
+            "prompt_tokens": 7097,
+            "completion_tokens": 375,
+            "total_tokens": 7472
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C05/turn1/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C05/turn1/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C05/turn1/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C05/turn1/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C05/turn2",
+          "repeat": 2,
+          "case_id": "C05",
+          "turn": "turn2",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {
+              "product_version": "标准版",
+              "feature": "导出PDF",
+              "support_status": false
+            },
+            "assistant_fact_copied_to_known_context": true,
+            "normalized_query": "星影协作专业版是否支持导出PDF文件？",
+            "elapsed_ms": 1376.741,
+            "tokens": {
+              "prompt_tokens": 463,
+              "completion_tokens": 99,
+              "total_tokens": 562
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9566.993,
+          "main_elapsed_ms": 8182.465,
+          "tokens": {
+            "prompt_tokens": 7282,
+            "completion_tokens": 359,
+            "total_tokens": 7641
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C05/turn2/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C05/turn2/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C05/turn2/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C05/turn2/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C06",
+          "repeat": 2,
+          "case_id": "C06",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1151.041,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 11859.611,
+          "main_elapsed_ms": 10699.126,
+          "tokens": {
+            "prompt_tokens": 9397,
+            "completion_tokens": 393,
+            "total_tokens": 9790
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C06/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C06/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C06/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C06/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C07",
+          "repeat": 2,
+          "case_id": "C07",
+          "turn": "single_turn",
+          "status": "tool_error",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1180.645,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 6,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4,
+            "P5": 1
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 5
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 15417.972,
+          "main_elapsed_ms": 14222.916000000001,
+          "tokens": {
+            "prompt_tokens": 9728,
+            "completion_tokens": 540,
+            "total_tokens": 10268
+          },
+          "usage_response_count": 6,
+          "model_response_count": 6,
+          "validation_failures": [
+            {
+              "stage": "P4",
+              "errors": [
+                "citation was not read this request"
+              ]
+            }
+          ],
+          "safe_error_render_count": 1,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C07/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C07/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C07/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C07/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C08",
+          "repeat": 2,
+          "case_id": "C08",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长？",
+            "elapsed_ms": 886.257,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 3
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 3
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 9453.904,
+          "main_elapsed_ms": 8558.009999999998,
+          "tokens": {
+            "prompt_tokens": 6859,
+            "completion_tokens": 327,
+            "total_tokens": 7186
+          },
+          "usage_response_count": 4,
+          "model_response_count": 4,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C08/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C08/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C08/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C08/checks.json"
+          }
+        },
+        {
+          "run": "split/repeat-2/C09",
+          "repeat": 2,
+          "case_id": "C09",
+          "turn": "single_turn",
+          "status": "answered",
+          "original_automated_passed": true,
+          "failed_checks": [],
+          "known_checker_false_negative": false,
+          "ai_adjusted_core_screening_passed": true,
+          "user_acceptance_status": "pending",
+          "p3": {
+            "request_attempts": 1,
+            "responses": 1,
+            "structurally_valid_responses": 1,
+            "effective_normalization_valid": true,
+            "missing_information": [],
+            "known_context": {},
+            "assistant_fact_copied_to_known_context": false,
+            "normalized_query": "报销的期限是多长时间？",
+            "elapsed_ms": 1279.341,
+            "tokens": {
+              "prompt_tokens": 402,
+              "completion_tokens": 57,
+              "total_tokens": 459
+            }
+          },
+          "first_effective_query_preserved_original": true,
+          "model_calls": 5,
+          "tool_calls": 3,
+          "stage_model_calls": {
+            "P3": 1,
+            "P4": 4
+          },
+          "role_model_calls": {
+            "fast": 1,
+            "main": 4
+          },
+          "fallback_calls": 0,
+          "model_error_attempts": 0,
+          "elapsed_ms": 13424.675,
+          "main_elapsed_ms": 12133.524000000001,
+          "tokens": {
+            "prompt_tokens": 9924,
+            "completion_tokens": 486,
+            "total_tokens": 10410
+          },
+          "usage_response_count": 5,
+          "model_response_count": 5,
+          "validation_failures": [],
+          "safe_error_render_count": 0,
+          "source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+          "prompt_hashes": {
+            "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+            "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+            "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+            "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+            "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+            "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+          },
+          "requested_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "response_models": [
+            "qwen-flash-2025-07-28",
+            "qwen-plus-2025-12-01"
+          ],
+          "artifacts": {
+            "input": "examples/model_comparison/verified-01/split/repeat-2/C09/input.json",
+            "output": "examples/model_comparison/verified-01/split/repeat-2/C09/output.json",
+            "trace": "examples/model_comparison/verified-01/split/repeat-2/C09/trace.jsonl",
+            "checks": "examples/model_comparison/verified-01/split/repeat-2/C09/checks.json"
+          }
+        }
+      ],
+      "source_hashes": [
+        "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728"
+      ],
+      "user_acceptance_status": "pending"
+    }
+  },
+  "known_checker_false_negatives": [
+    {
+      "profile": "single",
+      "repeat": 2,
+      "case_id": "C02",
+      "run": "single/repeat-2/C02",
+      "original_failed_check": "conflict_followup_search_after_reading_sides",
+      "ai_classification": "checker_false_negative",
+      "actual_query": [
+        "费用报销规定 D01 与 费用报销FAQ D02 冲突解决依据"
+      ],
+      "evidence": "D01/D02均读取后，相关补查ok=true；reason明确适用范围、替代关系或裁决条款。检查器正则漏掉“冲突解决依据”。",
+      "ai_judgment": "该行为满足冲突补查要求，引用与终止状态正确；不覆盖原checks，仍待用户确认。",
+      "trace": "examples/model_comparison/verified-01/single/repeat-2/C02/trace.jsonl"
+    }
+  ],
+  "controlled_inputs": {
+    "pairs": [
+      {
+        "single_run": "single/repeat-1/C01",
+        "split_run": "split/repeat-1/C01",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C02",
+        "split_run": "split/repeat-1/C02",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C03",
+        "split_run": "split/repeat-1/C03",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C04",
+        "split_run": "split/repeat-1/C04",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C05/turn1",
+        "split_run": "split/repeat-1/C05/turn1",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C05/turn2",
+        "split_run": "split/repeat-1/C05/turn2",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C06",
+        "split_run": "split/repeat-1/C06",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C07",
+        "split_run": "split/repeat-1/C07",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C08",
+        "split_run": "split/repeat-1/C08",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-1/C09",
+        "split_run": "split/repeat-1/C09",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C01",
+        "split_run": "split/repeat-2/C01",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C02",
+        "split_run": "split/repeat-2/C02",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C03",
+        "split_run": "split/repeat-2/C03",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C04",
+        "split_run": "split/repeat-2/C04",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C05/turn1",
+        "split_run": "split/repeat-2/C05/turn1",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C05/turn2",
+        "split_run": "split/repeat-2/C05/turn2",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C06",
+        "split_run": "split/repeat-2/C06",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C07",
+        "split_run": "split/repeat-2/C07",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C08",
+        "split_run": "split/repeat-2/C08",
+        "same_input": true,
+        "same_corpus_hash": true
+      },
+      {
+        "single_run": "single/repeat-2/C09",
+        "split_run": "split/repeat-2/C09",
+        "same_input": true,
+        "same_corpus_hash": true
+      }
+    ],
+    "all_same_input": true,
+    "all_same_corpus_hash": true,
+    "same_source_hash": true,
+    "same_prompt_hashes": true,
+    "c05_history_note": "single的C05是自身实际首轮→追问会话；split追问固定复用相同轮次single的真实历史，控制模型对比变量，因此split此处不算独立完整会话链验证。"
+  },
+  "observed_comparison": {
+    "p3_mean_ms": {
+      "single": 2190.442,
+      "split": 1177.023,
+      "split_minus_single": -1013.419,
+      "observed_reduction_percent": 46.266
+    },
+    "p3_median_ms": {
+      "single": 2110.048,
+      "split": 1165.843,
+      "split_minus_single": -944.205,
+      "observed_reduction_percent": 44.748
+    },
+    "end_to_end_mean_ms": {
+      "single": 12554.123,
+      "split": 11687.125,
+      "split_minus_single": -866.998,
+      "observed_reduction_percent": 6.906
+    },
+    "end_to_end_median_ms": {
+      "single": 12003.48,
+      "split": 10181.3,
+      "split_minus_single": -1822.18,
+      "observed_reduction_percent": 15.18
+    },
+    "total_tokens": {
+      "single": 171287,
+      "split": 171295,
+      "split_minus_single": 8,
+      "observed_reduction_percent": -0.005
+    },
+    "interpretation": "本次split的P3及端到端平均耗时更低；最终核心答案初筛在纠正单个评测假阴性后相同。但split两次上下文追问都把历史助手事实纳入known_context，不能据JSON有效或最终通过认定P3语义质量完全相同。",
+    "selection_status": "pending_user_review",
+    "selected_profile": null,
+    "tradeoff_for_user": "若优先P3上下文边界，single本次更稳妥；若选择split的实测速度收益，需接受并明确记录P3 known_context问题，或修复后重测。此处不替用户确认最终配置。"
+  },
+  "ai_semantic_review": {
+    "status": "completed_ai_review_pending_user",
+    "warnings": [
+      {
+        "run": "single/repeat-1/C01",
+        "kind": "unknown_scope_treated_as_unrestricted",
+        "field": "decision_summary",
+        "text": "D01-C01原文明确给出报销期限为费用发生后30天内，且无冲突条款或适用范围限制，可直接作答。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "single/repeat-1/C04",
+        "kind": "unknown_scope_treated_as_unrestricted",
+        "field": "decision_summary",
+        "text": "原文明确限定报销时限为费用发生后30天内，且无冲突条款或适用范围限制，可直接作答。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "single/repeat-1/C06",
+        "kind": "unknown_scope_treated_as_general",
+        "field": "decision_summary",
+        "text": "D01-C01原文明确给出报销期限为费用发生后30天，且该文档scope为null，未限定适用范围，可作为通用规则引用。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "single/repeat-1/C08",
+        "kind": "title_and_unknown_scope_treated_as_general",
+        "field": "decision_summary",
+        "text": "D01-C01原文明确给出报销期限为费用发生后20天，且该文档标题为《费用报销规定》，适用范围未限定，可作为通用依据。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "single/repeat-2/C09",
+        "kind": "unproven_version_validity",
+        "field": "decision_summary",
+        "text": "D01和D02均明确、一致地规定报销期限为费用发生后30天，且均为有效版本，可直接引用作答。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "split/repeat-1/C06",
+        "kind": "title_treated_as_broadest_scope",
+        "field": "decision_summary",
+        "text": "D01-C01原文明确给出报销期限为费用发生后30天内，且该文档标题为《费用报销规定》，覆盖范围最广，无冲突条款。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "split/repeat-2/C01",
+        "kind": "unknown_scope_treated_as_general",
+        "field": "decision_summary",
+        "text": "D01-C01原文明确给出报销期限为费用发生后30天，且该文档scope为null，未限定适用范围，可作为通用规则引用。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "split/repeat-2/C06",
+        "kind": "unknown_scope_treated_as_general",
+        "field": "decision_summary",
+        "text": "D01-C01原文明确给出报销期限为30天，且该文档scope为null，未限定适用范围，可作为通用规则引用。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "split/repeat-2/C08",
+        "kind": "unknown_scope_treated_as_general",
+        "field": "decision_summary",
+        "text": "D01-C01原文明确给出报销期限为费用发生后20天，且该文档未限定适用范围，可作为通用规则引用。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "split/repeat-2/C09",
+        "kind": "unknown_scope_treated_as_unrestricted",
+        "field": "decision_summary",
+        "text": "D01和D02两份文档均明确且一致地规定报销期限为费用发生后30天内，无冲突、无适用范围限制，可直接作答。",
+        "ai_assessment": "核心答案及引用有原文支持，但该动作摘要对未知范围或有效性作了超过元数据的推断；应使用“依据当前读取资料”，不能据null或标题推断范围最广、通用或制度有效性。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "split/repeat-1/C05/turn2",
+        "kind": "historical_assistant_fact_as_known_context",
+        "field": "P3.known_context",
+        "value": {
+          "current_version": "标准版",
+          "feature": "导出PDF",
+          "support_status": false
+        },
+        "ai_assessment": "Flash把历史助手的标准版不支持PDF写为support_status=false，并保留标准版；当前追问为专业版。规范化Query仍正确，Plus重新读取D06，因此最终答案未受影响，但P3语义边界有回归。",
+        "review_status": "pending_user_review"
+      },
+      {
+        "run": "split/repeat-2/C05/turn2",
+        "kind": "historical_assistant_fact_as_known_context",
+        "field": "P3.known_context",
+        "value": {
+          "product_version": "标准版",
+          "feature": "导出PDF",
+          "support_status": false
+        },
+        "ai_assessment": "Flash把历史助手的标准版不支持PDF写为support_status=false，并保留标准版；当前追问为专业版。规范化Query仍正确，Plus重新读取D06，因此最终答案未受影响，但P3语义边界有回归。",
+        "review_status": "pending_user_review"
+      }
+    ],
+    "interception_note": "single第二轮C07模型候选曾引用未读取原文，确定性校验拦截并触发P5；最终tool_error通过safe_error_render仅显示实际错误。原候选与修复成本保留于Trace。",
+    "core_answer_note": "对照原文，最终报销数值、冲突并列、资料不足、标准/专业版回答及工具失败状态均符合所列样例预期；仍存在动作摘要范围推断及Flash上下文边界问题。"
+  },
+  "limitations": [
+    "仅8份合成基础文档和9类真实场景，每配置每场景2轮；不能推断生产可靠性或统计显著性。",
+    "先single后split，网络、服务负载和缓存可能影响耗时；观测降幅不是普遍加速承诺。",
+    "两配置P4/P5均为Plus；P3更快不代表端到端同比例更快。",
+    "总token为服务返回的实际用量，不等于按模型单价计算的费用；没有在此估算费用。",
+    "C05追问是相同真实history的受控对比；split独立会话能力需另用完整会话链运行验证。",
+    "原自动报告包含一个同义表达假阴性；原报告保持原样，本文件只给AI分析。",
+    "自动检查、AI语义审阅与用户本人验收不同；本文件未将任何用户待审任务记为已完成。",
+    "首次effectiveQuery原文保留由本地工具保障；不能据此声称所有原始模型tool_calls都逐字遵守了该要求。"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "answer": "根据检索结果，制度《费用报销规定》（D01）指出‘员工报销应在费用发生后30天内提交申请’，但因工具连续超时未能读取原文片段D01-C01，无法核实该条款的完整上下文、适用范围及是否存在例外情形。",
+  "citations": [],
+  "gaps": [
+    "D01-C01原文内容未成功获取，无法确认该30天期限是否为通用规则、有无例外或前提条件"
+  ],
+  "status": "tool_error",
+  "reason_code": "read_timeout_persistent",
+  "follow_up_question": "",
+  "decision_summary": "两次read_document调用均超时，无法获取D01-C01原文，影响关键事实核实"
+}

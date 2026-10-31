@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "model_calls": 3,
+  "results": {
+    "plus": {
+      "tool_call_and_observation_verified": true,
+      "requested_model": "qwen-plus-2025-12-01",
+      "response_model": "qwen-plus-2025-12-01"
+    },
+    "flash": {
+      "json_valid": true,
+      "requested_model": "qwen-flash-2025-07-28",
+      "response_model": "qwen-flash-2025-07-28",
+      "output": {
+        "intent": "knowledge_question",
+        "original_question": "星影协作标准版能导出PDF吗？",
+        "normalized_query": "星影协作标准版是否支持导出PDF格式文件",
+        "keywords": [
+          "星影协作标准版",
+          "导出",
+          "PDF"
+        ],
+        "known_context": {},
+        "missing_information": []
+      }
+    }
+  },
+  "note": "仅验证账号、指定模型和消息协议；不代表业务验收通过。"
+}

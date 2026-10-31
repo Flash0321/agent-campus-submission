@@ -1,0 +1,158 @@
+{
+  "case_id": "C09",
+  "model_mode": "real",
+  "tool_mode": "local",
+  "automated_passed": false,
+  "detected_critical_failure": false,
+  "acceptance_status": "failed_automated_checks",
+  "human_review": {
+    "status": "pending",
+    "required": [
+      "答案与引用的语义支持性",
+      "预期事实与禁止断言",
+      "动作是否合理"
+    ]
+  },
+  "checks": [
+    {
+      "item": "expected_status",
+      "pass": true,
+      "detail": {
+        "expected": [
+          "answered"
+        ],
+        "actual": "answered"
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "nonempty_answer",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "trace_present",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "normalization_preserves_original_question",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "citation_existence_and_read_provenance",
+      "pass": true,
+      "detail": [],
+      "critical_failure": false
+    },
+    {
+      "item": "required_evidence_read",
+      "pass": false,
+      "detail": {
+        "missing": [
+          [
+            "D02",
+            "D02-C01"
+          ]
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "required_evidence_cited",
+      "pass": false,
+      "detail": {
+        "missing": [
+          [
+            "D02",
+            "D02-C01"
+          ]
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "answered_has_evidence",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "observations_forwarded_to_next_model",
+      "pass": true,
+      "detail": [
+        {
+          "trace_index": 6,
+          "tool": "search_documents",
+          "has_later_model_request": true,
+          "observation_forwarded": true
+        },
+        {
+          "trace_index": 9,
+          "tool": "read_document",
+          "has_later_model_request": true,
+          "observation_forwarded": true
+        }
+      ],
+      "critical_failure": false
+    },
+    {
+      "item": "model_observed_tool_result",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "deadline_value_present",
+      "pass": true,
+      "detail": {
+        "expected_days": [
+          "30"
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "deadline_start_and_submission_present",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "model_budget_respected",
+      "pass": true,
+      "detail": 4,
+      "critical_failure": false
+    },
+    {
+      "item": "tool_budget_respected",
+      "pass": true,
+      "detail": 2,
+      "critical_failure": false
+    }
+  ],
+  "expectations_for_review": {
+    "expected_claims": [
+      "30天"
+    ],
+    "forbidden_claims": [
+      "15天"
+    ],
+    "behavior_checks": [
+      "读取D01与D02，观察两份期限一致",
+      "相对C02由冲突追问变为有证据回答",
+      "不沿用旧冲突状态；允许继续核查而不强制固定序列"
+    ]
+  },
+  "real_dynamic_path_candidate": true,
+  "evidence_coverage": {
+    "read": 1,
+    "cited": 1,
+    "required": 2
+  },
+  "limitation": "自动检查只是初筛；Mock 不证明模型决策效果。最终业务与引用支持性仍需人工对照原文。"
+}

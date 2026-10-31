@@ -1,0 +1,35 @@
+[
+  {
+    "baseline": "C01",
+    "changed": "C08",
+    "kind": "value_changed",
+    "status": "completed",
+    "automated_passed": true,
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "new_value_quoted": true,
+      "old_value_not_quoted": true
+    },
+    "model_mode": "real",
+    "human_review": "pending",
+    "note": "数值替换不强制工具路径变化；冲突消失要求终止决定变化。"
+  },
+  {
+    "baseline": "C02",
+    "changed": "C09",
+    "kind": "conflict_removed",
+    "status": "completed",
+    "automated_passed": false,
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": false,
+      "decision_changed": true
+    },
+    "model_mode": "real",
+    "human_review": "pending",
+    "note": "数值替换不强制工具路径变化；冲突消失要求终止决定变化。"
+  }
+]

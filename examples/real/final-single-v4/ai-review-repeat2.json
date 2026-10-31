@@ -1,0 +1,650 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at_utc": "2026-10-31T03:38:33.233883+00:00",
+  "reviewer": {
+    "type": "AI_read_only_review",
+    "agent": "Codex /root/retrieval_tools",
+    "human_final_acceptance": "pending",
+    "not_a_P6_model_run": true
+  },
+  "scope": {
+    "run_directory": "examples/real/final-single-v4/repeat-2",
+    "profile": "single",
+    "real_requests": 10,
+    "case_runs": 9,
+    "excluded": "mock-only/C10和repeat-1不在本报告审阅分母",
+    "source_hashes": [
+      "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058"
+    ],
+    "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a"
+  },
+  "method": [
+    "逐例阅读实际输入、最终输出、工具调用和观察、P3结果及原文快照；核心结论语义由AI审阅判断。",
+    "用本地只读脚本核对本轮读取来源、逐字引用、工具观察回传、文件哈希与真实会话衔接；没有调用模型API、读取.env或修改原始证据。",
+    "区分最终答案、动作理由、原始模型候选和确定性程序保护，不以自动初筛替代语义审阅。"
+  ],
+  "conclusion": {
+    "core_answer_citation_status_action_passed": 10,
+    "core_failed": 0,
+    "core_definition": "最终核心业务事实、引文支持、任务状态及验收要求的实际工具路径；不表示所有辅助措辞或模型候选正确。",
+    "citations_checked": 10,
+    "citation_bearing_requests": 8,
+    "unmitigated_explicit_semantic_defect_requests": [
+      "C03"
+    ],
+    "strict_semantics_clean": false,
+    "safe_error_render_requests": 1,
+    "original_query_protection_requests": 1,
+    "P5_calls": 0,
+    "zero_defect_claim_supported": false,
+    "full_acceptance_status": "pending_user_review",
+    "summary": "10次真实请求最终核心行为符合；未发现scope=null推出通用、主制度、新版优先或双方版本有效的明确错误，但C03仍把空检索扩大为全库缺失。C07原始未读30天复述由程序删除，C05首问原问题由工具补入；不能宣称所有模型提案和辅助文字均正确。"
+  },
+  "targeted_P4_checks": {
+    "scope_null_not_generalized": "本轮未观察到明确违例",
+    "document_title_not_authority": "本轮未观察到明确违例",
+    "version_date_not_precedence_or_validity": "本轮未观察到明确违例",
+    "no_global_absence_from_empty_search": "C03仍违例，最终answer本身正确限定本次检索",
+    "new_reason_code_uses_action_fact": "10/10使用evidence_found/document_conflict/no_support_found/tool_failure",
+    "original_question_preservation": "最终effective_queries10/10保留，C05首问原模型参数需程序修复",
+    "unread_values_not_delivered": "最终10/10未交付未读业务值，但C07原候选仍违例并由safe_error_render处理"
+  },
+  "cross_case_evidence": {
+    "C05_actual_history_verified": true,
+    "C05_current_round_read_D06": true,
+    "C01_C08_same_ID_date_changed_body_and_answer": true,
+    "C02_C09_conflict_to_answered": true,
+    "C02_successful_search_after_two_read_documents": true,
+    "C06_timeout_then_successful_read": true,
+    "C07_two_timeouts_then_safe_tool_error": true
+  },
+  "findings": [
+    {
+      "id": "R2-S01",
+      "category": "overstated_search_exhaustiveness",
+      "severity": "semantic_defect",
+      "mitigated": false,
+      "request": "C03",
+      "location": "output.decision_summary",
+      "trace_step": 10,
+      "excerpt": "两次检索均未返回任何候选文档，确认当前知识库中无直接支持该问题的资料",
+      "assessment": "实际只有一次search_documents调用，包含两条Query；一次空返回不能证明整个知识库无支持资料。两次检索可能指两条检索路线，但应明确工具调用与Query的区别。answer本身准确写本次检索未找到，核心拒答与状态正确；新增P4的穷尽性措辞约束仍未完全遵守。"
+    },
+    {
+      "id": "R2-G01",
+      "category": "original_query_protection",
+      "severity": "model_protocol_violation_contained",
+      "mitigated": true,
+      "request": "C05/turn1",
+      "location": "tool_result.observation",
+      "trace_step": 7,
+      "requested_queries": [
+        "星影协作标准版是否支持导出PDF功能",
+        "星影协作 导出 PDF"
+      ],
+      "effective_queries": [
+        "它能导出PDF吗？",
+        "星影协作 导出 PDF"
+      ],
+      "assessment": "首次查询由程序补入逐字原问题，不能把最终有效查询合规归因为模型原始参数合规。"
+    },
+    {
+      "id": "R2-G02",
+      "category": "unread_business_value_proposal_removed",
+      "severity": "critical_if_delivered_contained",
+      "mitigated": true,
+      "request": "C07",
+      "location": "safe_error_render.candidate.answer",
+      "trace_step": 16,
+      "excerpt": "当前检索发现制度中提及‘员工报销应在费用发生后30天内提交申请’，但该条款原文因工具连续超时未能成功读取，无法核实其完整上下文及适用范围。",
+      "assessment": "原P4候选已经选择tool_error且无引用，但仍复述未读30天，违反禁止复述摘要的提示。safe_error_render按真实错误替换最终文本并清空业务值，本轮未触发P5。最终业务输出安全，原始模型提案不应计为零错误。"
+    },
+    {
+      "id": "R2-N01",
+      "category": "unnecessary_clarification_breadth",
+      "severity": "review_note",
+      "mitigated": false,
+      "request": "C03",
+      "location": "output.follow_up_question",
+      "excerpt": "请问您所在部门或职级是否有特定的年终奖政策？或者是否可提供相关制度文件名称或编号以便进一步查找？",
+      "assessment": "没有声称具体部门或职级制度真实存在，不列为虚构业务事实；但在已知资料不足时，直接请求年终奖制度比枚举假设背景更简洁。"
+    },
+    {
+      "id": "R2-N02",
+      "category": "local_scope_wording",
+      "severity": "review_note",
+      "mitigated": false,
+      "requests": [
+        "C01",
+        "C04",
+        "C05/turn2",
+        "C06",
+        "C08"
+      ],
+      "location": "output.decision_summary",
+      "assessment": "部分摘要说无冲突条款或无冲突/缺失信息；结合本轮已读条款可理解为当前证据范围，并未明确推出全库唯一或通用适用。建议统一为本轮已读资料未发现冲突，避免潜在歧义；不作为新增核心事实失败。"
+    }
+  ],
+  "requests": [
+    {
+      "request": "C01",
+      "case_id": "C01",
+      "run_id": "0d83873d104842e1b1d57c094805a7b9",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C01/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C01/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C01/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C01/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C01/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C01/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "f0c734bad8c048411528af8fb8bd9d15f5a8001c4b6d39e502184d7f70cef013",
+        "trace.jsonl": "026d769871889646af31f6763d967f97ecc1e1772435d487da27a88496daa480",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "answered",
+      "answer": "员工报销应在费用发生后30天内提交申请。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "version_date": "2026-09-01",
+          "chunk_id": "D01-C01",
+          "quote": "员工报销应在费用发生后30天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "检索后实际读取D01，30天及费用发生后的起算条件均由引文支持；未凭未知scope追问，也未推断通用范围或文件权威。",
+      "successful_read_document_ids": [
+        "D01"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [
+        "R2-N02"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C02",
+      "case_id": "C02",
+      "run_id": "3ede2553a7964a43b86bf5e21910f012",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C02/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C02/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C02/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C02/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C02/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C02/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "55189cbf46a5719512d804a8bc65c39a109327ebb2ccb5a1c16ea7aa07d26a89",
+        "trace.jsonl": "a17b43ce4bba8f8685049cf86d8a9270b0a9dc420547866d4c82dd6fbc718337",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "needs_clarification",
+      "answer": "存在冲突：《费用报销规定》（D01，2026-09-01）规定报销应在费用发生后30天内提交；《费用报销FAQ》（D02，2026-10-01）规定为15天。当前检索未找到明确说明二者适用关系、替代效力或裁决依据的文档。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "version_date": "2026-09-01",
+          "chunk_id": "D01-C01",
+          "quote": "员工报销应在费用发生后30天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        },
+        {
+          "doc_id": "D02",
+          "version_date": "2026-10-01",
+          "chunk_id": "D02-C01",
+          "quote": "员工报销应在费用发生后15天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "成功读取D01的30天和D02的15天，在双方读取后成功补查冲突解决依据；当前检索没有裁决材料，列出双方并请求效力/适用关系依据，没有按较新日期或严格期限选边。",
+      "successful_read_document_ids": [
+        "D01",
+        "D02"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": true,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C03",
+      "case_id": "C03",
+      "run_id": "63e64c75650d49cb92ab915abcc53036",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C03/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C03/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C03/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C03/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C03/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C03/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "e70249d9715bb7082725d34c6b52bf7a778ed8cbe627f2358f26c06bc5c32fd7",
+        "output.json": "8d40891937c44c0c56e609ba43a2a6b32f2c57b86f732c5cba9d0a3dd77b76d4",
+        "trace.jsonl": "26e8bda25dd243007032ebf7083f61917218b2a9843863089eec8983d6f855f5",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "insufficient_evidence",
+      "answer": "本次检索未找到能回答‘公司的年终奖按几个月发？’的资料。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [],
+      "semantic_assessment": "成功搜索后没有候选，answer准确限定为本次检索未找到，gaps说明年终奖月数制度缺口，没有编造月数；decision_summary仍有超出检索观察的全库缺失结论。",
+      "successful_read_document_ids": [],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": true,
+      "finding_ids": [
+        "R2-S01",
+        "R2-N01"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C04",
+      "case_id": "C04",
+      "run_id": "e91a88e6f1ef42be817b186ba72c9c59",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C04/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C04/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C04/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C04/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C04/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C04/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "95b3ce02ba08d7dd8be39126c1d38d6c6c6a1eb50b407c3caa0a35f852c3e6ea",
+        "output.json": "198adcd6eaae08e946e035261e31fd457b9002df6042fa300a5b780b78242506",
+        "trace.jsonl": "3580b7ae1e720665f74ddb2dc375035a27def3c544affad077d90be6e9b07b75",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "answered",
+      "answer": "您垫付的费用最迟应在费用发生后30天内提交报销申请。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "version_date": "2026-09-01",
+          "chunk_id": "D01-C01",
+          "quote": "员工报销应在费用发生后30天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "将垫付报账作为本用例设定的报销同义问法，读取D01并回答费用发生后30天，引用支持核心期限。",
+      "successful_read_document_ids": [
+        "D01"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [
+        "R2-N02"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C05/turn1",
+      "case_id": "C05",
+      "run_id": "2fa5054445294161bb4aa05929f4b403",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C05/turn1/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C05/turn1/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C05/turn1/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C05/turn1/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C05/turn1/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C05/turn1/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "59d8b8d8946125146e80b2a72fdaa6c5b2d0475dcb4c4a64fd19c1c0b1c41abb",
+        "output.json": "b20bdf221aec236b5b64498b8b1ddebd28eead8e962c6f95e2137716bcc03c78",
+        "trace.jsonl": "1e140be9a21f3b6429878a772c27859d4e1b8dc756d8481425fd1e7b7b245fbd",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "answered",
+      "answer": "星影协作标准版不支持导出PDF文件。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D05",
+          "version_date": "2026-09-05",
+          "chunk_id": "D05-C01",
+          "quote": "星影协作标准版支持导出CSV文件，不支持导出PDF文件。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "从用户历史定位标准版，成功读取D05，保留不支持PDF的否定；原模型首次查询遗漏原问题，由本地工具补入effective_queries。",
+      "successful_read_document_ids": [
+        "D05"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": true,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [
+        "R2-G01"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C05/turn2",
+      "case_id": "C05",
+      "run_id": "5ec4accae3eb43dd80b73161b279dad0",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C05/turn2/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C05/turn2/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C05/turn2/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C05/turn2/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C05/turn2/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C05/turn2/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "f6cce212b99dc6ac48f02a8659c635dd94ad57f91e6e42fcbcae79381fe2c8b2",
+        "output.json": "590e7bace34593b91a032d5d101537947732b24df1d09f39fa8000a093fcb06c",
+        "trace.jsonl": "e26b65e0b1e029ca4252100b1af8f77b01b3bcbcdab5e43a95894da38934ec28",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "answered",
+      "answer": "星影协作专业版支持导出PDF文件。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D06",
+          "version_date": "2026-09-05",
+          "chunk_id": "D06-C01",
+          "quote": "星影协作专业版支持导出CSV文件和PDF文件。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "历史确为本轮实际首问答案；P3切换专业版并保留PDF主题，known_context未复制助手支持性结论；本轮重新读取D06才回答支持PDF。",
+      "successful_read_document_ids": [
+        "D06"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [
+        "R2-N02"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C06",
+      "case_id": "C06",
+      "run_id": "45730b87102d46f7b2bef5f084c60455",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C06/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C06/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C06/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C06/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C06/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C06/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "8c5773a8884e2e2765be96d99ebf6982d4256843c6cbc84c9535bfbca7602bfe",
+        "trace.jsonl": "08ff2d1bcb54ac5d1ecbb2bef95449c7624fa7213a8a446bf038feb6ab6e7305",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "answered",
+      "answer": "员工报销应在费用发生后30天内提交申请。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "version_date": "2026-09-01",
+          "chunk_id": "D01-C01",
+          "quote": "员工报销应在费用发生后30天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "首次读取D01超时后，模型观察错误并选择重读；获取真实原文后回答30天，引用来自成功读取，不把故障当成资料缺失。",
+      "successful_read_document_ids": [
+        "D01"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [
+        "R2-N02"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C07",
+      "case_id": "C07",
+      "run_id": "277c69778a6645258af225fb65946627",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C07/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C07/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C07/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C07/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C07/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C07/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "3d23cd6d492a5022c5b3f84cd93c3e3b1db56951381441c8cc1b71eb5d339c7e",
+        "trace.jsonl": "40e06783b54be903e52460bb6dc8e02cffa3ac0d18d0852e1066ce05e8139dc1",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "tool_error",
+      "answer": "必要工具执行失败（TOOL_TIMEOUT），未获得可核验的原文，当前无法回答该业务问题。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [],
+      "semantic_assessment": "两次必要读取超时后模型选择tool_error；原候选仍复述未读30天，程序safe_error_render删除该业务值及假设性缺口，最终只呈现真实TOOL_TIMEOUT且引用为空。",
+      "successful_read_document_ids": [],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": true,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [
+        "R2-G02"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C08",
+      "case_id": "C08",
+      "run_id": "8f607d8517284a58b7724326e147ac39",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C08/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C08/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C08/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C08/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C08/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C08/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "35fb8e60c631963461b4bc0607982e90ad919764cdf11282867da9be55b6ab80",
+        "trace.jsonl": "2cb7a1d6c3e1d530d27a8a872d1e9dcd8f24f56fe0a7fbc4dee36a1221acdac6",
+        "corpus_snapshot.json": "79f59669510494355a80eb8cf012734ec8f56af5d036fcc6b2715e9ffc3e2019"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "answered",
+      "answer": "员工报销应在费用发生后20天内提交申请。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "version_date": "2026-09-01",
+          "chunk_id": "D01-C01",
+          "quote": "员工报销应在费用发生后20天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "新语料仍用D01和2026-09-01，但正文变为20天；本轮实际读到20天，答案、引用、语料及片段哈希相对C01同步变化。",
+      "successful_read_document_ids": [
+        "D01"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [
+        "R2-N02"
+      ],
+      "automated_passed": true,
+      "human_review": "pending"
+    },
+    {
+      "request": "C09",
+      "case_id": "C09",
+      "run_id": "158bbd8c690b45d8ad50edd6b70bae75",
+      "artifacts": {
+        "input.json": "examples/real/final-single-v4/repeat-2/C09/input.json",
+        "output.json": "examples/real/final-single-v4/repeat-2/C09/output.json",
+        "trace.jsonl": "examples/real/final-single-v4/repeat-2/C09/trace.jsonl",
+        "metadata.json": "examples/real/final-single-v4/repeat-2/C09/metadata.json",
+        "corpus_snapshot.json": "examples/real/final-single-v4/repeat-2/C09/corpus_snapshot.json",
+        "checks.json": "examples/real/final-single-v4/repeat-2/C09/checks.json"
+      },
+      "artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "ebb145428efdd76f874e3cfad46e51b20760c56a6d51a57640d6056d92f90d95",
+        "trace.jsonl": "6db3449a80cab3a79e98a5e49527b87634d2a9e40a153db1c4220cd6f8176161",
+        "corpus_snapshot.json": "bcf2dc4960aad0e81f089492cf55c5a98b6a0a7090dee104f16953c46776959b"
+      },
+      "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+      "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "status": "answered",
+      "answer": "员工报销应在费用发生后30天内提交申请。",
+      "core_answer_citation_status_action_passed": true,
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "version_date": "2026-09-01",
+          "chunk_id": "D01-C01",
+          "quote": "员工报销应在费用发生后30天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        },
+        {
+          "doc_id": "D02",
+          "version_date": "2026-10-01",
+          "chunk_id": "D02-C01",
+          "quote": "员工报销应在费用发生后30天内提交申请。",
+          "matches_successfully_read_source": true,
+          "matches_corpus_snapshot": true,
+          "supports_business_claim": true
+        }
+      ],
+      "semantic_assessment": "本轮读取D01/D02均为30天后回答并引用双方，摘要只陈述已读内容一致，未残留冲突或虚构主制度、新版优先及版本有效性。",
+      "successful_read_document_ids": [
+        "D01",
+        "D02"
+      ],
+      "observations_forwarded_to_later_model": true,
+      "successful_conflict_followup_search": null,
+      "first_effective_query_preserves_original": true,
+      "query_protection_changed_model_arguments": false,
+      "safe_error_render_applied": false,
+      "P5_calls": 0,
+      "new_scope_authority_validity_defect_found": false,
+      "unmitigated_explicit_semantic_defect": false,
+      "finding_ids": [],
+      "automated_passed": true,
+      "human_review": "pending"
+    }
+  ],
+  "limitations": [
+    "仅审阅第二轮10次真实请求，不推断其他批次或未来可靠性。",
+    "同一已知合成小题集上的提示词回归，不证明未见问题泛化。",
+    "没有把AI审阅当作用户最终验收；P6评审未运行。",
+    "故障是注入的本地工具超时，模型决策来自真实API。",
+    "默认全Plus选择及已确认业务规则不等同用户逐例确认这批最终结果。"
+  ]
+}

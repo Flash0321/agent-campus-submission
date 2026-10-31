@@ -1,0 +1,11 @@
+{
+  "answer": "调用预算已耗尽，任务未完成；已读取证据保存在Trace中。",
+  "citations": [],
+  "gaps": [
+    "调用预算已耗尽，任务未完成；已读取证据保存在Trace中。"
+  ],
+  "status": "step_limit",
+  "reason_code": "call_budget_exceeded",
+  "follow_up_question": "",
+  "decision_summary": "程序根据执行或校验结果结束本次请求。"
+}

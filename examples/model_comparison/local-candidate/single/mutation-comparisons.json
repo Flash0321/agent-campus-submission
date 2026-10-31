@@ -1,0 +1,16 @@
+[
+  {
+    "baseline": "C01",
+    "changed": "C08",
+    "kind": "value_changed",
+    "status": "not_run",
+    "reason": "缺少成对的实际运行"
+  },
+  {
+    "baseline": "C02",
+    "changed": "C09",
+    "kind": "conflict_removed",
+    "status": "not_run",
+    "reason": "缺少成对的实际运行"
+  }
+]

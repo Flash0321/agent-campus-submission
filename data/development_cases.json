@@ -1,0 +1,175 @@
+[
+  {
+    "case_id": "DEV01",
+    "split": "development",
+    "category": "明确答案",
+    "corpus_variant": "single_source",
+    "input": {
+      "question": "申请差旅费用报销需要附哪些材料？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "发票",
+      "行程证明",
+      "差旅申请单"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D03",
+        "chunk_id": "D03-C01",
+        "quote": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。"
+      }
+    ],
+    "forbidden_claims": [],
+    "behavior_checks": [
+      "完整列出三项材料并读取原文"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "DEV02",
+    "split": "development",
+    "category": "文档冲突",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "费用发生后最迟哪天要提交报销？"
+    },
+    "expected_status": "needs_clarification",
+    "expected_claims": [
+      "30天",
+      "15天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      },
+      {
+        "doc_id": "D02",
+        "chunk_id": "D02-C01",
+        "quote": "员工报销应在费用发生后15天内提交申请。"
+      }
+    ],
+    "forbidden_claims": [
+      "以最新版本为准"
+    ],
+    "behavior_checks": [
+      "读取双方、补查裁决依据，仍缺依据则追问"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "DEV03",
+    "split": "development",
+    "category": "资料外问题",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "每个员工一年有几天年假？"
+    },
+    "expected_status": "insufficient_evidence",
+    "expected_claims": [],
+    "required_evidence": [],
+    "forbidden_claims": [
+      "每年5天",
+      "每年10天"
+    ],
+    "behavior_checks": [
+      "请假流程不能支持年假天数；明确缺少天数规定"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "DEV04",
+    "split": "development",
+    "category": "相似改写",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "进公司的刷卡丢了，我应该找谁？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "行政"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D08",
+        "chunk_id": "D08-C01",
+        "quote": "门禁卡遗失后，应联系行政人员办理挂失。"
+      }
+    ],
+    "forbidden_claims": [],
+    "behavior_checks": [
+      "保留原问题且用规范表达检索门禁卡挂失"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "DEV05",
+    "split": "development",
+    "category": "上下文追问",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "这个版本能导出PDF吗？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我的产品是星影协作专业版。"
+        }
+      ]
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "专业版",
+      "支持",
+      "PDF"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D06",
+        "chunk_id": "D06-C01",
+        "quote": "星影协作专业版支持导出CSV文件和PDF文件。"
+      }
+    ],
+    "forbidden_claims": [
+      "专业版不支持导出PDF"
+    ],
+    "behavior_checks": [
+      "使用用户历史中的专业版信息，不能采用标准版规则"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "DEV06",
+    "split": "development",
+    "category": "可恢复工具失败",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "产品故障工单要写哪些内容？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "产品名称",
+      "版本号",
+      "问题现象",
+      "复现步骤"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D04",
+        "chunk_id": "D04-C01",
+        "quote": "提交产品故障工单时，须提供产品名称、版本号、问题现象和复现步骤。"
+      }
+    ],
+    "forbidden_claims": [],
+    "behavior_checks": [
+      "读取故障反馈条款；超时后模型自主恢复"
+    ],
+    "review_status": "draft_pending_user_review",
+    "fault_injection": {
+      "tool": "read_document",
+      "doc_id": "D04",
+      "times": 1
+    }
+  }
+]

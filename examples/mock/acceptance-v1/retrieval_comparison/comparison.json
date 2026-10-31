@@ -1,0 +1,431 @@
+{
+  "rows": [
+    {
+      "case_id": "C01",
+      "repeat": 1,
+      "status": "completed",
+      "model_mode": "mock",
+      "query_source": "实际运行的 P3 输出；Mock 改写不是模型改进证据",
+      "original_query": "报销期限多久？",
+      "normalized_query": "报销期限多久？",
+      "corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "gold_count": 1,
+      "original": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 1.288050462577066
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 1.2375095327125303
+          }
+        ]
+      },
+      "dual": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 0.01639344262295082
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.016129032258064516
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "C02",
+      "repeat": 1,
+      "status": "completed",
+      "model_mode": "mock",
+      "query_source": "实际运行的 P3 输出；Mock 改写不是模型改进证据",
+      "original_query": "报销期限多久？",
+      "normalized_query": "报销期限多久？",
+      "corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "gold_count": 2,
+      "original": {
+        "hit_at_5": true,
+        "covered": 2,
+        "required": 2,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 0.7313675141473418
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.7029317632084872
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销FAQ",
+            "version_date": "2026-10-01",
+            "scope": null,
+            "chunk_id": "D02-C01",
+            "snippet": "员工报销应在费用发生后15天内提交申请。",
+            "score": 0.7029317632084872
+          }
+        ]
+      },
+      "dual": {
+        "hit_at_5": true,
+        "covered": 2,
+        "required": 2,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 0.01639344262295082
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.016129032258064516
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销FAQ",
+            "version_date": "2026-10-01",
+            "scope": null,
+            "chunk_id": "D02-C01",
+            "snippet": "员工报销应在费用发生后15天内提交申请。",
+            "score": 0.015873015873015872
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "C04",
+      "repeat": 1,
+      "status": "completed",
+      "model_mode": "mock",
+      "query_source": "实际运行的 P3 输出；Mock 改写不是模型改进证据",
+      "original_query": "我垫付的费用最迟多久得报账？",
+      "normalized_query": "我垫付的费用最迟多久得报账？ 报销 提交申请 期限",
+      "corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "gold_count": 1,
+      "original": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 2.301463835613457
+          }
+        ]
+      },
+      "dual": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.03278688524590164
+          },
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 0.016129032258064516
+          },
+          {
+            "doc_id": "D07",
+            "title": "请假申请流程",
+            "version_date": "2026-09-06",
+            "scope": "请假流程",
+            "chunk_id": "D07-C01",
+            "snippet": "员工应提交请假申请，并取得直属主管审批后办理请假手续。",
+            "score": 0.015873015873015872
+          },
+          {
+            "doc_id": "D04",
+            "title": "产品故障反馈FAQ",
+            "version_date": "2026-09-03",
+            "scope": "产品故障工单",
+            "chunk_id": "D04-C01",
+            "snippet": "提交产品故障工单时，须提供产品名称、版本号、问题现象和复现步骤。",
+            "score": 0.015625
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "C05",
+      "repeat": 1,
+      "status": "completed",
+      "model_mode": "mock",
+      "query_source": "实际运行的 P3 输出；Mock 改写不是模型改进证据",
+      "original_query": "它能导出PDF吗？",
+      "normalized_query": "星影协作标准版 导出 PDF 它能导出PDF吗？",
+      "corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "gold_count": 1,
+      "original": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D05",
+            "title": "星影协作标准版FAQ",
+            "version_date": "2026-09-05",
+            "scope": "虚构产品星影协作标准版",
+            "chunk_id": "D05-C01",
+            "snippet": "星影协作标准版支持导出CSV文件，不支持导出PDF文件。",
+            "score": 2.100897783192953
+          },
+          {
+            "doc_id": "D06",
+            "title": "星影协作专业版FAQ",
+            "version_date": "2026-09-05",
+            "scope": "虚构产品星影协作专业版",
+            "chunk_id": "D06-C01",
+            "snippet": "星影协作专业版支持导出CSV文件和PDF文件。",
+            "score": 1.8131146964467482
+          }
+        ]
+      },
+      "dual": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D05",
+            "title": "星影协作标准版FAQ",
+            "version_date": "2026-09-05",
+            "scope": "虚构产品星影协作标准版",
+            "chunk_id": "D05-C01",
+            "snippet": "星影协作标准版支持导出CSV文件，不支持导出PDF文件。",
+            "score": 0.03278688524590164
+          },
+          {
+            "doc_id": "D06",
+            "title": "星影协作专业版FAQ",
+            "version_date": "2026-09-05",
+            "scope": "虚构产品星影协作专业版",
+            "chunk_id": "D06-C01",
+            "snippet": "星影协作专业版支持导出CSV文件和PDF文件。",
+            "score": 0.03225806451612903
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "C08",
+      "repeat": 1,
+      "status": "completed",
+      "model_mode": "mock",
+      "query_source": "实际运行的 P3 输出；Mock 改写不是模型改进证据",
+      "original_query": "报销期限多久？",
+      "normalized_query": "报销期限多久？",
+      "corpus_hash": "95293a8a4b8e0deb9b6453a17c247b7596a435d2d638430cf1295c28d11c81ff",
+      "gold_count": 1,
+      "original": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 1.288050462577066
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后20天内提交申请。",
+            "score": 1.2375095327125303
+          }
+        ]
+      },
+      "dual": {
+        "hit_at_5": true,
+        "covered": 1,
+        "required": 1,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 0.01639344262295082
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后20天内提交申请。",
+            "score": 0.016129032258064516
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "C09",
+      "repeat": 1,
+      "status": "completed",
+      "model_mode": "mock",
+      "query_source": "实际运行的 P3 输出；Mock 改写不是模型改进证据",
+      "original_query": "报销期限多久？",
+      "normalized_query": "报销期限多久？",
+      "corpus_hash": "163d7b7d39f0527470694a5a22294e137ea112312ad82c3c4863b1ceb9e677b7",
+      "gold_count": 2,
+      "original": {
+        "hit_at_5": true,
+        "covered": 2,
+        "required": 2,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 0.7313675141473418
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.7029317632084872
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销FAQ",
+            "version_date": "2026-10-01",
+            "scope": null,
+            "chunk_id": "D02-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.7029317632084872
+          }
+        ]
+      },
+      "dual": {
+        "hit_at_5": true,
+        "covered": 2,
+        "required": 2,
+        "annotated_evidence_coverage": 1.0,
+        "results": [
+          {
+            "doc_id": "D03",
+            "title": "差旅报销材料说明",
+            "version_date": "2026-09-02",
+            "scope": "差旅报销",
+            "chunk_id": "D03-C01",
+            "snippet": "提交差旅报销申请时，须附发票、行程证明和已审批的差旅申请单。",
+            "score": 0.01639344262295082
+          },
+          {
+            "doc_id": "D01",
+            "title": "费用报销规定",
+            "version_date": "2026-09-01",
+            "scope": null,
+            "chunk_id": "D01-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.016129032258064516
+          },
+          {
+            "doc_id": "D02",
+            "title": "费用报销FAQ",
+            "version_date": "2026-10-01",
+            "scope": null,
+            "chunk_id": "D02-C01",
+            "snippet": "员工报销应在费用发生后30天内提交申请。",
+            "score": 0.015873015873015872
+          }
+        ]
+      }
+    }
+  ],
+  "sample_count": 6,
+  "metric_name": "已标注证据覆盖（非全量标注召回率）",
+  "top_k": 5,
+  "limitation": "只有实际 real 模式的 P3 改写能用于模型检索改善结论；不预设双 Query 优于原 Query。"
+}

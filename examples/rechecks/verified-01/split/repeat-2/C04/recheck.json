@@ -1,0 +1,42 @@
+{
+  "request_id": "split/repeat-2/C04",
+  "case_id": "C04",
+  "base_case_id": "C04",
+  "scenario_id": "split/repeat-2/C04",
+  "model_mode": "real",
+  "configured_profile": "split",
+  "status": "answered",
+  "original_automated_passed": true,
+  "revised_automated_passed": true,
+  "changed_checks": [],
+  "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C04",
+  "original_artifact_sha256": {
+    "input.json": "95b3ce02ba08d7dd8be39126c1d38d6c6c6a1eb50b407c3caa0a35f852c3e6ea",
+    "output.json": "047709f10e1f3a7660eef530eeef5bba9596cc058e0631971adf119965610193",
+    "trace.jsonl": "d33b8ba920e6ee81c2b1760af4d2ec5fdd3569cd8a16f450fca73bc6d22f7604",
+    "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+    "metadata.json": "a688d8831d1bc13cccd6f9213c0549610acdcf7fc6eb400b5f76200eab7ae4c3",
+    "checks.json": "26f3980aa7cae6fdec5fc7aca22b283ae3856c750ec6fdc249f0ffc94d976f25"
+  },
+  "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+  "original_prompt_hashes": {
+    "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+    "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+    "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+    "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+    "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+    "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+  },
+  "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+  "actual_input": {
+    "question": "我垫付的费用最迟多久得报账？",
+    "history": []
+  },
+  "acceptance_status": "pending_human_review",
+  "evaluator_hashes": {
+    "src/checks.py": "71addcda2e920827644add4b5b1680bc1b3a5d40e8ab57d578bb01550101a454",
+    "src/recheck.py": "15f7c6274e65906d2013cd2bf101ca0d069e23f9fc7993b3dce8865faf86064e"
+  },
+  "cases_path": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/data/cases.json",
+  "cases_sha256": "2c3c9bda655915c417b24dea38ace4c8cbf52862e5f9191f9a25fe6e8e7e8518"
+}

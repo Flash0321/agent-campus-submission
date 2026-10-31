@@ -1,0 +1,16 @@
+{
+  "answer": "依据当前读取的资料：员工报销应在费用发生后30天内提交申请。",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "version_date": "2026-09-01",
+      "chunk_id": "D01-C01",
+      "quote": "员工报销应在费用发生后30天内提交申请。"
+    }
+  ],
+  "gaps": [],
+  "status": "answered",
+  "reason_code": "supported_by_read_evidence",
+  "follow_up_question": "",
+  "decision_summary": "根据本轮工具观察执行离线演示策略；不证明真实模型决策效果。"
+}

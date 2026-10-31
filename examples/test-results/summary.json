@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-10-31T02:53:20.607998+00:00",
+  "command": "python -m pytest -q --junitxml=examples/test-results/pytest.xml",
+  "exit_code": 0,
+  "elapsed_seconds": 0.5927533330395818,
+  "source_hash": "be81de4580072a4fffcd32e554a671e5a791af8d37e2e5c53db2931a7a1c4375",
+  "model_mode": "mock",
+  "real_model_calls": 0
+}

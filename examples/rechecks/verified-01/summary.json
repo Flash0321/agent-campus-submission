@@ -1,0 +1,1887 @@
+{
+  "created_at": "2026-10-31T03:30:56.340742+00:00",
+  "operation": "offline_recheck",
+  "input_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01",
+  "output_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/rechecks/verified-01",
+  "evaluator_hashes": {
+    "src/checks.py": "71addcda2e920827644add4b5b1680bc1b3a5d40e8ab57d578bb01550101a454",
+    "src/recheck.py": "15f7c6274e65906d2013cd2bf101ca0d069e23f9fc7993b3dce8865faf86064e"
+  },
+  "cases_path": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/data/cases.json",
+  "cases_sha256": "2c3c9bda655915c417b24dea38ace4c8cbf52862e5f9191f9a25fe6e8e7e8518",
+  "model_api_calls": 0,
+  "original_artifacts_modified": false,
+  "counts": {
+    "all": {
+      "requests": 44,
+      "original_request_passed": 43,
+      "revised_request_passed": 44,
+      "complete_scenarios": 40,
+      "partial_scenarios": 0,
+      "original_scenario_passed": 39,
+      "revised_scenario_passed": 40
+    },
+    "real": {
+      "requests": 40,
+      "original_request_passed": 39,
+      "revised_request_passed": 40,
+      "complete_scenarios": 36,
+      "partial_scenarios": 0,
+      "original_scenario_passed": 35,
+      "revised_scenario_passed": 36
+    },
+    "mock": {
+      "requests": 4,
+      "original_request_passed": 4,
+      "revised_request_passed": 4,
+      "complete_scenarios": 4,
+      "partial_scenarios": 0,
+      "original_scenario_passed": 4,
+      "revised_scenario_passed": 4
+    }
+  },
+  "real_profiles": {
+    "single": {
+      "requests": 20,
+      "original_request_passed": 19,
+      "revised_request_passed": 20,
+      "complete_scenarios": 18,
+      "partial_scenarios": 0,
+      "original_scenario_passed": 17,
+      "revised_scenario_passed": 18
+    },
+    "split": {
+      "requests": 20,
+      "original_request_passed": 20,
+      "revised_request_passed": 20,
+      "complete_scenarios": 18,
+      "partial_scenarios": 0,
+      "original_scenario_passed": 18,
+      "revised_scenario_passed": 18
+    }
+  },
+  "cases": [
+    {
+      "request_id": "single/repeat-1/C01",
+      "case_id": "C01",
+      "base_case_id": "C01",
+      "scenario_id": "single/repeat-1/C01",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C01",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "8c4d5dcc6ff494a7fa271c56fa75ff71d19f713fee5e081e1a6a4d28d7b0978a",
+        "trace.jsonl": "6554cfbc660e0ee1ddebed26106e98e9fbf150d17d0826b5d22fc962138cf97e",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "bf1226254722a575806ecdbc3792a66a6a369cb53796578c3e34f1146de4b7df",
+        "checks.json": "fd05a81f545dc6f2fa4a2bfb486a57bbde3dece18c1da68c2645d94a3af2d024"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C02",
+      "case_id": "C02",
+      "base_case_id": "C02",
+      "scenario_id": "single/repeat-1/C02",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "needs_clarification",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C02",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "301be894536985d61f94d40ebbd8d34cc6b91de12e2649f4d2310917ff0d9b5a",
+        "trace.jsonl": "6c628ea5597d1c2d77362bfdbb7d7c7d8efebb41307dfc6a14136dd6b0fe0cf3",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "991b3cf5ca004c61dee1c8ef977521700545b28c32e4505abf195dbba10d17fd",
+        "checks.json": "91b4e34766c15e599bbca15f841cf2afe9cdacaff3e8ed6e39fc142c697edd9f"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C03",
+      "case_id": "C03",
+      "base_case_id": "C03",
+      "scenario_id": "single/repeat-1/C03",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "insufficient_evidence",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C03",
+      "original_artifact_sha256": {
+        "input.json": "e70249d9715bb7082725d34c6b52bf7a778ed8cbe627f2358f26c06bc5c32fd7",
+        "output.json": "8ab872f9a34f97bbbc0f9fd04e10082cb3e3ab5f694cdee0abaf2af87b00d449",
+        "trace.jsonl": "143f966fde90847ebe47df2837a945c50e3e3f392152b61bef2331a15edf20dd",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "2a21afddc03c238c6169b4e6a3e1204185d421e538e2296a23ff1c42b724d7c2",
+        "checks.json": "802b2c460dcfa1b998d8fa9d91bb0939da3ed59f6db30c36de0ac47a9e334365"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "公司的年终奖按几个月发？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C04",
+      "case_id": "C04",
+      "base_case_id": "C04",
+      "scenario_id": "single/repeat-1/C04",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C04",
+      "original_artifact_sha256": {
+        "input.json": "95b3ce02ba08d7dd8be39126c1d38d6c6c6a1eb50b407c3caa0a35f852c3e6ea",
+        "output.json": "b0b79357e523c93730c912881401fb0d5a04708ac881959acbbae7912e0fb816",
+        "trace.jsonl": "d3277a1cc2ce66226e2855b1530640dc43849be00f0703b15dde389ce53d5a3d",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "c63fef900828e76e419e2b75e7f0ae420013c7e5eca37a54819b034339d112ec",
+        "checks.json": "f3cbaef98f083f4eea99206d5b4f51a13e1f143e9282c519888a6834b56a5122"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "我垫付的费用最迟多久得报账？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C05/turn1",
+      "case_id": "C05",
+      "base_case_id": "C05",
+      "scenario_id": "single/repeat-1/C05",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C05/turn1",
+      "original_artifact_sha256": {
+        "input.json": "59d8b8d8946125146e80b2a72fdaa6c5b2d0475dcb4c4a64fd19c1c0b1c41abb",
+        "output.json": "9722cacd4f0acf8a11b800d9a4362dc1ca5c15576c3d5ea599b6424e490d672f",
+        "trace.jsonl": "8e314abddf4335493a4feb6f549be920fff340cd1f5dee2430195ab8c54babb5",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "157323e2f84ade44d44b4b987bb7f111cf1c4e5b3af47a9140fc64a5901c0ff3",
+        "checks.json": "28bf20184d32e66a7aa7a2afb580c7a33eb065b6d62c495dc2d6fcbd7f4234d3"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "它能导出PDF吗？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C05/turn2",
+      "case_id": "C05-follow-up",
+      "base_case_id": "C05",
+      "scenario_id": "single/repeat-1/C05",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C05/turn2",
+      "original_artifact_sha256": {
+        "input.json": "f6cce212b99dc6ac48f02a8659c635dd94ad57f91e6e42fcbcae79381fe2c8b2",
+        "output.json": "f60fe6a5a997d4097b9e5c301136d196b80f5a4a0ff3d24180c29620f7ab24e1",
+        "trace.jsonl": "276d42ae576a6bee9a60fd540101dec8c0d87a908548878add25a1f114685c56",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "f51a01d90816e505b2553c6ea6fb744fb73414f26c56888c0f242630dc48f0c1",
+        "checks.json": "6c46e22b0fb19a338671f40a729b59152bca166c2dc6e600dbe500a53ee3fece"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "那专业版呢？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          },
+          {
+            "role": "user",
+            "content": "它能导出PDF吗？"
+          },
+          {
+            "role": "assistant",
+            "content": "星影协作标准版不支持导出PDF文件。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C06",
+      "case_id": "C06",
+      "base_case_id": "C06",
+      "scenario_id": "single/repeat-1/C06",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C06",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "c7045cee1ece7358c02667e04c12d4d51deed991bd3c825e99670e1eb71c298a",
+        "trace.jsonl": "5e102232a938898869d147c823b30ceb3e4394fef65324c48590b6bdcd13ffdb",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "0ca1bf0cc6175d536a958947cda410c82089cff56172efbf9cf189f1b2e3b9fa",
+        "checks.json": "7405dd2f100c4b9206e099c5288bc916aa4245b3c46bf30998705edc0389f487"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C07",
+      "case_id": "C07",
+      "base_case_id": "C07",
+      "scenario_id": "single/repeat-1/C07",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "tool_error",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C07",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "a258fee08f58d1ed8b93ad9795342c70c049fe56c9a413c44c5b3f257b32adbf",
+        "trace.jsonl": "8c919e30bd16d02a4cfadb89a47917ddde201e973af9c1d96c9a86c3c6725bf2",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "45c7730818b2af8e05ebbc89a9ef8e5bcd9fe02b02b31a020a38ba54d417e9c7",
+        "checks.json": "8b46ac1d9748d40dd595344eb851200dcbc3624eb1bbafe5eb3af5b9f641f87d"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C08",
+      "case_id": "C08",
+      "base_case_id": "C08",
+      "scenario_id": "single/repeat-1/C08",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C08",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "1f106d4385bb1df49dac38bae569df1e62d160921a5dc6f5efcf401f2d115e71",
+        "trace.jsonl": "4f57084f9b93a37be9047775dc77e89396807026165b68dca6c4fb24783e20f9",
+        "corpus_snapshot.json": "79f59669510494355a80eb8cf012734ec8f56af5d036fcc6b2715e9ffc3e2019",
+        "metadata.json": "6b90c654e8a100b91d3a606ebd2e6546b55070a933f07dfbb604011c4500fb72",
+        "checks.json": "fd940789058a2aa9e3cdbaa59699cab88be626fbd887e086b9c9c4b6918d2a5b"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "95293a8a4b8e0deb9b6453a17c247b7596a435d2d638430cf1295c28d11c81ff",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/C09",
+      "case_id": "C09",
+      "base_case_id": "C09",
+      "scenario_id": "single/repeat-1/C09",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C09",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "399edab0383be5ec58778414d80efe3dc1a5ef56616b1541a53fd98a679b21d0",
+        "trace.jsonl": "7e36e3659885f74f8613afaabde07d0611316f721c7dfba28ad8974fe4823392",
+        "corpus_snapshot.json": "bcf2dc4960aad0e81f089492cf55c5a98b6a0a7090dee104f16953c46776959b",
+        "metadata.json": "731ea3f5fc29807abf63ca306d07c69349b3a34127dbf3476b1250806d2f6aa1",
+        "checks.json": "63763027404b13bfe12350cd2ef2654c035e7b42f65b7022d422a297f90d2e64"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "163d7b7d39f0527470694a5a22294e137ea112312ad82c3c4863b1ceb9e677b7",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-1/mock-only/C10",
+      "case_id": "C10",
+      "base_case_id": "C10",
+      "scenario_id": "single/repeat-1/mock-only/C10",
+      "model_mode": "mock",
+      "configured_profile": "single",
+      "status": "step_limit",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/mock-only/C10",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "7ffc336ee35f03c39a39e1167293a1535d200a043cadfd82abf90515e83ea09f",
+        "trace.jsonl": "f8c9d31fe0547f0e2947aec4b045b4a1be1a5c3c41b7c892ff8ac26c17847749",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "82b0b38fb5366a9f0ff66e86367e8a49b2bffab939118e120c8fc2854415c339",
+        "checks.json": "139cbe6ad321a87d925b53673496e0ad9e51ae39259565503af3ddc5c5ddf483"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C01",
+      "case_id": "C01",
+      "base_case_id": "C01",
+      "scenario_id": "single/repeat-2/C01",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C01",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "3ba5a1890ff8d407c65ef14e158cf1ee6607636326673ef9ffa8b729bc7fd1bb",
+        "trace.jsonl": "1dae90a11b7bd163ba7af9104669062dc48afcc21044e971b7c76b792cb68a04",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "ef294961865fc98b7f932567d5317fb6da91cbef8f0adc3f853395840e9b374c",
+        "checks.json": "2c657785bbf585f860ae026bc726655ac265808982e528466b4b641308c2c15b"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C02",
+      "case_id": "C02",
+      "base_case_id": "C02",
+      "scenario_id": "single/repeat-2/C02",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "needs_clarification",
+      "original_automated_passed": false,
+      "revised_automated_passed": true,
+      "changed_checks": [
+        {
+          "item": "conflict_followup_search_after_reading_sides",
+          "original": false,
+          "revised": true
+        }
+      ],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C02",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "21415fd9c9fb26af502eae9e6db1f1045b0d042502d0b71e7c28c6269776d1df",
+        "trace.jsonl": "7fefd315a1b010896ee5e7b29bcc73c89bb1b06d95c8566ad57952a6a2fa3751",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "a48202a42ae84d0306aa6d76c6aa859c5c1c664e0c9aafa47000b931001b66fe",
+        "checks.json": "f0e51726a93a281e87af99ed6a00a068f9334a9ac6b292cebcacfb1fa88721b2"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C03",
+      "case_id": "C03",
+      "base_case_id": "C03",
+      "scenario_id": "single/repeat-2/C03",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "insufficient_evidence",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C03",
+      "original_artifact_sha256": {
+        "input.json": "e70249d9715bb7082725d34c6b52bf7a778ed8cbe627f2358f26c06bc5c32fd7",
+        "output.json": "3d7f531770c28c86468936e861928ab3595cf031b37301d9f5758adbb837e70d",
+        "trace.jsonl": "1f7f7095b6f77dfb0cea9c4861a6c6446dbaf7382da818f153a46a68328cb99a",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "f244cf0ddc97f9a928ebdae6fc6269855c5afd864ee343c37e1b28aa71ce97e3",
+        "checks.json": "802b2c460dcfa1b998d8fa9d91bb0939da3ed59f6db30c36de0ac47a9e334365"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "公司的年终奖按几个月发？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C04",
+      "case_id": "C04",
+      "base_case_id": "C04",
+      "scenario_id": "single/repeat-2/C04",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C04",
+      "original_artifact_sha256": {
+        "input.json": "95b3ce02ba08d7dd8be39126c1d38d6c6c6a1eb50b407c3caa0a35f852c3e6ea",
+        "output.json": "8509784485f07cf6eb7328335717d7be551e14d0757f8e707ee9e40441453093",
+        "trace.jsonl": "69551239876887de2d2f31457e06e87b3c5fab1272c7901070f980eb593cee06",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "385ca5f811b946c572298915741dfd46c0f7502eb4c67f35ed72f8e4c7940e0a",
+        "checks.json": "f3cbaef98f083f4eea99206d5b4f51a13e1f143e9282c519888a6834b56a5122"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "我垫付的费用最迟多久得报账？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C05/turn1",
+      "case_id": "C05",
+      "base_case_id": "C05",
+      "scenario_id": "single/repeat-2/C05",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C05/turn1",
+      "original_artifact_sha256": {
+        "input.json": "59d8b8d8946125146e80b2a72fdaa6c5b2d0475dcb4c4a64fd19c1c0b1c41abb",
+        "output.json": "707938481af39c4d7acc4e2a18b6ed720f9eb55761c5bc31c38feb24af277327",
+        "trace.jsonl": "3be0db1ec4a8e8a79f69c26547e7a3ffea8939c06ac45d86de76b1a6d3653ff5",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "20dcd844659e158341503042181c5817ad5bb76bc7765c536b42cf335029d666",
+        "checks.json": "e79db9f7c6ab7c7c6e890e7c4ae21d42de9bd3b2491878cc8cd2097046e8473f"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "它能导出PDF吗？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C05/turn2",
+      "case_id": "C05-follow-up",
+      "base_case_id": "C05",
+      "scenario_id": "single/repeat-2/C05",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C05/turn2",
+      "original_artifact_sha256": {
+        "input.json": "f6cce212b99dc6ac48f02a8659c635dd94ad57f91e6e42fcbcae79381fe2c8b2",
+        "output.json": "8eca1db49caacf8260cf7627c48641a5d809d12f6e623156cacc7f027a00b495",
+        "trace.jsonl": "b5be42a92c327c4c06c588a44e5e3265682a0d94593744883f077d82aa4bd07a",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "8bfe4b529374bbb0b33f1efc4487ae9a4dada839c5f32434d8e3200ceee1446d",
+        "checks.json": "efd7d692fe016afe3a044191513a7a78feb5bbcb054fef75bc31c704a95b8d4a"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "那专业版呢？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          },
+          {
+            "role": "user",
+            "content": "它能导出PDF吗？"
+          },
+          {
+            "role": "assistant",
+            "content": "星影协作标准版不支持导出PDF文件。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C06",
+      "case_id": "C06",
+      "base_case_id": "C06",
+      "scenario_id": "single/repeat-2/C06",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C06",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "3ba5a1890ff8d407c65ef14e158cf1ee6607636326673ef9ffa8b729bc7fd1bb",
+        "trace.jsonl": "0b2c458b897481a66105666241c5e8ae320a6499e8c99cf3cae524f656f72cc5",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "cc3d5938b7e06c7c6794dc30c7b74ad8fc0831a673698bf0dd9cadfbc6701f48",
+        "checks.json": "c95116d6c9d88022edb09da7400d550d35514fa7633bdd3f9d746a2cc9bfa81f"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C07",
+      "case_id": "C07",
+      "base_case_id": "C07",
+      "scenario_id": "single/repeat-2/C07",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "tool_error",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C07",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "a258fee08f58d1ed8b93ad9795342c70c049fe56c9a413c44c5b3f257b32adbf",
+        "trace.jsonl": "1f0f9634f394748834cdae4d4486e8372bebaaa6c3cf484478de81e1a78b9bfd",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "54335e5bed7c7fec9fb9e357c30fca9c141a6cafbc43d0ba67e4141416c75ba0",
+        "checks.json": "2c8bdb41317b4ffe4d9465d91e5b9e72f0b34596b1696eb8c068415b4e0d3248"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C08",
+      "case_id": "C08",
+      "base_case_id": "C08",
+      "scenario_id": "single/repeat-2/C08",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C08",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "ea696edc004533695a8ec83b807c85682dfd2ed8a6f06a58f1d9b7e652da7488",
+        "trace.jsonl": "fbc80ebf1998a62d7542db88a19a75f40a1cb412e8437bc48d7a4d1acef4e25b",
+        "corpus_snapshot.json": "79f59669510494355a80eb8cf012734ec8f56af5d036fcc6b2715e9ffc3e2019",
+        "metadata.json": "7bf4fec438a2a9a37343296eebb0dd57b18546874de7123e1f2df89b6a074b6a",
+        "checks.json": "a200cf35cc0bf52362d806541ec97d40639e23e0096379ad5462c4528f2b614e"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "95293a8a4b8e0deb9b6453a17c247b7596a435d2d638430cf1295c28d11c81ff",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/C09",
+      "case_id": "C09",
+      "base_case_id": "C09",
+      "scenario_id": "single/repeat-2/C09",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/C09",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "44b4d67c98692cb236b8c4a21492af058030b01f6a32955d2da15f1421685788",
+        "trace.jsonl": "9f2b4c22ea0a0963d05a56d3dc70c79d6d67aea718da6e12325a3ccd3d40066a",
+        "corpus_snapshot.json": "bcf2dc4960aad0e81f089492cf55c5a98b6a0a7090dee104f16953c46776959b",
+        "metadata.json": "44998f7c6b2506eb89a07c4bcf42f81815dbf7ea6a604e165cde54da013a3ec6",
+        "checks.json": "63763027404b13bfe12350cd2ef2654c035e7b42f65b7022d422a297f90d2e64"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "163d7b7d39f0527470694a5a22294e137ea112312ad82c3c4863b1ceb9e677b7",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "single/repeat-2/mock-only/C10",
+      "case_id": "C10",
+      "base_case_id": "C10",
+      "scenario_id": "single/repeat-2/mock-only/C10",
+      "model_mode": "mock",
+      "configured_profile": "single",
+      "status": "step_limit",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/mock-only/C10",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "7ffc336ee35f03c39a39e1167293a1535d200a043cadfd82abf90515e83ea09f",
+        "trace.jsonl": "0a3ea3898056783b28ddd306ea96353b721d02a14ff146cffebe9e361fc92289",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "335295c54f4243954ff73cc18710c29bb075e6e0d38c73585568855c3388fae6",
+        "checks.json": "139cbe6ad321a87d925b53673496e0ad9e51ae39259565503af3ddc5c5ddf483"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C01",
+      "case_id": "C01",
+      "base_case_id": "C01",
+      "scenario_id": "split/repeat-1/C01",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C01",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "22b84812bf196757fadb18feca10524bc39d10860df646df111d27f97698fddc",
+        "trace.jsonl": "40c413ca52d0631342f2570364950db1b725543e86b894235636855b06ea3591",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "85372064c833df9659d53c70f708f0f7d8e935c4589a0217deb9072065af98c6",
+        "checks.json": "eaea2ef454885149af0ede8c588313bad5a0c0de1c22a6102ee74d189545f035"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C02",
+      "case_id": "C02",
+      "base_case_id": "C02",
+      "scenario_id": "split/repeat-1/C02",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "needs_clarification",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C02",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "5959d50159923246bb34031282a853360845064ed7b8773e8d4cfc529be1e236",
+        "trace.jsonl": "6d624de58e7b3e59ecb1c7b73eebce5bec16fa029c4fff0413a82d71236ab63e",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "1298c109eb4d1ff68cc2484cf0867991fd9eb008bed17381037517be511f9785",
+        "checks.json": "632da9794506ebe73a91e1903bd390414a2510f38faad71a9295e3e3f317f9a3"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C03",
+      "case_id": "C03",
+      "base_case_id": "C03",
+      "scenario_id": "split/repeat-1/C03",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "insufficient_evidence",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C03",
+      "original_artifact_sha256": {
+        "input.json": "e70249d9715bb7082725d34c6b52bf7a778ed8cbe627f2358f26c06bc5c32fd7",
+        "output.json": "cda3d05d0b40c9560c1ff47564332cb4410e3f73fce0d22440377333ce8010dd",
+        "trace.jsonl": "731fa6b7349d7089c9f9d3a13ef389d06bbcdde79e32268f3859a787ee826f65",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "efc11f2db9515fb0da751f43af8f8f4815d95bc5f1c6ad44400ec0235d39bce1",
+        "checks.json": "100daff1293e31c0e50140d1faaf048e349e47e57827541548c13508cc4bf955"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "公司的年终奖按几个月发？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C04",
+      "case_id": "C04",
+      "base_case_id": "C04",
+      "scenario_id": "split/repeat-1/C04",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C04",
+      "original_artifact_sha256": {
+        "input.json": "95b3ce02ba08d7dd8be39126c1d38d6c6c6a1eb50b407c3caa0a35f852c3e6ea",
+        "output.json": "40623159e0861eb8b5ff1f7c38fe067daaf946cda81cbe5b4df19e41e71d2716",
+        "trace.jsonl": "a67e66e43b246965fe07502b2b8464c5a416f35c0e1b9db4e7d2cbad6c4fce6c",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "0178868dec748cf914da564029c85115af04eb8aebdfb860e1df16b6706e06f7",
+        "checks.json": "2fdeb1d0f00c3baafa48773c3d40c3f417614529ec873c32ab7dc3cec93c22bd"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "我垫付的费用最迟多久得报账？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C05/turn1",
+      "case_id": "C05",
+      "base_case_id": "C05",
+      "scenario_id": "split/repeat-1/C05",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C05/turn1",
+      "original_artifact_sha256": {
+        "input.json": "59d8b8d8946125146e80b2a72fdaa6c5b2d0475dcb4c4a64fd19c1c0b1c41abb",
+        "output.json": "b2a32d479d0e383eb38c55eede45aae3244dc55d377416cb2c0e0e38af335582",
+        "trace.jsonl": "35793051612786b153eacdfc8292f4a44cea9432b9aa7200f309daab21b1379b",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "616ccd71bb510767b0b3f19049f15da6dfe1cb2e82e0cef26aa14033d408c563",
+        "checks.json": "af63aed1f9bc44a839daf8d8bcfe4d49deec9dff69cabc76c3f9fef3f7069049"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "它能导出PDF吗？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C05/turn2",
+      "case_id": "C05-follow-up",
+      "base_case_id": "C05",
+      "scenario_id": "split/repeat-1/C05",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C05/turn2",
+      "original_artifact_sha256": {
+        "input.json": "f6cce212b99dc6ac48f02a8659c635dd94ad57f91e6e42fcbcae79381fe2c8b2",
+        "output.json": "76bb825c593423b5b9ff08161311928ab270a75298dd23bb81c7172499e82ef9",
+        "trace.jsonl": "8cfec81ac79bdb9bf8e2b58ae21dc808a30784f57e29229c14c5217afcfe11a2",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "79ce8d76fee6003d3a19a934eb97e20270110ee2db26a3658d1201a29f1f25e0",
+        "checks.json": "f9b06931efbed05a8f0105bd2c3acbf98bdf0201b83c86d0718eaae985caf66b"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "那专业版呢？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          },
+          {
+            "role": "user",
+            "content": "它能导出PDF吗？"
+          },
+          {
+            "role": "assistant",
+            "content": "星影协作标准版不支持导出PDF文件。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C06",
+      "case_id": "C06",
+      "base_case_id": "C06",
+      "scenario_id": "split/repeat-1/C06",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C06",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "c9ce00769cdf43fdf4658c87e8286438f02567bda1fd3e137560e037820f1f21",
+        "trace.jsonl": "989689e7c0df8f927bf7a0a3c5ae7780be852510b6417f67ff8765a0bc0a1f39",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "b9b29a616b672db1ac54d7465fa39d789794618bae87afe3d009bfe7bb8c7e08",
+        "checks.json": "f3cf26fb53e4bbca0cac840a5c00e89421fa32487c98579a40f497f16d54a4d1"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C07",
+      "case_id": "C07",
+      "base_case_id": "C07",
+      "scenario_id": "split/repeat-1/C07",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "tool_error",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C07",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "a258fee08f58d1ed8b93ad9795342c70c049fe56c9a413c44c5b3f257b32adbf",
+        "trace.jsonl": "95adf7195aaaf38e7692bfb790eceb4acf325c8f6b4c0e9bc7b6006f1eede9db",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "fc6f2647e0756593fa02b525ca694bb5286608b8bfc594e0850a9ed38bb685d7",
+        "checks.json": "a6ef3a60a326aa28bd76c284e0ae98d7f3fa333ae2c917cd51ef228a19427c0a"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C08",
+      "case_id": "C08",
+      "base_case_id": "C08",
+      "scenario_id": "split/repeat-1/C08",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C08",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "7d73428ca383db3bd6693dbb614e6bd8f5cba7d7d918416a2d62dc99b293e1f2",
+        "trace.jsonl": "4d7c09be794f2e6f9a771be04f077ad8cdd946eb0214ae43bc0964b9895b647e",
+        "corpus_snapshot.json": "79f59669510494355a80eb8cf012734ec8f56af5d036fcc6b2715e9ffc3e2019",
+        "metadata.json": "13f472370233ef64695343871fd1aa6c3f0e10f500457ba3e7ea7055a2f78be2",
+        "checks.json": "99f38ec235ce5d402160870579c12fd37e163de72b6ef8ebe809726d188911f3"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "95293a8a4b8e0deb9b6453a17c247b7596a435d2d638430cf1295c28d11c81ff",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/C09",
+      "case_id": "C09",
+      "base_case_id": "C09",
+      "scenario_id": "split/repeat-1/C09",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C09",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "6cfb60ba88897ab9b7681b7c7cfa3e1303b05c40b04df0c2fc8694a4b177e561",
+        "trace.jsonl": "d83e7c8d49e1e45f7fe7dbef91f45d95fa92dbad5fa8fb53e9f3c91daae0213c",
+        "corpus_snapshot.json": "bcf2dc4960aad0e81f089492cf55c5a98b6a0a7090dee104f16953c46776959b",
+        "metadata.json": "a875ae0e8e4664e6618150b59463a6444a98c7a702ff28e76952c4f273cdd03a",
+        "checks.json": "2c2a40a6b62d7c7366047f9ff8e1ac5743f91705e72ad0c0df3e8996cd530804"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "163d7b7d39f0527470694a5a22294e137ea112312ad82c3c4863b1ceb9e677b7",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-1/mock-only/C10",
+      "case_id": "C10",
+      "base_case_id": "C10",
+      "scenario_id": "split/repeat-1/mock-only/C10",
+      "model_mode": "mock",
+      "configured_profile": "split",
+      "status": "step_limit",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/mock-only/C10",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "7ffc336ee35f03c39a39e1167293a1535d200a043cadfd82abf90515e83ea09f",
+        "trace.jsonl": "d1547031ef59ffc9debb5aac4417636978d719e7147a865064e461320dfd7b2d",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "7349369f3cb92e25e63abbfd70b9f1fc17279de4eaf0b337c4fd59c161cdb0c2",
+        "checks.json": "139cbe6ad321a87d925b53673496e0ad9e51ae39259565503af3ddc5c5ddf483"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C01",
+      "case_id": "C01",
+      "base_case_id": "C01",
+      "scenario_id": "split/repeat-2/C01",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C01",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "c7045cee1ece7358c02667e04c12d4d51deed991bd3c825e99670e1eb71c298a",
+        "trace.jsonl": "24981f128e4a17b6135ab54d31b35e89c9f80ff69487b746e7cf81c56b469218",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "c587a2d25a6afbac1d14fa4adfd7f577e46b7ab993b6f00d6fc197d34e7a1526",
+        "checks.json": "eaea2ef454885149af0ede8c588313bad5a0c0de1c22a6102ee74d189545f035"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C02",
+      "case_id": "C02",
+      "base_case_id": "C02",
+      "scenario_id": "split/repeat-2/C02",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "needs_clarification",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C02",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "07c294fcdd1991f8e47c68243caa1adf2ef0863c0f0aa109c1d632cfc6ac5840",
+        "trace.jsonl": "adb070f42221bf46ad6922a71b93665e76a7833df2af7c46d8f082b8eb78fed1",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "96baf714476295923247bafbf0281d237e69eb14279cf713f717ca6faddc0a9b",
+        "checks.json": "5bac5811225969d3d68e3f7c6a38bbbeac85c1f95350d8e340f038154058f29a"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C03",
+      "case_id": "C03",
+      "base_case_id": "C03",
+      "scenario_id": "split/repeat-2/C03",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "insufficient_evidence",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C03",
+      "original_artifact_sha256": {
+        "input.json": "e70249d9715bb7082725d34c6b52bf7a778ed8cbe627f2358f26c06bc5c32fd7",
+        "output.json": "c1f48ca2bb8f46ad4c931cbfe5227b52fa58bb9c4cfc886749bfd3f18d8b9aeb",
+        "trace.jsonl": "f541b67897511f571cfc29d755bc41d6d45b6394bac7b663f8a1cac25bb2adde",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "b3312c6988278106a8f0972f7e35baf2591480af0d479a61bee4ee8d7bcbc961",
+        "checks.json": "0ac1760c67928cdbf28d7383a0fe8180f15729e0b6e79ef717075173437f5480"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "公司的年终奖按几个月发？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C04",
+      "case_id": "C04",
+      "base_case_id": "C04",
+      "scenario_id": "split/repeat-2/C04",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C04",
+      "original_artifact_sha256": {
+        "input.json": "95b3ce02ba08d7dd8be39126c1d38d6c6c6a1eb50b407c3caa0a35f852c3e6ea",
+        "output.json": "047709f10e1f3a7660eef530eeef5bba9596cc058e0631971adf119965610193",
+        "trace.jsonl": "d33b8ba920e6ee81c2b1760af4d2ec5fdd3569cd8a16f450fca73bc6d22f7604",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "a688d8831d1bc13cccd6f9213c0549610acdcf7fc6eb400b5f76200eab7ae4c3",
+        "checks.json": "26f3980aa7cae6fdec5fc7aca22b283ae3856c750ec6fdc249f0ffc94d976f25"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "我垫付的费用最迟多久得报账？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C05/turn1",
+      "case_id": "C05",
+      "base_case_id": "C05",
+      "scenario_id": "split/repeat-2/C05",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C05/turn1",
+      "original_artifact_sha256": {
+        "input.json": "59d8b8d8946125146e80b2a72fdaa6c5b2d0475dcb4c4a64fd19c1c0b1c41abb",
+        "output.json": "7fe56e5e4c7730b23be0e7bed053051c5e9b9da3e828d336b27144913debf01a",
+        "trace.jsonl": "78f88be6b0ec30465e672f13eabf7aafa26d912ada5c3a8568ec365e8465d052",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "dcc4c8b67c6e40f13d6f7079431ed0e94bac587a2fe28c01589674c9cde3b3de",
+        "checks.json": "a4cb61b4c9e09b38944ef504d7db8fed03dc27c116179da354a6c98e46625351"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "它能导出PDF吗？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C05/turn2",
+      "case_id": "C05-follow-up",
+      "base_case_id": "C05",
+      "scenario_id": "split/repeat-2/C05",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C05/turn2",
+      "original_artifact_sha256": {
+        "input.json": "f6cce212b99dc6ac48f02a8659c635dd94ad57f91e6e42fcbcae79381fe2c8b2",
+        "output.json": "929a8a89cdb0638bb20ba9cb891923bd72a8463c8276d96a781ad14e8b5dd3d9",
+        "trace.jsonl": "38762551dbfafb116b454dc93b3b5b03be9c1a322f88a91266fac17b0a9c38a2",
+        "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+        "metadata.json": "5e16dbb93bfc29132039488c7e7415db597468f7d8f05b875e108003e9c6a448",
+        "checks.json": "f9b06931efbed05a8f0105bd2c3acbf98bdf0201b83c86d0718eaae985caf66b"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+      "actual_input": {
+        "question": "那专业版呢？",
+        "history": [
+          {
+            "role": "user",
+            "content": "我用的是星影协作标准版。"
+          },
+          {
+            "role": "user",
+            "content": "它能导出PDF吗？"
+          },
+          {
+            "role": "assistant",
+            "content": "星影协作标准版不支持导出PDF文件。"
+          }
+        ]
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C06",
+      "case_id": "C06",
+      "base_case_id": "C06",
+      "scenario_id": "split/repeat-2/C06",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C06",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "c46b887df063b129ab782ff0ce14a23e779f1feef0b8abb65469c686cd0beb7e",
+        "trace.jsonl": "c60e5e2b12ef10bd913091406d47dadbd0be35773fa7c0dd375a601734c2b4f5",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "41d805f89d7e9e652bfafce137e29bd85f96cf3b7ade522d6263344cf1335351",
+        "checks.json": "f3cf26fb53e4bbca0cac840a5c00e89421fa32487c98579a40f497f16d54a4d1"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C07",
+      "case_id": "C07",
+      "base_case_id": "C07",
+      "scenario_id": "split/repeat-2/C07",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "tool_error",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C07",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "a258fee08f58d1ed8b93ad9795342c70c049fe56c9a413c44c5b3f257b32adbf",
+        "trace.jsonl": "2cb71bda72cd0d5f10ee42d0545f09df955a223fead1cad8f66de3ce76843c8d",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "55556438f740bfbf5b3c85fdc0958e4dbaaffe43a0fac777b7004f1d151e5b6a",
+        "checks.json": "90ce0a76072958bee0bafba3fe762833e12a6c40a8e665c1825c4616f802775d"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C08",
+      "case_id": "C08",
+      "base_case_id": "C08",
+      "scenario_id": "split/repeat-2/C08",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C08",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "4f1eba0f12c8ce9b69a33b27a267c474c3246d27955fd3570de7239a64ddfe93",
+        "trace.jsonl": "749d97797587334507baed10ebdd9381dfd637b8a10b33fefc45bbb2b9a3249f",
+        "corpus_snapshot.json": "79f59669510494355a80eb8cf012734ec8f56af5d036fcc6b2715e9ffc3e2019",
+        "metadata.json": "62d0a486502bf9757b288e1adad10b57b0265b37ccff703f1ecf283145ee69c8",
+        "checks.json": "20bd6812b3aa72af970c888da75986967c6ce17ca1ecafa128d88d963d7105d7"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "95293a8a4b8e0deb9b6453a17c247b7596a435d2d638430cf1295c28d11c81ff",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/C09",
+      "case_id": "C09",
+      "base_case_id": "C09",
+      "scenario_id": "split/repeat-2/C09",
+      "model_mode": "real",
+      "configured_profile": "split",
+      "status": "answered",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/C09",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "f1e2a0da16faa7243fcbe8ae502e02367799a368a1c4446b3f558d51d03338a7",
+        "trace.jsonl": "3e68b0505243f48e833d9b25a619314158df8979634ba8fa48f99e6bdfe0b498",
+        "corpus_snapshot.json": "bcf2dc4960aad0e81f089492cf55c5a98b6a0a7090dee104f16953c46776959b",
+        "metadata.json": "9c79774cc665e3034456fd9f41cb885446867d0d8595e97f7c2ea35881ff5a96",
+        "checks.json": "2c2a40a6b62d7c7366047f9ff8e1ac5743f91705e72ad0c0df3e8996cd530804"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "163d7b7d39f0527470694a5a22294e137ea112312ad82c3c4863b1ceb9e677b7",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    },
+    {
+      "request_id": "split/repeat-2/mock-only/C10",
+      "case_id": "C10",
+      "base_case_id": "C10",
+      "scenario_id": "split/repeat-2/mock-only/C10",
+      "model_mode": "mock",
+      "configured_profile": "split",
+      "status": "step_limit",
+      "original_automated_passed": true,
+      "revised_automated_passed": true,
+      "changed_checks": [],
+      "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/mock-only/C10",
+      "original_artifact_sha256": {
+        "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+        "output.json": "7ffc336ee35f03c39a39e1167293a1535d200a043cadfd82abf90515e83ea09f",
+        "trace.jsonl": "318fcb0ca2f7bc192eace5067ef32ca072ec3c3b419042b3826b0651b34d59fc",
+        "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+        "metadata.json": "4d9336bd67be1fcb9bee2f7f6b925a824b3484ea6eab15172bed61b6d250fdbf",
+        "checks.json": "139cbe6ad321a87d925b53673496e0ad9e51ae39259565503af3ddc5c5ddf483"
+      },
+      "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+      "original_prompt_hashes": {
+        "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+        "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+        "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+        "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+        "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+        "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+      },
+      "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+      "actual_input": {
+        "question": "报销期限多久？",
+        "history": []
+      },
+      "acceptance_status": "pending_human_review"
+    }
+  ],
+  "mutations": [
+    {
+      "group": "single/repeat-1",
+      "baseline": "C01",
+      "changed": "C08",
+      "kind": "value_changed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "new_value_quoted": true,
+        "old_value_not_quoted": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": true,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/mutation-comparisons.json",
+      "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+      "model_mode": "real",
+      "human_review": "pending"
+    },
+    {
+      "group": "single/repeat-1",
+      "baseline": "C02",
+      "changed": "C09",
+      "kind": "conflict_removed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "decision_changed": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": true,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/mutation-comparisons.json",
+      "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+      "model_mode": "real",
+      "human_review": "pending"
+    },
+    {
+      "group": "single/repeat-2",
+      "baseline": "C01",
+      "changed": "C08",
+      "kind": "value_changed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "new_value_quoted": true,
+        "old_value_not_quoted": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": true,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/mutation-comparisons.json",
+      "original_artifact_sha256": "961cae5edcfd08c5e9e2245dc0d52f846a6382514f965739614b198daec29398",
+      "model_mode": "real",
+      "human_review": "pending"
+    },
+    {
+      "group": "single/repeat-2",
+      "baseline": "C02",
+      "changed": "C09",
+      "kind": "conflict_removed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "decision_changed": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": false,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/mutation-comparisons.json",
+      "original_artifact_sha256": "961cae5edcfd08c5e9e2245dc0d52f846a6382514f965739614b198daec29398",
+      "model_mode": "real",
+      "human_review": "pending"
+    },
+    {
+      "group": "split/repeat-1",
+      "baseline": "C01",
+      "changed": "C08",
+      "kind": "value_changed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "new_value_quoted": true,
+        "old_value_not_quoted": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": true,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/mutation-comparisons.json",
+      "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+      "model_mode": "real",
+      "human_review": "pending"
+    },
+    {
+      "group": "split/repeat-1",
+      "baseline": "C02",
+      "changed": "C09",
+      "kind": "conflict_removed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "decision_changed": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": true,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/mutation-comparisons.json",
+      "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+      "model_mode": "real",
+      "human_review": "pending"
+    },
+    {
+      "group": "split/repeat-2",
+      "baseline": "C01",
+      "changed": "C08",
+      "kind": "value_changed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "new_value_quoted": true,
+        "old_value_not_quoted": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": true,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/mutation-comparisons.json",
+      "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+      "model_mode": "real",
+      "human_review": "pending"
+    },
+    {
+      "group": "split/repeat-2",
+      "baseline": "C02",
+      "changed": "C09",
+      "kind": "conflict_removed",
+      "status": "completed",
+      "checks": {
+        "corpus_hash_changed": true,
+        "answer_changed": true,
+        "both_runs_pass_automated_checks": true,
+        "decision_changed": true
+      },
+      "automated_passed": true,
+      "original_automated_passed": true,
+      "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/mutation-comparisons.json",
+      "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+      "model_mode": "real",
+      "human_review": "pending"
+    }
+  ],
+  "human_review": "pending",
+  "limitation": "离线复核只改变评测口径，不是新的模型运行；自动初筛不替代答案/引用语义与用户验收。"
+}

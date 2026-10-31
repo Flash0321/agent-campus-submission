@@ -1,0 +1,11 @@
+{
+  "answer": "当前检索未找到关于公司年终奖发放月份数量的制度或产品资料。",
+  "citations": [],
+  "gaps": [
+    "年终奖发放的具体月份数量"
+  ],
+  "status": "insufficient_evidence",
+  "reason_code": "no_matching_documents",
+  "follow_up_question": "请问您是否知道该政策所属的制度名称、发布年份，或可提供相关通知/邮件截图？这有助于我们进一步定位资料。",
+  "decision_summary": "两次检索Query均未返回任何结果，确认当前知识库中无匹配文档支持该问题"
+}

@@ -1,0 +1,11 @@
+{
+  "answer": "本次检索未找到能回答‘公司的年终奖按几个月发？’的资料。",
+  "citations": [],
+  "gaps": [
+    "公司现行年终奖发放月数的具体规定"
+  ],
+  "status": "insufficient_evidence",
+  "reason_code": "no_support_found",
+  "follow_up_question": "请问您所在部门或职级是否有特定的年终奖政策？或者是否可提供相关制度文件名称或编号以便进一步查找？",
+  "decision_summary": "两次检索均未返回任何候选文档，确认当前知识库中无直接支持该问题的资料"
+}

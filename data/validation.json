@@ -1,0 +1,460 @@
+{
+  "checked_at": "2026-10-31T10:46:50.659075+08:00",
+  "kind": "static_data_validation",
+  "model_calls": 0,
+  "passed": true,
+  "check_count": 111,
+  "checks": [
+    {
+      "check": "resolved:unique_doc_ids",
+      "passed": true
+    },
+    {
+      "check": "resolved:unique_chunk_ids",
+      "passed": true
+    },
+    {
+      "check": "resolved:synthetic_and_required_fields",
+      "passed": true
+    },
+    {
+      "check": "resolved:no_evaluation_fields",
+      "passed": true
+    },
+    {
+      "check": "resolved:unknown_scope_retained",
+      "passed": true
+    },
+    {
+      "check": "changed_value:unique_doc_ids",
+      "passed": true
+    },
+    {
+      "check": "changed_value:unique_chunk_ids",
+      "passed": true
+    },
+    {
+      "check": "changed_value:synthetic_and_required_fields",
+      "passed": true
+    },
+    {
+      "check": "changed_value:no_evaluation_fields",
+      "passed": true
+    },
+    {
+      "check": "changed_value:unknown_scope_retained",
+      "passed": true
+    },
+    {
+      "check": "conflict:unique_doc_ids",
+      "passed": true
+    },
+    {
+      "check": "conflict:unique_chunk_ids",
+      "passed": true
+    },
+    {
+      "check": "conflict:synthetic_and_required_fields",
+      "passed": true
+    },
+    {
+      "check": "conflict:no_evaluation_fields",
+      "passed": true
+    },
+    {
+      "check": "conflict:unknown_scope_retained",
+      "passed": true
+    },
+    {
+      "check": "single_source:unique_doc_ids",
+      "passed": true
+    },
+    {
+      "check": "single_source:unique_chunk_ids",
+      "passed": true
+    },
+    {
+      "check": "single_source:synthetic_and_required_fields",
+      "passed": true
+    },
+    {
+      "check": "single_source:no_evaluation_fields",
+      "passed": true
+    },
+    {
+      "check": "single_source:unknown_scope_retained",
+      "passed": true
+    },
+    {
+      "check": "consistent:unique_doc_ids",
+      "passed": true
+    },
+    {
+      "check": "consistent:unique_chunk_ids",
+      "passed": true
+    },
+    {
+      "check": "consistent:synthetic_and_required_fields",
+      "passed": true
+    },
+    {
+      "check": "consistent:no_evaluation_fields",
+      "passed": true
+    },
+    {
+      "check": "consistent:unknown_scope_retained",
+      "passed": true
+    },
+    {
+      "check": "acceptance_ids",
+      "passed": true
+    },
+    {
+      "check": "development_count",
+      "passed": true
+    },
+    {
+      "check": "C01:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C01:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C01:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C02:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C02:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C02:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C03:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C03:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C03:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C04:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C04:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C04:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C05:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C05:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C05:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C05:evidence_1",
+      "passed": true
+    },
+    {
+      "check": "C06:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C06:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C06:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C07:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C07:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C07:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C08:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C08:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C08:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C09:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C09:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C09:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C10:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "C10:draft_review",
+      "passed": true
+    },
+    {
+      "check": "C10:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "DEV01:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "DEV01:draft_review",
+      "passed": true
+    },
+    {
+      "check": "DEV01:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "DEV02:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "DEV02:draft_review",
+      "passed": true
+    },
+    {
+      "check": "DEV02:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "DEV03:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "DEV03:draft_review",
+      "passed": true
+    },
+    {
+      "check": "DEV03:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "DEV04:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "DEV04:draft_review",
+      "passed": true
+    },
+    {
+      "check": "DEV04:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "DEV05:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "DEV05:draft_review",
+      "passed": true
+    },
+    {
+      "check": "DEV05:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "DEV06:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "DEV06:draft_review",
+      "passed": true
+    },
+    {
+      "check": "DEV06:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "X01:input_isolation",
+      "passed": true
+    },
+    {
+      "check": "X01:draft_review",
+      "passed": true
+    },
+    {
+      "check": "X01:evidence_0",
+      "passed": true
+    },
+    {
+      "check": "C03.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "outside.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C02.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "normal.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "context_follow_up.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C05.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C09.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C08.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C04.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C07.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "conflict.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C10.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C06.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C01.json:online_input_only",
+      "passed": true
+    },
+    {
+      "check": "C05_no_fabricated_assistant",
+      "passed": true
+    },
+    {
+      "check": "C08_same_id_date",
+      "passed": true
+    },
+    {
+      "check": "C08_only_30_to_20",
+      "passed": true
+    },
+    {
+      "check": "C09_only_15_to_30",
+      "passed": true
+    },
+    {
+      "check": "no_D09_in_base_conflict",
+      "passed": true
+    },
+    {
+      "check": "P1_exact_source",
+      "passed": true
+    },
+    {
+      "check": "P2_exact_source",
+      "passed": true
+    },
+    {
+      "check": "P3_exact_source",
+      "passed": true
+    },
+    {
+      "check": "P4_exact_source",
+      "passed": true
+    },
+    {
+      "check": "P5_exact_source",
+      "passed": true
+    },
+    {
+      "check": "P6_exact_source",
+      "passed": true
+    },
+    {
+      "check": "00_试卷要求与验收清单.md:source_untouched",
+      "passed": true
+    },
+    {
+      "check": "00_试卷要求与验收清单.md:archive_exact",
+      "passed": true
+    },
+    {
+      "check": "01_企业知识问答Agent_方案与执行交接.md:source_untouched",
+      "passed": true
+    },
+    {
+      "check": "01_企业知识问答Agent_方案与执行交接.md:archive_exact",
+      "passed": true
+    },
+    {
+      "check": "C06:fault_contract",
+      "passed": true
+    },
+    {
+      "check": "C07:fault_contract",
+      "passed": true
+    },
+    {
+      "check": "DEV06:fault_contract",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "只验证静态数据结构、原文映射、快照差异和提示词归档一致性。",
+    "不证明模型决策质量；用户数据审阅仍待完成。"
+  ],
+  "changes": [
+    "初次集成发现故障配置多出code/retryable，统一为工具已实现的tool/doc_id/times；错误类型由工具生成。"
+  ]
+}

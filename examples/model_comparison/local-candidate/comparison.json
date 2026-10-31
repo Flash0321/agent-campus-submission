@@ -1,0 +1,40 @@
+{
+  "requested_mode": "real",
+  "profiles": {
+    "single": {
+      "real_request_count": 0,
+      "automated_passed": 0,
+      "critical_failures_detected": 0,
+      "mean_elapsed_ms": null,
+      "median_elapsed_ms": null,
+      "mean_p3_ms": null,
+      "fallback_calls": 0,
+      "normalization_valid_count": 0,
+      "normalization_failures": 0,
+      "human_review": "pending"
+    },
+    "split": {
+      "real_request_count": 0,
+      "automated_passed": 0,
+      "critical_failures_detected": 0,
+      "mean_elapsed_ms": null,
+      "median_elapsed_ms": null,
+      "mean_p3_ms": null,
+      "fallback_calls": 0,
+      "normalization_valid_count": 0,
+      "normalization_failures": 0,
+      "human_review": "pending"
+    }
+  },
+  "selected_profile": null,
+  "selection_status": "pending_user_review",
+  "input_pairs": [
+    {
+      "case_id": "C10",
+      "repeat": 1,
+      "same_input": true
+    }
+  ],
+  "controlled_follow_up_history": "C05追问使用single实际首轮形成的相同历史，不使用预期回答；普通验收各自保存完整会话链。",
+  "note": "顺序执行；Mock 耗时不可用于模型速度比较。失败与回退均保留，未运行不记为通过。"
+}

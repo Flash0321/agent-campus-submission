@@ -1,0 +1,11 @@
+{
+  "answer": "必要工具执行失败（TOOL_TIMEOUT），未获得可核验的原文，当前无法回答该业务问题。",
+  "citations": [],
+  "gaps": [
+    "必要工具执行失败（TOOL_TIMEOUT），未获得可核验的原文，当前无法回答该业务问题。"
+  ],
+  "status": "tool_error",
+  "reason_code": "tool_failure",
+  "follow_up_question": "",
+  "decision_summary": "模型观察到工具错误后选择结束；程序仅呈现实际错误，不引用未读取的业务摘要。"
+}

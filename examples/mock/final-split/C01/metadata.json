@@ -1,0 +1,39 @@
+{
+  "run_id": "a81bead3b89a4adf8f2da5aa95d5e8fe",
+  "model_mode": "mock",
+  "tool_mode": "local",
+  "configured_profile": "split",
+  "corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+  "elapsed_ms": 3.319,
+  "model_calls": 4,
+  "tool_calls": 2,
+  "config": {
+    "mode": "mock",
+    "profile": "split",
+    "retrieval_mode": "dual",
+    "max_model_calls": 8,
+    "max_tool_calls": 6,
+    "main_model": "qwen-plus-2025-12-01",
+    "fast_model": "qwen-flash-2025-07-28"
+  },
+  "source_hash": "4c0dacd77d0a10c1a4b05937c8bfe91254d3cbaa996bae44a1df9edca2dfab27",
+  "prompt_hashes": {
+    "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+    "P3.txt": "42024ff821372317425ee6b336230ffada1c92510a21b68e220f670d059a8171",
+    "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+    "P4.txt": "e75e10575fe45932ca7ec6bb72c7b35fb5c128541999396119dbd66758dbf9af",
+    "P5.txt": "8f6be52b6c1573d8e130f77dc44e2bf9606853b8fcb3a3871171ab5ac91db097",
+    "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+  },
+  "normalization": {
+    "intent": "knowledge_question",
+    "original_question": "报销期限多久？",
+    "normalized_query": "报销期限多久？",
+    "keywords": [],
+    "known_context": {},
+    "missing_information": []
+  },
+  "normalization_failed": false,
+  "status": "answered",
+  "configuration_errors": []
+}

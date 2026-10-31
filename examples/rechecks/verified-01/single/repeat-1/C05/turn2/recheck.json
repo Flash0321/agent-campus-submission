@@ -1,0 +1,55 @@
+{
+  "request_id": "single/repeat-1/C05/turn2",
+  "case_id": "C05-follow-up",
+  "base_case_id": "C05",
+  "scenario_id": "single/repeat-1/C05",
+  "model_mode": "real",
+  "configured_profile": "single",
+  "status": "answered",
+  "original_automated_passed": true,
+  "revised_automated_passed": true,
+  "changed_checks": [],
+  "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/C05/turn2",
+  "original_artifact_sha256": {
+    "input.json": "f6cce212b99dc6ac48f02a8659c635dd94ad57f91e6e42fcbcae79381fe2c8b2",
+    "output.json": "f60fe6a5a997d4097b9e5c301136d196b80f5a4a0ff3d24180c29620f7ab24e1",
+    "trace.jsonl": "276d42ae576a6bee9a60fd540101dec8c0d87a908548878add25a1f114685c56",
+    "corpus_snapshot.json": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578",
+    "metadata.json": "f51a01d90816e505b2553c6ea6fb744fb73414f26c56888c0f242630dc48f0c1",
+    "checks.json": "6c46e22b0fb19a338671f40a729b59152bca166c2dc6e600dbe500a53ee3fece"
+  },
+  "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+  "original_prompt_hashes": {
+    "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+    "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+    "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+    "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+    "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+    "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+  },
+  "original_corpus_hash": "a27229c42804a33b60541a2d8e24d7b615389472bebfecf5aac647de2093bc0d",
+  "actual_input": {
+    "question": "那专业版呢？",
+    "history": [
+      {
+        "role": "user",
+        "content": "我用的是星影协作标准版。"
+      },
+      {
+        "role": "user",
+        "content": "它能导出PDF吗？"
+      },
+      {
+        "role": "assistant",
+        "content": "星影协作标准版不支持导出PDF文件。"
+      }
+    ]
+  },
+  "acceptance_status": "pending_human_review",
+  "evaluator_hashes": {
+    "src/checks.py": "71addcda2e920827644add4b5b1680bc1b3a5d40e8ab57d578bb01550101a454",
+    "src/recheck.py": "15f7c6274e65906d2013cd2bf101ca0d069e23f9fc7993b3dce8865faf86064e"
+  },
+  "cases_path": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/data/cases.json",
+  "cases_sha256": "2c3c9bda655915c417b24dea38ace4c8cbf52862e5f9191f9a25fe6e8e7e8518"
+}

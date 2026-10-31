@@ -1,0 +1,11 @@
+{
+  "answer": "当前知识库中未找到关于公司年终奖发放月数的明确规定。",
+  "citations": [],
+  "gaps": [
+    "年终奖具体发放月数"
+  ],
+  "status": "insufficient_evidence",
+  "reason_code": "no_document_found",
+  "follow_up_question": "",
+  "decision_summary": "两次检索（原问题+规范化Query、同义词扩展）均未返回任何候选文档，确认知识库中缺失该信息。"
+}

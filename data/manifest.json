@@ -1,0 +1,184 @@
+{
+  "dataset_version": "2026-10-31-v4",
+  "synthetic": true,
+  "human_review_status": "displayed_key_data_rules_and_results_confirmed_with_limitations",
+  "provenance": "执行Agent依据交接方案P1/P2和种子清单整理；未调用百炼生成数据。",
+  "source_sha256": {
+    "00_试卷要求与验收清单.md": "1b53081f4452b7d79b181cc3e3fde3d4104c97238c4fce26f1f674057a42fdea",
+    "01_企业知识问答Agent_方案与执行交接.md": "a63befb889ae10a484b3bf51a9c708372e6e3865d134a9e22020012850b2cf26"
+  },
+  "counts": {
+    "base_documents": 8,
+    "optional_documents": 1,
+    "development_cases": 6,
+    "acceptance_cases": 10,
+    "optional_cases": 1
+  },
+  "variants": {
+    "single_source": {
+      "document_count": 7,
+      "sha256_file": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b"
+    },
+    "conflict": {
+      "document_count": 8,
+      "sha256_file": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578"
+    },
+    "changed_value": {
+      "document_count": 7,
+      "sha256_file": "79f59669510494355a80eb8cf012734ec8f56af5d036fcc6b2715e9ffc3e2019"
+    },
+    "consistent": {
+      "document_count": 8,
+      "sha256_file": "bcf2dc4960aad0e81f089492cf55c5a98b6a0a7090dee104f16953c46776959b"
+    },
+    "resolved": {
+      "document_count": 9,
+      "sha256_file": "a0edcdd2a09cbd5c36fc74b0533cc393b88b04e7a09e1a626dfc69e8fed78bbc"
+    }
+  },
+  "evaluation_boundary": "开发样例与验收样例共享合成事实，属于功能/回归评测，不证明跨域泛化；expected字段、场景名与故障配置只能留在评测侧。",
+  "prompt_source": "P1/P2/P6与原始方案text代码块一致；P3/P4/P5根据真实失败修订。v4仅进一步修订P4简要依据的证据边界，P3/P5沿用v3。现行文件和原模板哈希分别记录。",
+  "execution_results": "v3 single/split同条件比较已完成，各20次真实请求，原始结果与缺陷保留。用户选择默认全Plus。v4全Plus双次回归examples/real/final-single-v4已完成：18个真实场景执行含20次真实请求，另有2次Mock C10；汇总自动20/20场景初筛通过。两次C03仍存在摘要穷尽性问题，第二轮调用次数表述也不准确；本次未观察到通用范围/主制度/均有效版本推断，不代表普遍保证。用户认可所展示核心结果并要求保留限制。未重做v4 split比较。",
+  "revision_history": [
+    {
+      "version": "2026-10-31-v1",
+      "change": "按原方案种子构建8份基础资料、5种快照、开发与验收用例，提取P1-P6。首次静态检查保存在validation.json，不覆盖历史。"
+    },
+    {
+      "version": "2026-10-31-v2",
+      "change": "根据真实首轮失败修订P3-P5；C09增加acceptable_evidence_sets，区分任一充分证据的支持门槛和全部已标注证据覆盖。该阶段没有改动合成制度事实。"
+    },
+    {
+      "version": "2026-10-31-v3",
+      "change": "登记稳定后的cases和P1-P6哈希；P3/P4继续约束假设性缺失信息、未知范围及参数错误；实现首次有效搜索保留原问题、故障安全呈现和有效冲突补查检查。合成制度事实不变，真实最终比较尚待结果。"
+    },
+    {
+      "version": "2026-10-31-v4",
+      "change": "根据v3真实语义审阅仅修改P4，增加简要依据关于未知范围、文件权威、检索穷尽性和版本效力的正反例，并约束reason_code使用动作事实。用户已选择默认全Plus。合成资料与用例事实不变；修改后完整single回归已完成，实际结果与保留限制见final_regression，不倒改v3结果。"
+    }
+  ],
+  "review_boundary": {
+    "confirmed_behavior_revision": "用户明确回复：认可这一修正：先检索，有证据就回答。",
+    "still_pending": "完整逐行提示词/源码及全部20次请求人工审核未有记录；C09标注调整专项确认不单独声称已完成。代码发布与平台提交尚未完成。",
+    "selected_profile": {
+      "profile": "single",
+      "user_choice": "默认全 Plus（推荐）",
+      "basis": "v3 single/split各20次真实请求对比及已知限制",
+      "scope": "确认默认配置，不等于对全部资料、提示词或业务结果验收。"
+    },
+    "confirmed_key_data_and_rules": {
+      "user_reply": "保留这些数据与规则",
+      "review_material": "docs/review-checkpoints.md",
+      "confirmed_data": [
+        "D01报销30天与D02报销15天；两份scope与priority均为null，表示未知而非通用或自动优先。",
+        "D05标准版支持CSV、不支持PDF；D06专业版支持CSV与PDF。",
+        "合成知识库不收录年终奖月数规则。"
+      ],
+      "confirmed_rules": [
+        "保留否定和产品版次。",
+        "历史assistant结论不能替代本轮原文证据。",
+        "冲突时读取双方并查证适用范围、替代或裁决依据。",
+        "日期较新不自动拥有优先级。"
+      ],
+      "scope_limit": "确认展示的关键数据和规则，不声称完整逐行审阅提示词、源码、全部标注或最终结果。"
+    },
+    "confirmed_key_results": {
+      "user_reply": "认可核心结果，保留限制说明",
+      "confirmed_displayed_results": [
+        "正常问题读取D01后有据回答30天。",
+        "D01/D02冲突时查证并并列引用追问。",
+        "工具失败场景正确区分错误并保留无法核实说明。",
+        "同ID日期正文改20天后答案与引用随之变化。",
+        "冲突内容改为一致后由追问变为回答。"
+      ],
+      "acknowledged_limitations": [
+        "C03摘要仍有检索穷尽性过度表述；第二轮调用次数表述不准确。"
+      ],
+      "scope_limit": "仅确认展示的关键结果与保留限制，不声称逐条人工审核20次真实请求、完整代码或零缺陷。"
+    }
+  },
+  "historical_validation": {
+    "path": "data/validation.json",
+    "sha256_file": "e097ce333363aff0e7ab1603233f86678012fd1be9d66f0c6f547008dd98ef01",
+    "scope": "首版静态校验历史，不代表当前P3-P5仍与原稿一致，也不是当前真实模型通过证明。"
+  },
+  "updated_at": "2026-10-31T11:39:11.443871+08:00",
+  "case_files": {
+    "cases.json": {
+      "sha256_file": "2c3c9bda655915c417b24dea38ace4c8cbf52862e5f9191f9a25fe6e8e7e8518"
+    },
+    "development_cases.json": {
+      "sha256_file": "b673e09a00df7d34c946e1c710305914f8983500ca3dd2928fdced2ca8496a0b"
+    },
+    "optional_cases.json": {
+      "sha256_file": "4e8389cc3365fc2edadafecb68cedd0936a277aec4a93a2dee13a2be7da9fc85"
+    }
+  },
+  "documents_file": {
+    "path": "data/documents.json",
+    "sha256_file": "6aeb5bf3faca167ccefe6bd28fdf2e98736e8dbf434836a6f612c213c309d578"
+  },
+  "prompt_files": {
+    "P1.txt": {
+      "path": "src/prompts/P1.txt",
+      "sha256_file": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+      "original_template_sha256": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+      "matches_original_template": true,
+      "status": "verbatim"
+    },
+    "P2.txt": {
+      "path": "src/prompts/P2.txt",
+      "sha256_file": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+      "original_template_sha256": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+      "matches_original_template": true,
+      "status": "verbatim"
+    },
+    "P3.txt": {
+      "path": "src/prompts/P3.txt",
+      "sha256_file": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+      "original_template_sha256": "42024ff821372317425ee6b336230ffada1c92510a21b68e220f670d059a8171",
+      "matches_original_template": false,
+      "status": "revised_after_real_failures"
+    },
+    "P4.txt": {
+      "path": "src/prompts/P4.txt",
+      "sha256_file": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+      "original_template_sha256": "e75e10575fe45932ca7ec6bb72c7b35fb5c128541999396119dbd66758dbf9af",
+      "matches_original_template": false,
+      "status": "revised_after_semantic_review_v4"
+    },
+    "P5.txt": {
+      "path": "src/prompts/P5.txt",
+      "sha256_file": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+      "original_template_sha256": "8f6be52b6c1573d8e130f77dc44e2bf9606853b8fcb3a3871171ab5ac91db097",
+      "matches_original_template": false,
+      "status": "revised_after_real_failures"
+    },
+    "P6.txt": {
+      "path": "src/prompts/P6.txt",
+      "sha256_file": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1",
+      "original_template_sha256": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1",
+      "matches_original_template": true,
+      "status": "verbatim"
+    }
+  },
+  "final_regression": {
+    "path": "examples/real/final-single-v4/summary.json",
+    "status": "completed",
+    "profile": "single",
+    "repeat": 2,
+    "real_case_runs": 18,
+    "real_requests_including_followups": 20,
+    "mock_C10_runs": 2,
+    "automated_case_runs_passed": 20,
+    "automated_case_runs_total": 20,
+    "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+    "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a",
+    "semantic_limitations": [
+      "C03两次decision_summary把空结果扩大为全库没有支持资料。",
+      "第二轮C03一次search_documents调用含两条Query，摘要称两次检索，调用次数表述不准确。",
+      "必要读取持续失败时最终安全文本仍包含程序错误渲染职责。"
+    ],
+    "comparison_scope": "仅v4 single回归；v3 single/split对比保留原始版本，不视作v4双配置结果。"
+  }
+}

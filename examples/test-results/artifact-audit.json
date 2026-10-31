@@ -1,0 +1,95 @@
+{
+  "source_hash": "be81de4580072a4fffcd32e554a671e5a791af8d37e2e5c53db2931a7a1c4375",
+  "missing_active_document_links": [],
+  "release_run_checks": [
+    {
+      "path": "examples/mock/release-single/C08/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C06/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C01/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C07/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C09/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C02/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C04/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C03/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C10/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C05/turn2/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-single/C05/turn1/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C08/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C06/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C01/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C07/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C09/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C02/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C04/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C03/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C10/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C05/turn2/metadata.json",
+      "source_hash_matches": true
+    },
+    {
+      "path": "examples/mock/release-split/C05/turn1/metadata.json",
+      "source_hash_matches": true
+    }
+  ],
+  "passed": true
+}

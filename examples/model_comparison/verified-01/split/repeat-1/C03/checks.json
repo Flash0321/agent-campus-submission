@@ -1,0 +1,142 @@
+{
+  "case_id": "C03",
+  "model_mode": "real",
+  "tool_mode": "local",
+  "automated_passed": true,
+  "detected_critical_failure": false,
+  "acceptance_status": "pending_human_review",
+  "human_review": {
+    "status": "pending",
+    "required": [
+      "答案与引用的语义支持性",
+      "预期事实与禁止断言",
+      "动作是否合理"
+    ]
+  },
+  "checks": [
+    {
+      "item": "expected_status",
+      "pass": true,
+      "detail": {
+        "expected": [
+          "insufficient_evidence"
+        ],
+        "actual": "insufficient_evidence"
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "nonempty_answer",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "trace_present",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "normalization_preserves_original_question",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "citation_existence_and_read_provenance",
+      "pass": true,
+      "detail": [],
+      "critical_failure": false
+    },
+    {
+      "item": "required_evidence_read",
+      "pass": true,
+      "detail": {
+        "rule": "all_required",
+        "missing_by_group": [
+          []
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "required_evidence_cited",
+      "pass": true,
+      "detail": {
+        "rule": "all_required",
+        "missing_by_group": [
+          []
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "incomplete_or_uncertain_has_gaps",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "observations_forwarded_to_next_model",
+      "pass": true,
+      "detail": [
+        {
+          "trace_index": 6,
+          "tool": "search_documents",
+          "has_later_model_request": true,
+          "observation_forwarded": true
+        }
+      ],
+      "critical_failure": false
+    },
+    {
+      "item": "model_observed_tool_result",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "model_budget_respected",
+      "pass": true,
+      "detail": 3,
+      "critical_failure": false
+    },
+    {
+      "item": "tool_budget_respected",
+      "pass": true,
+      "detail": 1,
+      "critical_failure": false
+    }
+  ],
+  "expectations_for_review": {
+    "expected_claims": [],
+    "forbidden_claims": [
+      "年终奖为1个月",
+      "年终奖为2个月",
+      "年终奖为3个月"
+    ],
+    "behavior_checks": [
+      "实际进行检索，结果不足时必要补查",
+      "明确缺少年终奖制度，gaps非空",
+      "不以一般常识推断本公司年终奖月数"
+    ],
+    "acceptable_evidence_sets": null
+  },
+  "real_dynamic_path_candidate": true,
+  "evidence_coverage": {
+    "read": 0,
+    "cited": 0,
+    "required": 0
+  },
+  "diagnostics": {
+    "first_search_preserved_original": true,
+    "first_successful_search_queries": [
+      "公司的年终奖按几个月发？",
+      "公司年终奖发放月份数量"
+    ],
+    "query_source": "observation.effective_queries",
+    "note": "仅诊断首次成功检索的queries[0]是否逐字保留原问题，不计入自动通过门槛。无成功检索记null。"
+  },
+  "limitation": "自动检查只是初筛；Mock 不证明模型决策效果。最终业务与引用支持性仍需人工对照原文。"
+}

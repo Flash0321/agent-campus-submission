@@ -1,0 +1,10 @@
+{
+  "case_id": "C07",
+  "run_state": "runner_error",
+  "model_mode": "mock",
+  "configured_profile": "single",
+  "error_type": "ValueError",
+  "artifact_dir": "examples/mock/acceptance-v1/C07",
+  "automated_passed": false,
+  "acceptance_status": "runner_error"
+}

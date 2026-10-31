@@ -1,0 +1,17 @@
+{
+  "question": "那专业版呢？",
+  "history": [
+    {
+      "role": "user",
+      "content": "我用的是星影协作标准版。"
+    },
+    {
+      "role": "user",
+      "content": "它能导出PDF吗？"
+    },
+    {
+      "role": "assistant",
+      "content": "依据当前读取的资料：星影协作标准版支持导出CSV文件，不支持导出PDF文件。"
+    }
+  ]
+}

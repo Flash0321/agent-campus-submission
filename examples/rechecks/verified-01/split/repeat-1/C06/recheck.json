@@ -1,0 +1,42 @@
+{
+  "request_id": "split/repeat-1/C06",
+  "case_id": "C06",
+  "base_case_id": "C06",
+  "scenario_id": "split/repeat-1/C06",
+  "model_mode": "real",
+  "configured_profile": "split",
+  "status": "answered",
+  "original_automated_passed": true,
+  "revised_automated_passed": true,
+  "changed_checks": [],
+  "original_artifact_dir": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/C06",
+  "original_artifact_sha256": {
+    "input.json": "95b93d937d8500d6d074e483322044f972b873f438c7cf62380cfeddbac1c73c",
+    "output.json": "c9ce00769cdf43fdf4658c87e8286438f02567bda1fd3e137560e037820f1f21",
+    "trace.jsonl": "989689e7c0df8f927bf7a0a3c5ae7780be852510b6417f67ff8765a0bc0a1f39",
+    "corpus_snapshot.json": "e627aecedfa94b66c7ffea98d5da732487cae35ff8a735403a0e588d82070a2b",
+    "metadata.json": "b9b29a616b672db1ac54d7465fa39d789794618bae87afe3d009bfe7bb8c7e08",
+    "checks.json": "f3cf26fb53e4bbca0cac840a5c00e89421fa32487c98579a40f497f16d54a4d1"
+  },
+  "original_source_hash": "0390d31b3e6dd8682dc7e39fb29fec1ca04da5c1eb22b4bdcf939b9dcb9df728",
+  "original_prompt_hashes": {
+    "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+    "P3.txt": "c1134cede304db9196a2164f1a61373d409d3f2a525521069858fe77760f0483",
+    "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+    "P4.txt": "69e74f5a6077f20449ec6f3bb4fc547ffcc1c8c0c0502bde70a51ba9c001fb99",
+    "P5.txt": "e1df38f168e17d13f167323ded51f583eb02a71ce833071b48bd0d6a31ad4703",
+    "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+  },
+  "original_corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+  "actual_input": {
+    "question": "报销期限多久？",
+    "history": []
+  },
+  "acceptance_status": "pending_human_review",
+  "evaluator_hashes": {
+    "src/checks.py": "71addcda2e920827644add4b5b1680bc1b3a5d40e8ab57d578bb01550101a454",
+    "src/recheck.py": "15f7c6274e65906d2013cd2bf101ca0d069e23f9fc7993b3dce8865faf86064e"
+  },
+  "cases_path": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/data/cases.json",
+  "cases_sha256": "2c3c9bda655915c417b24dea38ace4c8cbf52862e5f9191f9a25fe6e8e7e8518"
+}

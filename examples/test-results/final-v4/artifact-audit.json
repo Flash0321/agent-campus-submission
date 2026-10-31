@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-10-31T03:41:24.631357+00:00",
+  "candidate_files_scanned": 1703,
+  "candidate_bytes": 10633758,
+  "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+  "all_final_run_source_hashes_match": true,
+  "final_request_count": 22,
+  "exact_key_leak_paths": [],
+  "malformed_json": [],
+  "missing_active_document_links": [],
+  "prompt_hashes_match": {
+    "P1.txt": true,
+    "P2.txt": true,
+    "P3.txt": true,
+    "P4.txt": true,
+    "P5.txt": true,
+    "P6.txt": true
+  },
+  "archived_source_files_unchanged": {
+    "00_试卷要求与验收清单.md": true,
+    "01_企业知识问答Agent_方案与执行交接.md": true
+  },
+  "git_excludes_credentials": true,
+  "note": "检查当前交付候选及最终运行哈希；历史阶段结果保留历史源码哈希。",
+  "passed": true
+}

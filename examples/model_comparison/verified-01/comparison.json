@@ -1,0 +1,137 @@
+{
+  "requested_mode": "real",
+  "profiles": {
+    "single": {
+      "real_request_count": 20,
+      "automated_passed": 19,
+      "critical_failures_detected": 0,
+      "mean_elapsed_ms": 12554.1226,
+      "median_elapsed_ms": 12003.48,
+      "mean_p3_ms": 2190.4424,
+      "fallback_calls": 0,
+      "normalization_valid_count": 20,
+      "normalization_failures": 0,
+      "human_review": "pending"
+    },
+    "split": {
+      "real_request_count": 20,
+      "automated_passed": 20,
+      "critical_failures_detected": 0,
+      "mean_elapsed_ms": 11687.12505,
+      "median_elapsed_ms": 10181.3005,
+      "mean_p3_ms": 1177.0232,
+      "fallback_calls": 0,
+      "normalization_valid_count": 20,
+      "normalization_failures": 0,
+      "human_review": "pending"
+    }
+  },
+  "selected_profile": null,
+  "selection_status": "pending_user_review",
+  "input_pairs": [
+    {
+      "case_id": "C01",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C02",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C03",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C04",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C05",
+      "repeat": 1,
+      "same_input": true,
+      "same_follow_up_input": true
+    },
+    {
+      "case_id": "C06",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C07",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C08",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C09",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C10",
+      "repeat": 1,
+      "same_input": true
+    },
+    {
+      "case_id": "C01",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C02",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C03",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C04",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C05",
+      "repeat": 2,
+      "same_input": true,
+      "same_follow_up_input": true
+    },
+    {
+      "case_id": "C06",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C07",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C08",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C09",
+      "repeat": 2,
+      "same_input": true
+    },
+    {
+      "case_id": "C10",
+      "repeat": 2,
+      "same_input": true
+    }
+  ],
+  "controlled_follow_up_history": "C05追问使用single实际首轮形成的相同历史，不使用预期回答；普通验收各自保存完整会话链。",
+  "note": "顺序执行；Mock 耗时不可用于模型速度比较。失败与回退均保留，未运行不记为通过。"
+}

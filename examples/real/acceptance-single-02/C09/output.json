@@ -1,0 +1,22 @@
+{
+  "answer": "员工报销应在费用发生后30天内提交申请。",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "version_date": "2026-09-01",
+      "chunk_id": "D01-C01",
+      "quote": "员工报销应在费用发生后30天内提交申请。"
+    },
+    {
+      "doc_id": "D02",
+      "version_date": "2026-10-01",
+      "chunk_id": "D02-C01",
+      "quote": "员工报销应在费用发生后30天内提交申请。"
+    }
+  ],
+  "gaps": [],
+  "status": "answered",
+  "reason_code": "consistent_rules_across_sources",
+  "follow_up_question": "",
+  "decision_summary": "D01和D02两份文档均明确且一致地规定报销期限为费用发生后30天，无适用范围限制或冲突表述，可直接作答。"
+}

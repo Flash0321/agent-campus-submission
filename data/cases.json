@@ -1,0 +1,356 @@
+[
+  {
+    "case_id": "C01",
+    "split": "acceptance",
+    "category": "明确答案",
+    "corpus_variant": "single_source",
+    "input": {
+      "question": "报销期限多久？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "费用发生后",
+      "30天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      }
+    ],
+    "forbidden_claims": [
+      "15天",
+      "20天"
+    ],
+    "behavior_checks": [
+      "检索得到相关候选后读取D01原文",
+      "回答的核心期限须有本轮读取原文支持",
+      "不声称已证明全公司只有一份制度"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "C02",
+    "split": "acceptance",
+    "category": "文档冲突",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "报销期限多久？"
+    },
+    "expected_status": "needs_clarification",
+    "expected_claims": [
+      "30天",
+      "15天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      },
+      {
+        "doc_id": "D02",
+        "chunk_id": "D02-C01",
+        "quote": "员工报销应在费用发生后15天内提交申请。"
+      }
+    ],
+    "forbidden_claims": [
+      "以最新版本为准",
+      "以更严格的期限为准"
+    ],
+    "behavior_checks": [
+      "成功读取D01和D02",
+      "读取双方后补查适用范围、替代关系或裁决依据",
+      "没有裁决依据时并列冲突且提出确认问题",
+      "禁止把15天或30天断言为唯一适用期限"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "C03",
+    "split": "acceptance",
+    "category": "资料外问题",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "公司的年终奖按几个月发？"
+    },
+    "expected_status": "insufficient_evidence",
+    "expected_claims": [],
+    "required_evidence": [],
+    "forbidden_claims": [
+      "年终奖为1个月",
+      "年终奖为2个月",
+      "年终奖为3个月"
+    ],
+    "behavior_checks": [
+      "实际进行检索，结果不足时必要补查",
+      "明确缺少年终奖制度，gaps非空",
+      "不以一般常识推断本公司年终奖月数"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "C04",
+    "split": "acceptance",
+    "category": "相似改写",
+    "corpus_variant": "single_source",
+    "input": {
+      "question": "我垫付的费用最迟多久得报账？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "费用发生后",
+      "30天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      }
+    ],
+    "forbidden_claims": [
+      "15天",
+      "20天"
+    ],
+    "behavior_checks": [
+      "检索得到相关候选后读取D01原文",
+      "回答的核心期限须有本轮读取原文支持",
+      "不声称已证明全公司只有一份制度",
+      "记录P3规范化Query且保留原问题",
+      "与C01核心结论一致"
+    ],
+    "review_status": "draft_pending_user_review"
+  },
+  {
+    "case_id": "C05",
+    "split": "acceptance",
+    "category": "上下文追问",
+    "corpus_variant": "conflict",
+    "input": {
+      "question": "它能导出PDF吗？",
+      "history": [
+        {
+          "role": "user",
+          "content": "我用的是星影协作标准版。"
+        }
+      ]
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "标准版",
+      "不支持",
+      "PDF"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D05",
+        "chunk_id": "D05-C01",
+        "quote": "星影协作标准版支持导出CSV文件，不支持导出PDF文件。"
+      }
+    ],
+    "forbidden_claims": [
+      "标准版支持导出PDF"
+    ],
+    "behavior_checks": [
+      "根据用户历史定位星影协作标准版",
+      "实际读取D05且保留不支持的否定",
+      "第二轮使用第一轮实际输出拼接历史，不能注入预期回答"
+    ],
+    "review_status": "draft_pending_user_review",
+    "follow_up": {
+      "question": "那专业版呢？"
+    },
+    "follow_up_expected": {
+      "expected_status": "answered",
+      "expected_claims": [
+        "专业版",
+        "支持",
+        "PDF"
+      ],
+      "required_evidence": [
+        {
+          "doc_id": "D06",
+          "chunk_id": "D06-C01",
+          "quote": "星影协作专业版支持导出CSV文件和PDF文件。"
+        }
+      ],
+      "forbidden_claims": [
+        "专业版不支持导出PDF"
+      ],
+      "behavior_checks": [
+        "沿用星影协作与PDF主题，切换为专业版",
+        "本轮重新读取D06，不复用标准版结论"
+      ]
+    }
+  },
+  {
+    "case_id": "C06",
+    "split": "acceptance",
+    "category": "可恢复工具失败",
+    "corpus_variant": "single_source",
+    "input": {
+      "question": "报销期限多久？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "费用发生后",
+      "30天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      }
+    ],
+    "forbidden_claims": [
+      "15天"
+    ],
+    "behavior_checks": [
+      "首次D01读取返回TOOL_TIMEOUT",
+      "错误被回传给模型",
+      "模型选择恢复动作后获得原文，再有据回答"
+    ],
+    "review_status": "draft_pending_user_review",
+    "fault_injection": {
+      "tool": "read_document",
+      "doc_id": "D01",
+      "times": 1
+    }
+  },
+  {
+    "case_id": "C07",
+    "split": "acceptance",
+    "category": "持续工具失败",
+    "corpus_variant": "single_source",
+    "input": {
+      "question": "报销期限多久？"
+    },
+    "expected_status": "tool_error",
+    "expected_claims": [],
+    "required_evidence": [],
+    "forbidden_claims": [],
+    "behavior_checks": [
+      "必要D01读取持续失败",
+      "工具错误被回传给模型，尝试有界",
+      "说明无法核实期限的缺口，不把故障当无资料",
+      "不得以搜索摘要充当已读原文或捏造引用"
+    ],
+    "review_status": "draft_pending_user_review",
+    "fault_injection": {
+      "tool": "read_document",
+      "doc_id": "D01",
+      "times": "always"
+    }
+  },
+  {
+    "case_id": "C08",
+    "split": "acceptance",
+    "category": "文档内容替换",
+    "corpus_variant": "changed_value",
+    "input": {
+      "question": "报销期限多久？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "费用发生后",
+      "20天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后20天内提交申请。"
+      }
+    ],
+    "forbidden_claims": [
+      "30天",
+      "15天"
+    ],
+    "behavior_checks": [
+      "相对C01保持ID与日期相同，但语料和片段哈希必须变化",
+      "重新加载语料，重新读取D01",
+      "最终答案和引用同步变化"
+    ],
+    "review_status": "draft_pending_user_review",
+    "paired_with": "C01"
+  },
+  {
+    "case_id": "C09",
+    "split": "acceptance",
+    "category": "冲突变一致",
+    "corpus_variant": "consistent",
+    "input": {
+      "question": "报销期限多久？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "30天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      },
+      {
+        "doc_id": "D02",
+        "chunk_id": "D02-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      }
+    ],
+    "forbidden_claims": [
+      "15天"
+    ],
+    "behavior_checks": [
+      "读取并引用至少一份支持30天期限的原文；若声称两份资料一致，则需查证双方",
+      "相对C02由冲突追问变为有证据回答",
+      "不沿用旧冲突状态；允许继续核查而不强制固定序列",
+      "不得凭日期较新、制度标题或主文件称呼推断优先级；动作依据仍需语义审阅"
+    ],
+    "review_status": "draft_pending_user_review",
+    "paired_with": "C02",
+    "acceptable_evidence_sets": [
+      [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01"
+        }
+      ],
+      [
+        {
+          "doc_id": "D02",
+          "chunk_id": "D02-C01"
+        }
+      ]
+    ],
+    "evaluation_note": "required_evidence保留两份用于完整已标注证据覆盖；支持门槛由acceptable_evidence_sets指定，任一完整组即可。此调整不表示对首轮未核实的版本新旧或制度地位判断予以认可。"
+  },
+  {
+    "case_id": "C10",
+    "split": "acceptance",
+    "category": "执行上限",
+    "corpus_variant": "single_source",
+    "input": {
+      "question": "报销期限多久？"
+    },
+    "expected_status": "step_limit",
+    "expected_claims": [],
+    "required_evidence": [],
+    "forbidden_claims": [],
+    "behavior_checks": [
+      "用脚本化模型持续请求检索，测试结果必须标为mock",
+      "实际模型与工具请求都不得超预算",
+      "达到额度后明确未完成且列出缺口"
+    ],
+    "review_status": "draft_pending_user_review",
+    "budget": {
+      "max_model_calls": 3,
+      "max_tool_calls": 1
+    },
+    "mock_behavior": "always_search",
+    "required_model_mode": "mock"
+  }
+]

@@ -1,0 +1,191 @@
+{
+  "case_id": "C09",
+  "model_mode": "mock",
+  "tool_mode": "local",
+  "automated_passed": true,
+  "detected_critical_failure": false,
+  "acceptance_status": "pending_human_review",
+  "human_review": {
+    "status": "pending",
+    "required": [
+      "答案与引用的语义支持性",
+      "预期事实与禁止断言",
+      "动作是否合理"
+    ]
+  },
+  "checks": [
+    {
+      "item": "expected_status",
+      "pass": true,
+      "detail": {
+        "expected": [
+          "answered"
+        ],
+        "actual": "answered"
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "nonempty_answer",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "trace_present",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "normalization_preserves_original_question",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "citation_existence_and_read_provenance",
+      "pass": true,
+      "detail": [],
+      "critical_failure": false
+    },
+    {
+      "item": "acceptable_evidence_sets_valid",
+      "pass": true,
+      "detail": "每个可接受组必须非空，且所有片段均来自已标注证据集合",
+      "critical_failure": false
+    },
+    {
+      "item": "required_evidence_read",
+      "pass": true,
+      "detail": {
+        "rule": "any_complete_group",
+        "missing_by_group": [
+          [],
+          []
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "required_evidence_cited",
+      "pass": true,
+      "detail": {
+        "rule": "any_complete_group",
+        "missing_by_group": [
+          [],
+          []
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "answered_has_evidence",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "observations_forwarded_to_next_model",
+      "pass": true,
+      "detail": [
+        {
+          "trace_index": 6,
+          "tool": "search_documents",
+          "has_later_model_request": true,
+          "observation_forwarded": true
+        },
+        {
+          "trace_index": 9,
+          "tool": "read_document",
+          "has_later_model_request": true,
+          "observation_forwarded": true
+        },
+        {
+          "trace_index": 12,
+          "tool": "read_document",
+          "has_later_model_request": true,
+          "observation_forwarded": true
+        }
+      ],
+      "critical_failure": false
+    },
+    {
+      "item": "model_observed_tool_result",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "deadline_value_present",
+      "pass": true,
+      "detail": {
+        "expected_days": [
+          "30"
+        ]
+      },
+      "critical_failure": false
+    },
+    {
+      "item": "deadline_start_and_submission_present",
+      "pass": true,
+      "detail": null,
+      "critical_failure": false
+    },
+    {
+      "item": "model_budget_respected",
+      "pass": true,
+      "detail": 5,
+      "critical_failure": false
+    },
+    {
+      "item": "tool_budget_respected",
+      "pass": true,
+      "detail": 3,
+      "critical_failure": false
+    }
+  ],
+  "expectations_for_review": {
+    "expected_claims": [
+      "30天"
+    ],
+    "forbidden_claims": [
+      "15天"
+    ],
+    "behavior_checks": [
+      "读取并引用至少一份支持30天期限的原文；若声称两份资料一致，则需查证双方",
+      "相对C02由冲突追问变为有证据回答",
+      "不沿用旧冲突状态；允许继续核查而不强制固定序列",
+      "不得凭日期较新、制度标题或主文件称呼推断优先级；动作依据仍需语义审阅"
+    ],
+    "acceptable_evidence_sets": [
+      [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01"
+        }
+      ],
+      [
+        {
+          "doc_id": "D02",
+          "chunk_id": "D02-C01"
+        }
+      ]
+    ]
+  },
+  "real_dynamic_path_candidate": false,
+  "evidence_coverage": {
+    "read": 2,
+    "cited": 2,
+    "required": 2
+  },
+  "diagnostics": {
+    "first_search_preserved_original": true,
+    "first_successful_search_queries": [
+      "报销期限多久？"
+    ],
+    "query_source": "observation.effective_queries",
+    "note": "仅诊断首次成功检索的queries[0]是否逐字保留原问题，不计入自动通过门槛。无成功检索记null。"
+  },
+  "limitation": "自动检查只是初筛；Mock 不证明模型决策效果。最终业务与引用支持性仍需人工对照原文。"
+}

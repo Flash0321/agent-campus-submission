@@ -1,0 +1,16 @@
+# 实际执行摘要
+
+本文件由本次 Trace 生成；简要依据不是模型内部思维过程。
+
+| 步骤 | 工具与参数 | 实际返回摘要 | 后续模型动作 | 简要依据 |
+|---|---|---|---|---|
+| 7 | search_documents {"queries": ["报销期限多久？"], "top_k": 5} | 返回3个片段 | read_document | 读取原文确认依据；如遇临时故障则重试（离线Mock策略）。 |
+| 10 | read_document {"doc_id": "D01", "chunk_ids": ["D01-C01"]} | 返回1个片段 | read_document | 读取原文确认依据；如遇临时故障则重试（离线Mock策略）。 |
+| 13 | read_document {"doc_id": "D02", "chunk_ids": ["D02-C01"]} | 返回1个片段 | search_documents | 两份原文期限不同，查找裁决依据（离线Mock策略）。 |
+| 16 | search_documents {"queries": ["报销制度 适用范围 优先级 替代", "报销制度 裁决公告"], "top_k": 5} | 返回3个片段 | 提出最终结果：needs_clarification | 根据本轮工具观察执行离线演示策略；不证明真实模型决策效果。 |
+
+最终状态：`needs_clarification`
+
+当前资料存在冲突：D01：员工报销应在费用发生后30天内提交申请。；D02：员工报销应在费用发生后15天内提交申请。
+
+来源模式：`mock`。Mock只验证程序流程。

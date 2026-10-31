@@ -1,0 +1,49 @@
+{
+  "run_id": "b2fffe40e12446eb981ee39b4d8677ac",
+  "model_mode": "real",
+  "tool_mode": "local",
+  "configured_profile": "single",
+  "corpus_hash": "80fb2297d25af60fe2a57e7234ef6bdac70770635cb48086cffe9189021e7b85",
+  "elapsed_ms": 11186.243,
+  "model_calls": 4,
+  "tool_calls": 2,
+  "config": {
+    "mode": "real",
+    "profile": "single",
+    "retrieval_mode": "dual",
+    "max_model_calls": 8,
+    "max_tool_calls": 6,
+    "main_model": "qwen-plus-2025-12-01",
+    "fast_model": "qwen-flash-2025-07-28"
+  },
+  "source_hash": "be81de4580072a4fffcd32e554a671e5a791af8d37e2e5c53db2931a7a1c4375",
+  "prompt_hashes": {
+    "P2.txt": "b43d5c7c4aa5d9b1c32959222d8dd06b9ebb48836637b72e97d9766ef037021d",
+    "P3.txt": "42024ff821372317425ee6b336230ffada1c92510a21b68e220f670d059a8171",
+    "P1.txt": "70280ca35a634b3a1c85f76f526d78e4364aa88e895413e392cc5db2330c5d54",
+    "P4.txt": "e75e10575fe45932ca7ec6bb72c7b35fb5c128541999396119dbd66758dbf9af",
+    "P5.txt": "8f6be52b6c1573d8e130f77dc44e2bf9606853b8fcb3a3871171ab5ac91db097",
+    "P6.txt": "33849be2342e96dfa216dc7c5e1a6872dc212710bffaea30f4662c4954672da1"
+  },
+  "normalization": {
+    "intent": "knowledge_question",
+    "original_question": "我垫付的费用最迟多久得报账？",
+    "normalized_query": "员工垫付费用的最晚报账期限是多久？",
+    "keywords": [
+      "垫付",
+      "费用",
+      "报账",
+      "最迟期限",
+      "报销时限"
+    ],
+    "known_context": {},
+    "missing_information": [
+      "所属公司/部门",
+      "费用类型（如差旅、采购、招待等）",
+      "适用制度版本或生效日期"
+    ]
+  },
+  "normalization_failed": false,
+  "status": "answered",
+  "configuration_errors": []
+}

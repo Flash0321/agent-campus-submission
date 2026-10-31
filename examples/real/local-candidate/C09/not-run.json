@@ -1,0 +1,10 @@
+{
+  "case_id": "C09",
+  "run_state": "not_run",
+  "model_mode": "real",
+  "configured_profile": "single",
+  "reason": "缺少 LLM_API_KEY 或 LLM_BASE_URL，未请求模型服务",
+  "artifact_dir": "examples/real/local-candidate/C09",
+  "automated_passed": null,
+  "acceptance_status": "not_run"
+}

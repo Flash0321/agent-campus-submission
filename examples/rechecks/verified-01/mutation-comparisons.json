@@ -1,0 +1,158 @@
+[
+  {
+    "group": "single/repeat-1",
+    "baseline": "C01",
+    "changed": "C08",
+    "kind": "value_changed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "new_value_quoted": true,
+      "old_value_not_quoted": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": true,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/mutation-comparisons.json",
+    "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+    "model_mode": "real",
+    "human_review": "pending"
+  },
+  {
+    "group": "single/repeat-1",
+    "baseline": "C02",
+    "changed": "C09",
+    "kind": "conflict_removed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "decision_changed": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": true,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-1/mutation-comparisons.json",
+    "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+    "model_mode": "real",
+    "human_review": "pending"
+  },
+  {
+    "group": "single/repeat-2",
+    "baseline": "C01",
+    "changed": "C08",
+    "kind": "value_changed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "new_value_quoted": true,
+      "old_value_not_quoted": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": true,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/mutation-comparisons.json",
+    "original_artifact_sha256": "961cae5edcfd08c5e9e2245dc0d52f846a6382514f965739614b198daec29398",
+    "model_mode": "real",
+    "human_review": "pending"
+  },
+  {
+    "group": "single/repeat-2",
+    "baseline": "C02",
+    "changed": "C09",
+    "kind": "conflict_removed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "decision_changed": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": false,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/single/repeat-2/mutation-comparisons.json",
+    "original_artifact_sha256": "961cae5edcfd08c5e9e2245dc0d52f846a6382514f965739614b198daec29398",
+    "model_mode": "real",
+    "human_review": "pending"
+  },
+  {
+    "group": "split/repeat-1",
+    "baseline": "C01",
+    "changed": "C08",
+    "kind": "value_changed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "new_value_quoted": true,
+      "old_value_not_quoted": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": true,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/mutation-comparisons.json",
+    "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+    "model_mode": "real",
+    "human_review": "pending"
+  },
+  {
+    "group": "split/repeat-1",
+    "baseline": "C02",
+    "changed": "C09",
+    "kind": "conflict_removed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "decision_changed": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": true,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-1/mutation-comparisons.json",
+    "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+    "model_mode": "real",
+    "human_review": "pending"
+  },
+  {
+    "group": "split/repeat-2",
+    "baseline": "C01",
+    "changed": "C08",
+    "kind": "value_changed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "new_value_quoted": true,
+      "old_value_not_quoted": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": true,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/mutation-comparisons.json",
+    "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+    "model_mode": "real",
+    "human_review": "pending"
+  },
+  {
+    "group": "split/repeat-2",
+    "baseline": "C02",
+    "changed": "C09",
+    "kind": "conflict_removed",
+    "status": "completed",
+    "checks": {
+      "corpus_hash_changed": true,
+      "answer_changed": true,
+      "both_runs_pass_automated_checks": true,
+      "decision_changed": true
+    },
+    "automated_passed": true,
+    "original_automated_passed": true,
+    "original_artifact": "/Users/tangzixuan/Desktop/小影科技/agent-campus-q3/examples/model_comparison/verified-01/split/repeat-2/mutation-comparisons.json",
+    "original_artifact_sha256": "f8c4dba45da0ff011c196bb9128891936787129815d6e53d6e0f7885e0e06187",
+    "model_mode": "real",
+    "human_review": "pending"
+  }
+]

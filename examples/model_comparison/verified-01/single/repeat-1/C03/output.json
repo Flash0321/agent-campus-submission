@@ -1,0 +1,11 @@
+{
+  "answer": "当前检索未找到关于公司年终奖发放月数的制度或产品资料。",
+  "citations": [],
+  "gaps": [
+    "年终奖发放月数的具体规定"
+  ],
+  "status": "insufficient_evidence",
+  "reason_code": "no_documents_found",
+  "follow_up_question": "请问您所在部门或职级是否有特定的年终奖政策？或者是否可提供相关制度名称或生效年份以便进一步查找？",
+  "decision_summary": "search_documents返回空结果，无任何候选文档，因此无法读取原文支持答案"
+}

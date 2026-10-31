@@ -1,0 +1,36 @@
+[
+  {
+    "case_id": "X01",
+    "split": "optional",
+    "category": "裁决依据消解冲突",
+    "corpus_variant": "resolved",
+    "input": {
+      "question": "我属于非试点部门，报销期限多久？"
+    },
+    "expected_status": "answered",
+    "expected_claims": [
+      "30天"
+    ],
+    "required_evidence": [
+      {
+        "doc_id": "D01",
+        "chunk_id": "D01-C01",
+        "quote": "员工报销应在费用发生后30天内提交申请。"
+      },
+      {
+        "doc_id": "D09",
+        "chunk_id": "D09-C01",
+        "quote": "本公告对费用报销规定D01与费用报销FAQ D02的适用范围具有裁决效力。D02仅适用于试点部门，D01适用于其余部门。"
+      }
+    ],
+    "forbidden_claims": [
+      "非试点部门适用15天"
+    ],
+    "behavior_checks": [
+      "查明用户属于非试点部门",
+      "实际读取D09的裁决依据后才能选择D01",
+      "引用D01期限和D09适用范围"
+    ],
+    "review_status": "draft_pending_user_review"
+  }
+]

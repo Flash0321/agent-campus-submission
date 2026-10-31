@@ -1,0 +1,16 @@
+{
+  "answer": "星影协作标准版不支持导出PDF文件。",
+  "citations": [
+    {
+      "doc_id": "D05",
+      "version_date": "2026-09-05",
+      "chunk_id": "D05-C01",
+      "quote": "星影协作标准版支持导出CSV文件，不支持导出PDF文件。"
+    }
+  ],
+  "gaps": [],
+  "status": "answered",
+  "reason_code": "direct_answer_from_faq",
+  "follow_up_question": "",
+  "decision_summary": "从D05《星影协作标准版FAQ》原文明确指出不支持导出PDF文件，问题得到直接回答。"
+}

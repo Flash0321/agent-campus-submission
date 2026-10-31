@@ -1,0 +1,1351 @@
+{
+  "created_at": "2026-10-31T03:36:02.423922+00:00",
+  "requested_mode": "real",
+  "configured_profile": "single",
+  "retrieval_mode": "dual",
+  "repeat": 2,
+  "elapsed_ms": 256275.372,
+  "counts": {
+    "requested_cases": 20,
+    "completed": 20,
+    "automated_passed": 20,
+    "not_run": 0,
+    "runner_errors": 0,
+    "real_runs": 18,
+    "mock_runs": 2
+  },
+  "cases": [
+    {
+      "case_id": "C01",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C01",
+      "metrics": {
+        "elapsed_ms": 11579.757,
+        "p3_ms": 2489.469,
+        "main_ms": 9083.122,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销的截止时间或有效期限是多长？",
+          "keywords": [
+            "报销",
+            "期限",
+            "截止时间",
+            "有效期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7727,
+          "completion_tokens": 343,
+          "total_tokens": 8070
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C02",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "needs_clarification",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C02",
+      "metrics": {
+        "elapsed_ms": 20801.692,
+        "p3_ms": 2058.816,
+        "main_ms": 18733.953999999998,
+        "model_calls": 6,
+        "tool_calls": 4,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销的截止时间或有效期限是多长？",
+          "keywords": [
+            "报销",
+            "期限",
+            "截止时间",
+            "有效期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 14688,
+          "completion_tokens": 730,
+          "total_tokens": 15418
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C03",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "insufficient_evidence",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C03",
+      "metrics": {
+        "elapsed_ms": 9142.931,
+        "p3_ms": 2658.082,
+        "main_ms": 6479.283,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "公司的年终奖按几个月发？",
+          "normalized_query": "公司年终奖发放月数",
+          "keywords": [
+            "年终奖",
+            "发放",
+            "月数"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7244,
+          "completion_tokens": 285,
+          "total_tokens": 7529
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C04",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C04",
+      "metrics": {
+        "elapsed_ms": 11669.645,
+        "p3_ms": 2172.636,
+        "main_ms": 9488.577,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "我垫付的费用最迟多久得报账？",
+          "normalized_query": "垫付费用的最晚报账时限",
+          "keywords": [
+            "垫付",
+            "费用",
+            "报账",
+            "时限",
+            "最迟"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7612,
+          "completion_tokens": 382,
+          "total_tokens": 7994
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C05",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C05/turn1",
+      "metrics": {
+        "elapsed_ms": 11184.377,
+        "p3_ms": 2658.506,
+        "main_ms": 8512.296,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "它能导出PDF吗？",
+          "normalized_query": "星影协作标准版是否支持导出PDF功能",
+          "keywords": [
+            "星影协作标准版",
+            "导出",
+            "PDF",
+            "功能"
+          ],
+          "known_context": {
+            "产品名": "星影协作标准版"
+          },
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7982,
+          "completion_tokens": 387,
+          "total_tokens": 8369
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "follow_up": {
+        "case_id": "C05-follow-up",
+        "run_state": "completed",
+        "model_mode": "real",
+        "configured_profile": "single",
+        "status": "answered",
+        "automated_passed": true,
+        "detected_critical_failure": false,
+        "acceptance_status": "pending_human_review",
+        "real_dynamic_path_candidate": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C05/turn2",
+        "metrics": {
+          "elapsed_ms": 15042.289,
+          "p3_ms": 3508.451,
+          "main_ms": 11527.206,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "fallback_calls": 0,
+          "normalization_failed": false,
+          "normalization": {
+            "intent": "knowledge_question",
+            "original_question": "那专业版呢？",
+            "normalized_query": "星影协作专业版是否支持导出PDF文件",
+            "keywords": [
+              "星影协作",
+              "专业版",
+              "导出",
+              "PDF"
+            ],
+            "known_context": {
+              "产品名": "星影协作",
+              "版次": "专业版",
+              "功能需求": "导出PDF"
+            },
+            "missing_information": []
+          },
+          "usage": {
+            "prompt_tokens": 8369,
+            "completion_tokens": 521,
+            "total_tokens": 8890
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01",
+            "qwen-plus-2025-12-01",
+            "qwen-plus-2025-12-01",
+            "qwen-plus-2025-12-01"
+          ]
+        }
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C06",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C06",
+      "metrics": {
+        "elapsed_ms": 12900.324,
+        "p3_ms": 2238.749,
+        "main_ms": 10649.684,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销的截止期限是多长时间？",
+          "keywords": [
+            "报销",
+            "期限",
+            "截止时间"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 10539,
+          "completion_tokens": 403,
+          "total_tokens": 10942
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C07",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "tool_error",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C07",
+      "metrics": {
+        "elapsed_ms": 13027.113,
+        "p3_ms": 1840.005,
+        "main_ms": 11176.358,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销的截止期限是多长时间？",
+          "keywords": [
+            "报销",
+            "期限",
+            "截止时间"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 10437,
+          "completion_tokens": 414,
+          "total_tokens": 10851
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C08",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C08",
+      "metrics": {
+        "elapsed_ms": 10420.453,
+        "p3_ms": 2172.405,
+        "main_ms": 8241.173999999999,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销期限是多长时间",
+          "keywords": [
+            "报销",
+            "期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7672,
+          "completion_tokens": 319,
+          "total_tokens": 7991
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C09",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/C09",
+      "metrics": {
+        "elapsed_ms": 14239.833,
+        "p3_ms": 2081.144,
+        "main_ms": 12149.872,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销期限是多长时间",
+          "keywords": [
+            "报销",
+            "期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 10989,
+          "completion_tokens": 471,
+          "total_tokens": 11460
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C10",
+      "run_state": "completed",
+      "model_mode": "mock",
+      "configured_profile": "single",
+      "status": "step_limit",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": false,
+      "artifact_dir": "examples/real/final-single-v4/repeat-1/mock-only/C10",
+      "metrics": {
+        "elapsed_ms": 2.921,
+        "p3_ms": 0.034,
+        "main_ms": 0.08399999999999999,
+        "model_calls": 3,
+        "tool_calls": 1,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销期限多久？",
+          "keywords": [],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": null,
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 1
+    },
+    {
+      "case_id": "C01",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C01",
+      "metrics": {
+        "elapsed_ms": 10921.961,
+        "p3_ms": 2566.115,
+        "main_ms": 8348.425,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销的截止时间或有效期限是多长？",
+          "keywords": [
+            "报销",
+            "期限",
+            "截止时间",
+            "有效期"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7740,
+          "completion_tokens": 349,
+          "total_tokens": 8089
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C02",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "needs_clarification",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C02",
+      "metrics": {
+        "elapsed_ms": 18913.865,
+        "p3_ms": 1848.986,
+        "main_ms": 17056.132999999998,
+        "model_calls": 6,
+        "tool_calls": 4,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销期限是多长时间",
+          "keywords": [
+            "报销",
+            "期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 14580,
+          "completion_tokens": 701,
+          "total_tokens": 15281
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C03",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "insufficient_evidence",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C03",
+      "metrics": {
+        "elapsed_ms": 6975.125,
+        "p3_ms": 1858.799,
+        "main_ms": 5108.506,
+        "model_calls": 3,
+        "tool_calls": 1,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "公司的年终奖按几个月发？",
+          "normalized_query": "公司年终奖发放月数",
+          "keywords": [
+            "年终奖",
+            "发放",
+            "月数"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 4770,
+          "completion_tokens": 250,
+          "total_tokens": 5020
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C04",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C04",
+      "metrics": {
+        "elapsed_ms": 11131.118,
+        "p3_ms": 2334.652,
+        "main_ms": 8786.351999999999,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "我垫付的费用最迟多久得报账？",
+          "normalized_query": "垫付费用的最晚报账期限",
+          "keywords": [
+            "垫付",
+            "费用",
+            "报账",
+            "最迟",
+            "期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7612,
+          "completion_tokens": 365,
+          "total_tokens": 7977
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C05",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C05/turn1",
+      "metrics": {
+        "elapsed_ms": 11780.637,
+        "p3_ms": 2460.129,
+        "main_ms": 9311.838,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "它能导出PDF吗？",
+          "normalized_query": "星影协作标准版是否支持导出PDF功能",
+          "keywords": [
+            "星影协作标准版",
+            "导出",
+            "PDF",
+            "功能"
+          ],
+          "known_context": {
+            "产品名": "星影协作标准版"
+          },
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7958,
+          "completion_tokens": 383,
+          "total_tokens": 8341
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "follow_up": {
+        "case_id": "C05-follow-up",
+        "run_state": "completed",
+        "model_mode": "real",
+        "configured_profile": "single",
+        "status": "answered",
+        "automated_passed": true,
+        "detected_critical_failure": false,
+        "acceptance_status": "pending_human_review",
+        "real_dynamic_path_candidate": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C05/turn2",
+        "metrics": {
+          "elapsed_ms": 14295.305,
+          "p3_ms": 2991.483,
+          "main_ms": 11296.568,
+          "model_calls": 4,
+          "tool_calls": 2,
+          "fallback_calls": 0,
+          "normalization_failed": false,
+          "normalization": {
+            "intent": "knowledge_question",
+            "original_question": "那专业版呢？",
+            "normalized_query": "星影协作专业版是否支持导出PDF文件",
+            "keywords": [
+              "星影协作",
+              "专业版",
+              "导出",
+              "PDF"
+            ],
+            "known_context": {
+              "产品名": "星影协作",
+              "版次": "专业版",
+              "功能需求": "导出PDF"
+            },
+            "missing_information": []
+          },
+          "usage": {
+            "prompt_tokens": 8339,
+            "completion_tokens": 506,
+            "total_tokens": 8845
+          },
+          "requested_models": [
+            "qwen-plus-2025-12-01",
+            "qwen-plus-2025-12-01",
+            "qwen-plus-2025-12-01",
+            "qwen-plus-2025-12-01"
+          ]
+        }
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C06",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C06",
+      "metrics": {
+        "elapsed_ms": 12671.701,
+        "p3_ms": 2276.301,
+        "main_ms": 10383.987000000001,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销期限是多长时间",
+          "keywords": [
+            "报销",
+            "期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 10470,
+          "completion_tokens": 382,
+          "total_tokens": 10852
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C07",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "tool_error",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C07",
+      "metrics": {
+        "elapsed_ms": 13289.35,
+        "p3_ms": 2209.432,
+        "main_ms": 11072.128,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销的截止期限是多长时间？",
+          "keywords": [
+            "报销",
+            "期限",
+            "截止时间"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 10461,
+          "completion_tokens": 403,
+          "total_tokens": 10864
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C08",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C08",
+      "metrics": {
+        "elapsed_ms": 10691.425,
+        "p3_ms": 1870.429,
+        "main_ms": 8814.072,
+        "model_calls": 4,
+        "tool_calls": 2,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销期限是多长时间",
+          "keywords": [
+            "报销",
+            "期限"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 7674,
+          "completion_tokens": 328,
+          "total_tokens": 8002
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C09",
+      "run_state": "completed",
+      "model_mode": "real",
+      "configured_profile": "single",
+      "status": "answered",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": true,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/C09",
+      "metrics": {
+        "elapsed_ms": 14989.9,
+        "p3_ms": 2721.152,
+        "main_ms": 12260.137,
+        "model_calls": 5,
+        "tool_calls": 3,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销的截止时间或有效期限是多长？",
+          "keywords": [
+            "报销",
+            "期限",
+            "截止时间",
+            "有效期"
+          ],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": {
+          "prompt_tokens": 11097,
+          "completion_tokens": 489,
+          "total_tokens": 11586
+        },
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    },
+    {
+      "case_id": "C10",
+      "run_state": "completed",
+      "model_mode": "mock",
+      "configured_profile": "single",
+      "status": "step_limit",
+      "automated_passed": true,
+      "detected_critical_failure": false,
+      "acceptance_status": "pending_human_review",
+      "real_dynamic_path_candidate": false,
+      "artifact_dir": "examples/real/final-single-v4/repeat-2/mock-only/C10",
+      "metrics": {
+        "elapsed_ms": 3.436,
+        "p3_ms": 0.022,
+        "main_ms": 0.07400000000000001,
+        "model_calls": 3,
+        "tool_calls": 1,
+        "fallback_calls": 0,
+        "normalization_failed": false,
+        "normalization": {
+          "intent": "knowledge_question",
+          "original_question": "报销期限多久？",
+          "normalized_query": "报销期限多久？",
+          "keywords": [],
+          "known_context": {},
+          "missing_information": []
+        },
+        "usage": null,
+        "requested_models": [
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01",
+          "qwen-plus-2025-12-01"
+        ]
+      },
+      "repeat": 2
+    }
+  ],
+  "repetitions": [
+    {
+      "repeat": 1,
+      "mutations": [
+        {
+          "baseline": "C01",
+          "changed": "C08",
+          "kind": "value_changed",
+          "status": "completed",
+          "automated_passed": true,
+          "checks": {
+            "corpus_hash_changed": true,
+            "answer_changed": true,
+            "both_runs_pass_automated_checks": true,
+            "new_value_quoted": true,
+            "old_value_not_quoted": true
+          },
+          "model_mode": "real",
+          "human_review": "pending",
+          "note": "数值替换不强制工具路径变化；冲突消失要求终止决定变化。"
+        },
+        {
+          "baseline": "C02",
+          "changed": "C09",
+          "kind": "conflict_removed",
+          "status": "completed",
+          "automated_passed": true,
+          "checks": {
+            "corpus_hash_changed": true,
+            "answer_changed": true,
+            "both_runs_pass_automated_checks": true,
+            "decision_changed": true
+          },
+          "model_mode": "real",
+          "human_review": "pending",
+          "note": "数值替换不强制工具路径变化；冲突消失要求终止决定变化。"
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "mutations": [
+        {
+          "baseline": "C01",
+          "changed": "C08",
+          "kind": "value_changed",
+          "status": "completed",
+          "automated_passed": true,
+          "checks": {
+            "corpus_hash_changed": true,
+            "answer_changed": true,
+            "both_runs_pass_automated_checks": true,
+            "new_value_quoted": true,
+            "old_value_not_quoted": true
+          },
+          "model_mode": "real",
+          "human_review": "pending",
+          "note": "数值替换不强制工具路径变化；冲突消失要求终止决定变化。"
+        },
+        {
+          "baseline": "C02",
+          "changed": "C09",
+          "kind": "conflict_removed",
+          "status": "completed",
+          "automated_passed": true,
+          "checks": {
+            "corpus_hash_changed": true,
+            "answer_changed": true,
+            "both_runs_pass_automated_checks": true,
+            "decision_changed": true
+          },
+          "model_mode": "real",
+          "human_review": "pending",
+          "note": "数值替换不强制工具路径变化；冲突消失要求终止决定变化。"
+        }
+      ]
+    }
+  ],
+  "dynamic_paths": {
+    "paths": [
+      {
+        "case_id": "C01",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C01"
+      },
+      {
+        "case_id": "C02",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "read_document:ok",
+          "search_documents:ok",
+          "finish:needs_clarification"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C02"
+      },
+      {
+        "case_id": "C03",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "search_documents:ok",
+          "finish:insufficient_evidence"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C03"
+      },
+      {
+        "case_id": "C04",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C04"
+      },
+      {
+        "case_id": "C05",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C05/turn1"
+      },
+      {
+        "case_id": "C06",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:TOOL_TIMEOUT",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C06"
+      },
+      {
+        "case_id": "C07",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:TOOL_TIMEOUT",
+          "read_document:TOOL_TIMEOUT",
+          "finish:tool_error"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C07"
+      },
+      {
+        "case_id": "C08",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C08"
+      },
+      {
+        "case_id": "C09",
+        "repeat": 1,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/C09"
+      },
+      {
+        "case_id": "C10",
+        "repeat": 1,
+        "model_mode": "mock",
+        "actions": [
+          "search_documents:ok",
+          "finish:step_limit"
+        ],
+        "observations_linked": false,
+        "artifact_dir": "examples/real/final-single-v4/repeat-1/mock-only/C10"
+      },
+      {
+        "case_id": "C01",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C01"
+      },
+      {
+        "case_id": "C02",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "read_document:ok",
+          "search_documents:ok",
+          "finish:needs_clarification"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C02"
+      },
+      {
+        "case_id": "C03",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "finish:insufficient_evidence"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C03"
+      },
+      {
+        "case_id": "C04",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C04"
+      },
+      {
+        "case_id": "C05",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C05/turn1"
+      },
+      {
+        "case_id": "C06",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:TOOL_TIMEOUT",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C06"
+      },
+      {
+        "case_id": "C07",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:TOOL_TIMEOUT",
+          "read_document:TOOL_TIMEOUT",
+          "finish:tool_error"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C07"
+      },
+      {
+        "case_id": "C08",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C08"
+      },
+      {
+        "case_id": "C09",
+        "repeat": 2,
+        "model_mode": "real",
+        "actions": [
+          "search_documents:ok",
+          "read_document:ok",
+          "read_document:ok",
+          "finish:answered"
+        ],
+        "observations_linked": true,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/C09"
+      },
+      {
+        "case_id": "C10",
+        "repeat": 2,
+        "model_mode": "mock",
+        "actions": [
+          "search_documents:ok",
+          "finish:step_limit"
+        ],
+        "observations_linked": false,
+        "artifact_dir": "examples/real/final-single-v4/repeat-2/mock-only/C10"
+      }
+    ],
+    "distinct_observation_linked_real_patterns": 7,
+    "at_least_two_real_patterns": true,
+    "review_status": "pending_user_review",
+    "note": "仅真实模型记录计入；模式差异仍需结合工具参数、原文和后续响应人工审阅。"
+  },
+  "limitation": "自动通过不是人工语义验收；Mock 不计入真实模型动态决策证据。所有人工评审保持 pending。"
+}

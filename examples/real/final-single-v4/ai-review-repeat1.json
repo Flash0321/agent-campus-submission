@@ -1,0 +1,617 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at_utc": "2026-10-31T03:35:28.062442+00:00",
+  "reviewer": {
+    "type": "AI_read_only_review",
+    "agent": "Codex /root/data_prompts",
+    "human_final_acceptance": "pending",
+    "not_a_P6_model_run": true
+  },
+  "scope": {
+    "run_directory": "examples/real/final-single-v4/repeat-1",
+    "profile": "single",
+    "real_requests": 10,
+    "case_runs": 9,
+    "excluded": "mock-only/C10不计入真实请求；repeat-2不在本报告范围",
+    "P4_sha256": "c87e18a6ddb50695305a7b9b86237b9250ea75bbd5fdf1965ced212268fdf74a"
+  },
+  "method": [
+    "逐个核对实际输入、P3、工具参数/返回、最终输出及safe_error_render。",
+    "以成功read_document观察复核每条引用的ID、版本、片段和逐字原文。",
+    "人工式AI语义审阅重点覆盖范围、权威、检索穷尽性、有效版本推断，不用自动通过替代语义判断。"
+  ],
+  "conclusion": {
+    "core_answer_citation_status_action_passed": 10,
+    "core_failed": 0,
+    "core_definition": "核心业务答案、引用、任务状态与实际工具路径；不等于所有辅助文字或原始模型提案都正确。",
+    "citations_checked": 10,
+    "unmitigated_explicit_semantic_defect_requests": [
+      "C03"
+    ],
+    "strict_semantics_clean": false,
+    "zero_defect_claim_supported": false,
+    "full_acceptance_status": "pending_user_review",
+    "summary": "10个真实请求核心行为符合；本轮未发现scope=null推通用、主制度或版本均有效的明确推断，但C03仍把空搜索扩大为全库不存在。C07原始提案未读数值复述依赖程序保护；保留其他措辞建议，不能宣称全部语义缺陷消除。"
+  },
+  "targeted_P4_checks": {
+    "null_scope_implies_universal": "not_observed_in_reviewed_reasons_and_final_fields",
+    "title_implies_authority": "not_observed_in_reviewed_reasons_and_final_fields",
+    "equal_text_implies_valid_versions": "not_observed_in_reviewed_reasons_and_final_fields",
+    "empty_search_implies_exhaustive_absence": "still_observed_C03",
+    "factual_reason_codes": "observed_evidence_found_document_conflict_no_support_found_tool_failure"
+  },
+  "findings": [
+    {
+      "id": "S01",
+      "category": "overstated_search_exhaustiveness",
+      "severity": "semantic_defect",
+      "mitigated": false,
+      "description": "v4新增正反例仍未消除穷尽性推断。两次搜索为空仅证明本次检索没找到，不能确认整个知识库没有支持资料；核心answer的本次检索未找到表述正确。",
+      "occurrences": [
+        {
+          "request": "C03",
+          "trace": "examples/real/final-single-v4/repeat-1/C03/trace.jsonl",
+          "step": 13,
+          "field": "output.decision_summary",
+          "observed": "两次搜索均未返回任何候选文档，确认当前知识库中无支持该问题的资料。"
+        }
+      ],
+      "recommendation": "限定为两次检索未找到支持资料，不升级为全库不存在。"
+    },
+    {
+      "id": "G01",
+      "category": "original_query_restored_by_tool",
+      "severity": "model_protocol_violation_contained",
+      "mitigated": true,
+      "description": "C05首问模型未按要求保留原问题；工具将其放回effective_queries，实际搜索正确，但此点不能归因于模型自主遵守约定。",
+      "occurrences": [
+        {
+          "request": "C05/turn1",
+          "trace": "examples/real/final-single-v4/repeat-1/C05/turn1/trace.jsonl",
+          "step": 7,
+          "field": "observation",
+          "observed": "requested_queries=[星影协作标准版是否支持导出PDF功能,星影协作 标准版 导出 PDF]；effective_queries=[它能导出PDF吗？,星影协作 标准版 导出 PDF]"
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "category": "unread_fact_in_model_proposal",
+      "severity": "critical_if_unchecked_contained",
+      "mitigated": true,
+      "description": "两次read_document超时后，原模型tool_error提案仍复述未读取的30天条款。最终安全输出由程序渲染实际TOOL_TIMEOUT实现，不代表P4本身已停止复述。",
+      "occurrences": [
+        {
+          "request": "C07",
+          "trace": "examples/real/final-single-v4/repeat-1/C07/trace.jsonl",
+          "step": 16,
+          "field": "safe_error_render.candidate.answer",
+          "observed": "当前检索发现《费用报销规定》（D01）提及‘员工报销应在费用发生后30天内提交申请’，但该条款原文因工具超时未能成功读取，无法核实其完整上下文及适用范围。"
+        }
+      ],
+      "final_output_check": "最终无30天/15天/20天业务数值，无引用，status=tool_error。"
+    },
+    {
+      "id": "N01",
+      "category": "unqualified_no_conflict_wording",
+      "severity": "review_note",
+      "mitigated": false,
+      "description": "部分摘要使用无冲突条款或无冲突/缺失信息。结合本轮已读条款可理解为当前观察，并未明确声称全库不存在冲突，因此不与S01同列为确定语义缺陷；建议明确写本轮未检出冲突，减少范围歧义。",
+      "occurrences": [
+        {
+          "request": "C01",
+          "trace": "examples/real/final-single-v4/repeat-1/C01/trace.jsonl",
+          "step": 13,
+          "field": "output.decision_summary",
+          "observed": "已读取D01-C01原文明确记载报销期限为费用发生后30天，无冲突条款，可直接回答。"
+        },
+        {
+          "request": "C06",
+          "trace": "examples/real/final-single-v4/repeat-1/C06/trace.jsonl",
+          "step": 16,
+          "field": "output.decision_summary",
+          "observed": "已读取D01-C01原文，明确记载报销期限为费用发生后30天内，无冲突条款，可直接回答。"
+        },
+        {
+          "request": "C08",
+          "trace": "examples/real/final-single-v4/repeat-1/C08/trace.jsonl",
+          "step": 13,
+          "field": "output.decision_summary",
+          "observed": "本轮已读原文明确支持报销期限为20天，无冲突或缺失信息，可直接回答。"
+        }
+      ]
+    },
+    {
+      "id": "N02",
+      "category": "retrieval_benefit_wording",
+      "severity": "review_note",
+      "mitigated": false,
+      "description": "C05追问的动作理由说双路检索确保覆盖不同表述习惯；实际两条查询不能提供普遍召回保证。该句未导致答案错误，建议改为尝试覆盖不同表述。",
+      "occurrences": [
+        {
+          "request": "C05/turn2",
+          "trace": "examples/real/final-single-v4/repeat-1/C05/turn2/trace.jsonl",
+          "step": 7,
+          "field": "arguments.reason",
+          "observed": "原问题承接标准版PDF导出限制，意图明确为对比查询专业版能力；规范化Query精准覆盖产品名、版次和功能，双路检索确保覆盖不同表述习惯"
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "request": "C01",
+      "core_result": "pass",
+      "semantic_review": "成功检索并读取D01，回答费用发生后30天内提交，引用支持；不再推断通用或主制度。无冲突条款措辞可进一步限定本轮范围。",
+      "status": "answered",
+      "reason_code": "evidence_found",
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 10
+        }
+      ],
+      "finding_ids": [
+        "N01"
+      ],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C01/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C01/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C01/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C01/metadata.json"
+      },
+      "output_sha256": "46a7b31da0d9f5823cff337c8f7f049651ab42b854f1b028c6f8fa8fd96623cb",
+      "trace_sha256": "e987094233fc4de8945ce636fc393cac1d86984a7f94bad2db350edd0fa783bb"
+    },
+    {
+      "request": "C02",
+      "core_result": "pass",
+      "semantic_review": "读D01=30天与D02=15天后，第16步成功补查冲突时以哪个为准，未取得裁决后并列引用并追问；没有按日期或严格程度自行选答案。",
+      "status": "needs_clarification",
+      "reason_code": "document_conflict",
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 10
+        },
+        {
+          "doc_id": "D02",
+          "chunk_id": "D02-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 13
+        }
+      ],
+      "finding_ids": [],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 13,
+          "tool": "read_document",
+          "doc_id": "D02",
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 16,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C02/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C02/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C02/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C02/metadata.json"
+      },
+      "output_sha256": "86a388bef357f64fa8d56e2cd8ef0a8843628c42252c2f59fb46c8df1336ef36",
+      "trace_sha256": "04b05f3fc55bb5267baa3eeb2c4409c92564d6ba8fd44f8dc409001c7aa432bd",
+      "successful_conflict_followup": {
+        "step": 16,
+        "queries": [
+          "费用报销规定 D01 与 费用报销FAQ D02 冲突时以哪个为准？"
+        ],
+        "ok": true
+      }
+    },
+    {
+      "request": "C03",
+      "core_result": "pass",
+      "semantic_review": "两次实际成功检索均为空，最终answer正确说明本次未找到并列出缺口；decision_summary仍无依据扩大为确认全库无资料。",
+      "status": "insufficient_evidence",
+      "reason_code": "no_support_found",
+      "citation_checks": [],
+      "finding_ids": [
+        "S01"
+      ],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C03/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C03/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C03/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C03/metadata.json"
+      },
+      "output_sha256": "ba132d33c3bab9fa08e3761b7cf8633751ecfe314c2497721a30ad8478a74a77",
+      "trace_sha256": "a9972bffe5efde321c4afba206c73c9eeab71d7b1ca091320a68ef067c48289f"
+    },
+    {
+      "request": "C04",
+      "core_result": "pass",
+      "semantic_review": "改写保持垫付费用与最晚报账时限，成功读取D01后回答费用发生后30天内。",
+      "status": "answered",
+      "reason_code": "evidence_found",
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 10
+        }
+      ],
+      "finding_ids": [],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C04/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C04/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C04/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C04/metadata.json"
+      },
+      "output_sha256": "0608c75d2b523d174c37027e59ac09221b20118ab57fad73afeb1784c4e08223",
+      "trace_sha256": "11b4a4b27147b44669394f2c914c417b9428f40db713967d9fde186ccd59dd77"
+    },
+    {
+      "request": "C05/turn1",
+      "core_result": "pass",
+      "semantic_review": "用户历史中的标准版指代正确，成功读取D05后明确不支持PDF；模型首轮原Query遗漏被工具保护补回。",
+      "status": "answered",
+      "reason_code": "evidence_found",
+      "citation_checks": [
+        {
+          "doc_id": "D05",
+          "chunk_id": "D05-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 10
+        }
+      ],
+      "finding_ids": [
+        "G01"
+      ],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D05",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C05/turn1/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C05/turn1/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C05/turn1/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C05/turn1/metadata.json"
+      },
+      "output_sha256": "b20bdf221aec236b5b64498b8b1ddebd28eead8e962c6f95e2137716bcc03c78",
+      "trace_sha256": "c0de8880704c5412717b957477dd14df91aa805ca327832c79060cdc452ca9cd"
+    },
+    {
+      "request": "C05/turn2",
+      "core_result": "pass",
+      "semantic_review": "历史与第一轮实际输出一致，P3保留专业版/PDF需求且未加入历史助手功能结论；本轮重新读取D06后正确回答支持PDF。",
+      "status": "answered",
+      "reason_code": "evidence_found",
+      "citation_checks": [
+        {
+          "doc_id": "D06",
+          "chunk_id": "D06-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 10
+        }
+      ],
+      "finding_ids": [
+        "N02"
+      ],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D06",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C05/turn2/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C05/turn2/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C05/turn2/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C05/turn2/metadata.json"
+      },
+      "output_sha256": "259f3e5f12d1224a756dbc35d866019e6058d1ca70f950cb9709f05661dc485e",
+      "trace_sha256": "c7314530bc083b45276f655966a1838fcea81d351cbbea2f856037bf95d54d4d",
+      "uses_actual_first_turn_answer": true,
+      "p3_known_context": {
+        "产品名": "星影协作",
+        "版次": "专业版",
+        "功能需求": "导出PDF"
+      }
+    },
+    {
+      "request": "C06",
+      "core_result": "pass",
+      "semantic_review": "首次读取D01超时，模型根据观察重试，第二次成功后引用已读原文回答30天。",
+      "status": "answered",
+      "reason_code": "evidence_found",
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 13
+        }
+      ],
+      "finding_ids": [
+        "N01"
+      ],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": false,
+          "error": "TOOL_TIMEOUT"
+        },
+        {
+          "step": 13,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C06/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C06/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C06/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C06/metadata.json"
+      },
+      "output_sha256": "74e668cba04a82bc2dbc534303359180d6a245c80aa32f8d19ad97e1a34ab6fa",
+      "trace_sha256": "6fe2523b6aa5cf64e61175895cebab0c14c9f5d50821e3ffec59acd9ee5bae6d"
+    },
+    {
+      "request": "C07",
+      "core_result": "pass",
+      "semantic_review": "必要原文两次超时后模型选择tool_error；原提案仍复述未核实30天，程序safe_error_render清除该内容，最终只呈现实际错误。",
+      "status": "tool_error",
+      "reason_code": "tool_failure",
+      "citation_checks": [],
+      "finding_ids": [
+        "G02"
+      ],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": false,
+          "error": "TOOL_TIMEOUT"
+        },
+        {
+          "step": 13,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": false,
+          "error": "TOOL_TIMEOUT"
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C07/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C07/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C07/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C07/metadata.json"
+      },
+      "output_sha256": "3d23cd6d492a5022c5b3f84cd93c3e3b1db56951381441c8cc1b71eb5d339c7e",
+      "trace_sha256": "71d1c7e3a812d32a5bdbbb954d7b4b8406ce0a7442d49fe18abef53514a077da"
+    },
+    {
+      "request": "C08",
+      "core_result": "pass",
+      "semantic_review": "D01同ID与同日期正文改为20天后，重新读取并输出20天，引用和哈希同步变化。",
+      "status": "answered",
+      "reason_code": "evidence_found",
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 10
+        }
+      ],
+      "finding_ids": [
+        "N01"
+      ],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C08/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C08/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C08/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C08/metadata.json"
+      },
+      "output_sha256": "fcbc9c55d9c09b5aed1fc89e59fa621a4ddd83be7508d895e806e724346b7cf9",
+      "trace_sha256": "54e962f7d0dc77bd33a9836c29e47ab37a5b2335446710e736067e480714ec88",
+      "mutation_checks": {
+        "same_id": true,
+        "same_date": true,
+        "corpus_and_chunk_hashes_changed": true,
+        "old_quote": "员工报销应在费用发生后30天内提交申请。",
+        "new_quote": "员工报销应在费用发生后20天内提交申请。"
+      }
+    },
+    {
+      "request": "C09",
+      "core_result": "pass",
+      "semantic_review": "两份30天原文均已读取，最终只陈述已读资料一致后回答；未再虚构主制度地位、通用范围或有效版本。",
+      "status": "answered",
+      "reason_code": "evidence_found",
+      "citation_checks": [
+        {
+          "doc_id": "D01",
+          "chunk_id": "D01-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 10
+        },
+        {
+          "doc_id": "D02",
+          "chunk_id": "D02-C01",
+          "quote_matches_successful_read": true,
+          "read_step": 13
+        }
+      ],
+      "finding_ids": [],
+      "tool_path": [
+        {
+          "step": 7,
+          "tool": "search_documents",
+          "doc_id": null,
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 10,
+          "tool": "read_document",
+          "doc_id": "D01",
+          "ok": true,
+          "error": null
+        },
+        {
+          "step": 13,
+          "tool": "read_document",
+          "doc_id": "D02",
+          "ok": true,
+          "error": null
+        }
+      ],
+      "evidence": {
+        "input": "examples/real/final-single-v4/repeat-1/C09/input.json",
+        "output": "examples/real/final-single-v4/repeat-1/C09/output.json",
+        "trace": "examples/real/final-single-v4/repeat-1/C09/trace.jsonl",
+        "metadata": "examples/real/final-single-v4/repeat-1/C09/metadata.json"
+      },
+      "output_sha256": "6ef3b592365186b2ea15bd14fbe28c11cbb0b69500a8d60748d31541899524ff",
+      "trace_sha256": "c03b42ad0d162d241d6fb27ae21f1c7e24f0236f1e5ea17886e13fbd2f69b4e1"
+    }
+  ],
+  "limitations": [
+    "仅审阅第一轮10请求，不推断第二轮、split新版效果或未来稳定性。",
+    "新提示词针对同一已知小型合成验收集改进，本结果属于回归检查，不证明未见资料泛化。",
+    "引用逐字检查不能自动证明语义；本报告仍为AI审阅，不代替用户最终结果验收。",
+    "用户已确认所展示关键数据规则和默认全Plus；未据此冒称完整源码/提示词逐行审阅或本轮最终结果通过。",
+    "C07安全答案包含程序确定性渲染，C05首问检索包含程序查询保护，应保留这些工程职责归因。"
+  ]
+}

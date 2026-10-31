@@ -1,0 +1,8 @@
+{
+  "status": "not_run",
+  "configuration_errors": [
+    "LLM_API_KEY 未配置"
+  ],
+  "model_calls": 0,
+  "note": "未向服务商发送请求，不能确认账号或模型可用性。"
+}

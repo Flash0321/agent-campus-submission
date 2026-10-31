@@ -1,0 +1,11 @@
+{
+  "answer": "当前检索未找到关于公司年终奖发放月份数量的制度或产品资料。",
+  "citations": [],
+  "decision_summary": "search_documents返回空结果，无任何候选文档可读取，因此无法提供支持原文",
+  "follow_up_question": "请问您指的是哪一类员工（如正式员工、实习生、外包人员）？或者是否有特定制度名称、年份或部门背景可供参考？",
+  "gaps": [
+    "缺少明确记载年终奖发放月份数量的制度文件或政策说明"
+  ],
+  "reason_code": "no_documents_found",
+  "status": "insufficient_evidence"
+}

@@ -1,0 +1,12 @@
+{
+  "answer": "报销期限取决于报销类型和适用对象，但当前资料中未明确统一的最晚提交时限。需补充报销类型（如差旅、采购、招待等）及适用对象（如正式员工、实习生、外包人员）才能定位具体规则。",
+  "citations": [],
+  "gaps": [
+    "报销类型（如差旅、采购、招待等）",
+    "适用对象（如正式员工、实习生、外包人员）"
+  ],
+  "status": "needs_clarification",
+  "reason_code": "missing_reimbursement_type_and_applicable_personnel",
+  "follow_up_question": "请问您咨询的是哪类报销（例如：差旅费、业务招待费、采购付款等）？适用于哪类人员（如正式员工、实习生或外包人员）？",
+  "decision_summary": "规范化Query已用于检索，但搜索未返回含具体时限的原文；制度中报销期限条款与报销类型强相关，当前缺失关键限定条件。"
+}

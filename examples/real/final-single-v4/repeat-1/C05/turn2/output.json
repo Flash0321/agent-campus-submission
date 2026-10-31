@@ -1,0 +1,16 @@
+{
+  "answer": "星影协作专业版支持导出PDF文件。",
+  "citations": [
+    {
+      "doc_id": "D06",
+      "version_date": "2026-09-05",
+      "chunk_id": "D06-C01",
+      "quote": "星影协作专业版支持导出CSV文件和PDF文件。"
+    }
+  ],
+  "gaps": [],
+  "status": "answered",
+  "reason_code": "evidence_found",
+  "follow_up_question": "",
+  "decision_summary": "已读取D06-C01原文，明确记载专业版支持导出PDF文件，无冲突信息，可直接回答。"
+}

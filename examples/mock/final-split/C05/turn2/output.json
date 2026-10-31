@@ -1,0 +1,16 @@
+{
+  "answer": "依据当前读取的资料：星影协作专业版支持导出CSV文件和PDF文件。",
+  "citations": [
+    {
+      "doc_id": "D06",
+      "version_date": "2026-09-05",
+      "chunk_id": "D06-C01",
+      "quote": "星影协作专业版支持导出CSV文件和PDF文件。"
+    }
+  ],
+  "gaps": [],
+  "status": "answered",
+  "reason_code": "supported_by_read_evidence",
+  "follow_up_question": "",
+  "decision_summary": "根据本轮工具观察执行离线演示策略；不证明真实模型决策效果。"
+}

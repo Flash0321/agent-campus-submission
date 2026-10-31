@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-10-31T03:31:48.447729+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 1.179,
+  "command": "python -m pytest -q --junitxml=examples/test-results/final-v4/pytest.xml",
+  "note": "本地确定性测试，不代表真实模型业务语义质量。",
+  "source_hash": "82feef6eb9fe96f434e4c1e0fee45954b1b451c8de6b11970ad0c266910c7058",
+  "passed": 152,
+  "failed": 0
+}

@@ -1,0 +1,16 @@
+{
+  "answer": "员工垫付的费用最迟应在费用发生后30天内提交报销申请。",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "version_date": "2026-09-01",
+      "chunk_id": "D01-C01",
+      "quote": "员工报销应在费用发生后30天内提交申请。"
+    }
+  ],
+  "gaps": [],
+  "status": "answered",
+  "reason_code": "direct_match",
+  "follow_up_question": "",
+  "decision_summary": "D01文档明确给出30天时限，且无范围限制或例外说明，可直接回答原问题。"
+}
